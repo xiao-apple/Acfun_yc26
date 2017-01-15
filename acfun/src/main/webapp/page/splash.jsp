@@ -48,25 +48,25 @@
 							target="_blank" class="tool"><i class="icon icon-app-phone"></i>
 						<p class="app-text">客户端</p>
 							<div class="app-show">
-								<img alt="" src="css/app-code.png"
+								<img alt="" src="img/app-code.png"
 									class="app-code">
 								<p class="app-tip">扫描下载最新版客户端</p>
-								<img alt="" src="css/app-word.png"
+								<img alt="" src="img/app-word.png"
 									class="app-word" height="19" width="141">
 								<div class="tail"></div>
 							</div></a><a id="a-login-guide" href="http://www.acfun.cn/login/"
 							target="_blank" class="tool hidden"><i class="icon icon-user"></i>
 						<p>登录/注册</p></a><a id="a-avatar-guide"
 							href="http://www.acfun.cn/member/" target="_blank" class="thumb"><img
-							src="css/avatar.jpg" class="avatar">
+							src="img/avatar.jpg" class="avatar">
 						<p class="info-hint hidden">0</p></a><a id="a-history-guide"
-							href="http://www.acfun.cn/member/#area=history" target="_blank"
+							href="hpage/history.jsp" target="_blank"
 							class="tool"><i class="icon icon-history"></i>
 						<p>看过</p></a><a id="a-post-guide"
 							href="http://www.acfun.cn/member/#area=upload-video"
 							target="_blank" class="tool"><i class="icon icon-upload"></i>
 						<p>投稿</p></a><a id="a-favor-guide"
-							href="http://www.acfun.cn/member/#area=favourite" target="_blank"
+							href="page/favourite.jsp" target="_blank"
 							class="tool"><i class="icon icon-folder-open"></i>
 						<p>收藏</p></a><span class="clearfix"></span>
 					</div>
@@ -91,7 +91,7 @@
 								</p>
 							</div>
 							<div class="c">
-								<a href="http://www.acfun.cn/member/#area=mail" target="_blank">查看更多</a>
+								<a href="http://www.acfun.cn/member/page/mail.jsp" target="_blank">查看更多</a>
 							</div>
 							<div class="tail"></div>
 						</div>
@@ -100,7 +100,7 @@
 						<div class="mainer">
 							<div class="b"></div>
 							<div class="c">
-								<a href="http://www.acfun.cn/member/#area=history"
+								<a href="page/history.jsp"
 									target="_blank">查看更多</a>
 							</div>
 							<div class="tail"></div>
@@ -324,7 +324,7 @@
 					<div id="area-main-left" class="l">
 						<div id="block-user-left" data-active="active">
 							<a href="page/profile.jsp" class="thumb"><img
-								src="css/avatar.jpg" class="avatar"><span
+								src="img/avatar.jpg" class="avatar"><span
 								class="cover"><i class="icon icon-user"></i>编辑资料</span></a>
 							<div class="d">
 								<a href="http://www.acfun.cn/u/8150118.aspx" target="_blank"
@@ -349,7 +349,7 @@
 									class="hint">听众</span></a><a href="#area=banana"><span
 									class="pts">14</span><span class="hint">香蕉</span></a><a
 									href="#area=golden-banana"><span class="pts">0</span><span
-									class="hint">金香蕉</span></a><a href="#area=splash"
+									class="hint">金香蕉</span></a><a href="page/splash.jsp"
 									title="18% - 当前总经验值：59 / 下一级所需总经验值：100"><span class="pts">1</span><span
 									class="hint">等级</span></a><span class="clearfix"></span>
 							</div>
@@ -358,21 +358,21 @@
 						<div class="" id="list-guide-left">
 							<div class="part-guide-left active">
 								<div class="banner">
-									<a href="#area=splash" class="tab fixed"><i
+									<a href="page/splash.jsp" class="tab fixed"><i
 										class="icon icon-home"></i>欢迎</a>
 								</div>
 								<div class="mainer hidden">
-									<a href="#area=splash" class="tab active"><i class="icon"></i>欢迎</a>
+									<a href="page/splash.jsp" class="tab active"><i class="icon"></i>欢迎</a>
 								</div>
 							</div>
 							<div class="part-guide-left">
 								<div class="banner">
-									<a href="#area=favourite" class="tab fixed"><i
+									<a href="page/favourite.jsp" class="tab fixed"><i
 										class="icon icon-folder-open"></i>收藏夹</a><span
 										id="hint-favourite-left" class="hidden">0</span>
 								</div>
 								<div class="mainer hidden">
-									<a href="#area=favourite" class="tab"><i class="icon"></i>稿件收藏<span
+									<a href="page/favourite.jsp" class="tab"><i class="icon"></i>稿件收藏<span
 										class="hint hidden hint-favourite-left">(0)</span></a><a
 										href="#area=favourite-bangumi" class="tab"><i class="icon"></i>剧集收藏<span
 										class="hint hidden hint-favourite-bangumi-left">(0)</span></a><a
@@ -382,21 +382,21 @@
 							</div>
 							<div class="part-guide-left">
 								<div class="banner">
-									<a href="#area=history" class="tab fixed"><i
+									<a href="page/history.jsp" class="tab fixed"><i
 										class="icon icon-history"></i>历史</a>
 								</div>
 								<div class="mainer hidden">
-									<a href="#area=history" class="tab"><i class="icon"></i>历史</a>
+									<a href=page/history.jsp" class="tab"><i class="icon"></i>历史</a>
 								</div>
 							</div>
 							<div class="part-guide-left">
 								<div class="banner">
-									<a href="#area=mail" class="tab fixed"><i
+									<a href="page/mail.jsp" class="tab fixed"><i
 										class="icon icon-envelope-square"></i>私信</a><span
 										id="hint-mail-left" class="hidden">0</span>
 								</div>
 								<div class="mainer hidden">
-									<a href="#area=mail" class="tab"><i class="icon"></i>私信<span
+									<a href="page/mail.jsp" class="tab"><i class="icon"></i>私信<span
 										class="hint hidden hint-mail-left">(0)</span></a>
 								</div>
 							</div>
@@ -674,7 +674,7 @@
 								<span class="clearfix"></span>
 							</div>
 							<div id="block-banner-right" class="block banner">
-								<a href="#area=splash" class="tab active"><i class="icon"></i>欢迎</a>
+								<a href="page/splash.jsp" class="tab active"><i class="icon"></i>欢迎</a>
 							</div>
 							<div id="block-first" class="block">
 								<div class="mainer">
@@ -682,7 +682,7 @@
 										<div id="area-user-splash">
 											<div class="l">
 												<a href="page/profile.jsp" class="thumb"><img
-													src="css/avatar.jpg" class="avatar"></a>
+													src="img/avatar.jpg" class="avatar"></a>
 											</div>
 											<div class="r">
 												<a href="http://www.acfun.cn/u/8150118.aspx" class="name">李玄雨丶</a><span
@@ -692,7 +692,7 @@
 
 												<p id="hint-unread-splash">
 													共有<span class="pts">0</span>次<a href="#area=mention">[召唤]</a>、<span
-														class="pts">0</span>条<a href="#area=mail">[私信]</a>、<span
+														class="pts">0</span>条<a href="page/mail.jsp">[私信]</a>、<span
 														class="pts">0</span>个<a href="#area=followers">[新听众]</a>和<span
 														class="pts">0</span>条<a href="#area=push">[推送内容]</a>。
 												</p>
