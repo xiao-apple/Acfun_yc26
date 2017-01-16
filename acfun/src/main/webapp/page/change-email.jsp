@@ -9,7 +9,8 @@
 <meta name="description" content="AcFun是一家弹幕视频网站，致力于为每一个人带来欢乐。">
 <title>修改邮箱</title>
 <link rel="stylesheet" href="css/core.css">
-
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/font-awesome.css">
 <link rel="stylesheet" media="screen and (min-width: 1440px)"
 	href="css/wide.css">
 <link rel="stylesheet" href="css/member.css">

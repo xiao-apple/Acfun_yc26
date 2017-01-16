@@ -6,7 +6,8 @@
 <meta charset=UTF-8">
 <title>编辑资料</title>
 <link type="text/css" rel="stylesheet" href="css/core.css">
-
+<link rel="stylesheet" href="css/font-awesome.css">
+<link rel="stylesheet" href="css/style.css">
 <link type="text/css" rel="stylesheet" media="screen and (min-width: 1440px)"
 	href="css/wide.css">
 <link type="text/css" type="text/css" rel="stylesheet" href="css/member.css">
