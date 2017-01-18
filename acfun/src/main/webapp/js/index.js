@@ -3,10 +3,13 @@ var slider_count;
 var count;
 var s;
 window.onload=function(){
+	//图片懒加载
 	$("img").lazyload({
-	    threshold : 200,
-	    effect : "fadeIn"
+		failure_limit : 10,
+	    effect : "fadeIn",
+	    threshold :200
 	});
+	//首页轮播图
 	slider = $(".slider-con");
 	slider_count = $(".slider-count span");
 	count = 0;
@@ -18,6 +21,17 @@ window.onload=function(){
 	slider.bind('mouseout',function(){
 		window.clearInterval(s)
 		s=setInterval("slide()", 3000);
+	});
+	//周榜日榜切换
+	$("[data-nav]").click(function(){
+		n = $(this);
+		o = n.data().nav;
+		i = n.closest('[data-tab]');
+		if(!n.hasClass('active')){
+			n.addClass('active').siblings('a').removeClass('active');
+			i.find('[data-con]').addClass('hidden').filter('[data-con="'+o+'"]').removeClass("hidden");
+			$(window).scroll();
+		}
 	});
 }
 
