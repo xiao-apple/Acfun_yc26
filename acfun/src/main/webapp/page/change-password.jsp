@@ -56,7 +56,7 @@
 							href="http://www.acfun.cn/member/#area=history" target="_blank"
 							class="tool"><i class="icon icon-history"></i>
 						<p>看过</p></a><a id="a-post-guide"
-							href="http://www.acfun.cn/member/#area=upload-video"
+							href="pageupload-video.jsp"
 							target="_blank" class="tool"><i class="icon icon-upload"></i>
 						<p>投稿</p></a><a id="a-favor-guide"
 							href="page/favourite.jsp" target="_blank"
@@ -102,9 +102,9 @@
 						class="win hidden">
 						<div class="mainer">
 							<div class="b">
-								<a href="http://www.acfun.cn/member/#area=upload-video"
+								<a href="page/upload-video.jsp"
 									target="_blank">投视频</a><a
-									href="http://www.acfun.cn/member/#area=post-article"
+									href="page/post-article.jsp"
 									target="_blank">投文章</a>
 							</div>
 							<div class="tail"></div>
@@ -142,7 +142,6 @@
 							data-channel="fishpond">鱼♂塘</a><a
 							href="http://www.acfun.cn/v/list110/index.htm"
 							data-channel="article">文章</a><a
-							href="http://www.acfun.cn/album/index.htm" data-channel="album">合辑</a><a
 							href="http://www.acfun.cn/rank/" target="_blank"
 							data-channel="extra" class="last">更多</a><span class="clearfix"></span>
 					</div>
@@ -338,16 +337,11 @@
 							</p>
 							<div class="area-extra">
 								<div class="space"></div>
-								<a href="#area=post-history"><span class="pts">0</span><span
-									class="hint">过审投稿</span></a><a href="#area=following"><span
-									class="pts">1</span><span class="hint">收听</span></a><a
-									href="#area=followers"><span class="pts">0</span><span
-									class="hint">听众</span></a><a href="#area=banana"><span
-									class="pts">23</span><span class="hint">香蕉</span></a><a
-									href="#area=golden-banana"><span class="pts">0</span><span
-									class="hint">金香蕉</span></a><a href="page/splash.jsp"
-									title="60% - 当前总经验值：80 / 下一级所需总经验值：100"><span class="pts">1</span><span
-									class="hint">等级</span></a><span class="clearfix"></span>
+								<a href="page/post-history.jsp"><span class="pts">0</span><span
+									class="hint">过审投稿</span></a><a href="page/following.jsp"><span
+									class="pts">0</span><span class="hint">收听</span></a><a
+									href="page/followers.jsp"><span class="pts">0</span><span
+									class="hint">听众</span></a><span class="clearfix"></span>
 							</div>
 						</div>
 						<div style="height: 572px;" id="shadow-guide-left" class="hidden"></div>
@@ -369,11 +363,7 @@
 								</div>
 								<div class="mainer hidden">
 									<a href="page/favourite.jsp" class="tab"><i class="icon"></i>稿件收藏<span
-										class="hint hidden hint-favourite-left">(0)</span></a><a
-										href="#area=favourite-bangumi" class="tab"><i class="icon"></i>剧集收藏<span
-										class="hint hidden hint-favourite-bangumi-left">(0)</span></a><a
-										href="#area=favourite-album" class="tab"><i class="icon"></i>合辑收藏<span
-										class="hint hidden hint-favourite-album-left">(0)</span></a>
+										class="hint hidden hint-favourite-left">(0)</span></a>
 								</div>
 							</div>
 							<div class="part-guide-left">
@@ -403,65 +393,31 @@
 									</p>
 								</div>
 								<div class="mainer">
-									<a href="#area=upload-video" class="tab"><i class="icon"></i>视频投稿</a><a
-										href="#area=upload-link" class="tab"><i class="icon"></i>链接投稿</a><a
-										href="#area=post-article" class="tab"><i class="icon"></i>文章投稿</a><a
-										href="#area=post-history" class="tab"><i class="icon"></i>过往投稿</a><a
-										href="#area=post-manage" class="tab"><i class="icon"></i>视频管理</a>
+									<a href="page/upload-video.jsp" class="tab"><i class="icon"></i>视频投稿</a><a
+										href="page/post-article.jsp" class="tab"><i class="icon"></i>文章投稿</a><a
+										href="page/post-history.jsp" class="tab"><i class="icon"></i>过往投稿</a><a
+										href="page/post-manage.jsp" class="tab"><i class="icon"></i>视频管理</a>
 								</div>
 							</div>
+							
 							<div class="part-guide-left">
 								<div class="banner">
-									<a href="#area=album-manage" class="tab fixed"><i
-										class="icon icon-book"></i>合辑</a>
-								</div>
-								<div class="mainer hidden">
-									<a href="#area=create-album" class="tab"><i class="icon"></i>创建合辑</a><a
-										href="#area=album-manage" class="tab"><i class="icon"></i>合辑管理</a><a
-										href="#area=album-add-content" class="tab"><i class="icon"></i>稿件管理</a>
-								</div>
-							</div>
-							<div class="part-guide-left">
-								<div class="banner">
-									<a href="#area=push" class="tab fixed"><i
+									<a href="page/push.jsp" class="tab fixed"><i
 										class="icon icon-at"></i>圈子</a><span id="hint-relation-left"
 										class="hidden">5</span>
 								</div>
 								<div class="mainer hidden">
-									<a href="#area=push" class="tab"><i class="icon"></i>内容推送<span
-										class="hint hint-push-left hidden">5</span></a><a
-										href="#area=mention" class="tab"><i class="icon"></i>提到我的<span
+									<a href="page/push.jsp" class="tab"><i class="icon"></i>内容推送<span
+										class="hint hidden hint-push-left">(0)</span></a><a
+										href="page/mention.jsp" class="tab"><i class="icon"></i>提到我的<span
 										class="hint hidden hint-mention-left">(0)</span></a><a
-										href="#area=following" class="tab"><i class="icon"></i>我关注的<span
+										href="page/following.jsp" class="tab"><i class="icon"></i>我关注的<span
 										class="hint hidden hint-following-left">(0)</span></a><a
-										href="#area=followers" class="tab"><i class="icon"></i>关注我的<span
+										href="page/followers.jsp" class="tab"><i class="icon"></i>关注我的<span
 										class="hint hidden hint-followers-left">(0)</span></a>
 								</div>
 							</div>
-							<div class="part-guide-left">
-								<div class="banner">
-									<a href="#area=setting" class="tab fixed"><i
-										class="icon icon-cog"></i>设置</a><span id="hint-setting-left"
-										class="hidden">0</span>
-								</div>
-								<div class="mainer hidden">
-									<a href="#area=setting" class="tab"><i class="icon"></i>设置</a><a
-										href="page/profile.jsp" class="tab"><i class="icon"></i>编辑资料</a>
-								</div>
-							</div>
-							<div class="part-guide-left">
-								<div class="banner">
-									<a href="#area=banana-store" class="tab fixed"><i
-										class="icon icon-gift"></i>商城</a>
-								</div>
-								<div class="mainer hidden">
-									<a href="#area=banana-store" class="tab"><i class="icon"></i>香蕉商城</a><a
-										href="#area=banana" class="tab"><i class="icon"></i>香蕉</a><a
-										href="#area=golden-banana" class="tab"><i class="icon"></i>金香蕉</a><a
-										href="#area=depot" class="tab"><i class="icon"></i>我的道具</a><a
-										href="#area=banana-order" class="tab"><i class="icon"></i>我的订单</a>
-								</div>
-							</div>
+							
 						</div>
 					</div>
 					<div id="area-main-right" class="r">

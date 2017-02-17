@@ -1715,7 +1715,7 @@ body {
 #guide.simple #a-app-guide.tool .icon-app-phone {
 	top: -2px;
 	left: 0;
-	background: url("./image/icon-app-pink.png") no-repeat
+	background: url("../img/icon-app-pink.png") no-repeat
 }
 
 #guide.simple #a-app-guide.tool:hover .app-show {
@@ -2040,7 +2040,7 @@ body {
 	left: 0;
 	top: 16px;
 	background:
-		url(../project/sanae/style/image/sprite-guide.png?salt=ac201714) left
+		url(../img/sprite-guide.png?salt=ac201714) left
 		top no-repeat
 }
 
@@ -2567,7 +2567,7 @@ body {
 	height: 26px;
 	border: none;
 	background:
-		url(../project/homura/style/image/sprite-guide.png?salt=ac201714)
+		url(../img/sprite-guide.png?salt=ac201714)
 		-180px 0 no-repeat;
 	text-indent: 999px;
 	font-size: 12px;
@@ -3508,7 +3508,7 @@ body {
 	width: 70px;
 	height: 22px;
 	display: block;
-	background: url("../project/sanae/style/image/sprite-guide.png") -170px
+	background: url("../img/sprite-guide.png") -170px
 		-32px no-repeat;
 	margin: 15px auto 8px auto
 }
