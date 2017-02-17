@@ -42,11 +42,11 @@ table {
 
 @font-face {
 	font-family: "iconfont";
-	src: url("../font/iconfont.eot");
-	src: url("../font/iconfont.eot#iefix") format('embedded-opentype'),
-		url("../font/iconfont.woff") format('woff'),
-		url("../font/iconfont.ttf") format('truetype'),
-		url("../font/iconfont.svg") format('svg');
+	src: url("../fonts/iconfont.eot");
+	src: url("../fonts/iconfont.eot#iefix") format('embedded-opentype'),
+		url("../fonts/iconfont.woff") format('woff'),
+		url("../fonts/iconfont.ttf") format('truetype'),
+		url("../fonts/iconfont.svg") format('svg');
 }
 
 .icon {
@@ -3102,10 +3102,10 @@ opacity
 }
 @font-face {
 	font-family: 'AcFun Symbol';
-	src: url("../font/AcFunSymbol-Regular.eot");
-	src: url("../font/AcFunSymbol-Regular.eot?#iefix")
-		format('embedded-opentype'), url("../font/AcFunSymbol-Regular.woff")
-		format('woff'), url("../font/AcFunSymbol-Regular.ttf")
+	src: url("../fonts/AcFunSymbol-Regular.eot");
+	src: url("../fonts/AcFunSymbol-Regular.eot?#iefix")
+		format('embedded-opentype'), url("../fonts/AcFunSymbol-Regular.woff")
+		format('woff'), url("../fonts/AcFunSymbol-Regular.ttf")
 		format('truetype');
 	font-weight: normal;
 	font-style: normal
