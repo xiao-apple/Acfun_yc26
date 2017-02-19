@@ -31,7 +31,7 @@
 		<div id="guide" class="simple float">
 			<div id="guide-top-bar">
 				<div class="inner">
-					<a id="guide-logo" href="http://www.acfun.cn/" title="天下漫友是一家"></a>
+					<a id="guide-logo" href="/acfun" title="天下漫友是一家"></a>
 					<div id="area-user-guide">
 						<a id="a-app-guide" href="http://www.acfun.cn/app/"
 							target="_blank" class="tool"><i class="icon icon-app-phone"></i>
@@ -114,7 +114,7 @@
 			<div id="guide-bar">
 				<div class="inner">
 					<div class="l">
-						<a href="http://www.acfun.cn/" title="天下漫友是一家" class="first only">首页</a><a
+						<a href="/acfun" title="天下漫友是一家" class="first only">首页</a><a
 							href="http://www.acfun.cn/v/list144/index.htm" class="only">番剧</a><a
 							href="http://www.acfun.cn/v/list1/index.htm" data-channel="anime">动画</a><a
 							href="http://www.acfun.cn/v/list58/index.htm"
@@ -319,14 +319,14 @@
 										placeholder="请输入账号" id="ipt-account-login"
 										data-direction="right" spellcheck="false" autocomplete="off"
 										data-length="1,32" data-name="账号" required="required"
-										class="name l success" type="text"><span
+										class="name l" type="text"><span
 										class="clearfix"></span>
 								</div>
 								<div class="area">
 									<i class="inp-icon icon icon-lock"></i><input
 										id="ipt-pwd-login" data-direction="right" autocomplete="off"
 										data-name="密码" placeholder="请输入密码" required="required"
-										data-length="6,32" class="password l success" type="password"><span
+										data-length="6,32" class="password l" type="password"><span
 										class="clearfix"></span>
 								</div>
 								<div class="area area-captcha hidden">
@@ -341,7 +341,7 @@
 								</div>
 								<div class="area-tool">
 									<a class="btn-login btn success do l">登录</a><a
-										href="http://www.acfun.cn/reg/" class="btn r">注册</a><span
+										href="/acfun/reg.jsp" class="btn r">注册</a><span
 										class="clearfix"></span>
 								</div>
 							</div>

@@ -19,7 +19,7 @@
 				<div class="mainer"></div>
 				<div class="tail"></div>
 			</div>
-		</div><div id="guide-space" class="simple"></div><div id="guide" class="simple float"><div id="guide-top-bar"><div class="inner"><a id="guide-logo" href="http://www.acfun.cn/" title="天下漫友是一家"></a><div id="area-user-guide"><a id="a-app-guide" href="http://www.acfun.cn/app/"
+		</div><div id="guide-space" class="simple"></div><div id="guide" class="simple float"><div id="guide-top-bar"><div class="inner"><a id="guide-logo" href="/acfun" title="天下漫友是一家"></a><div id="area-user-guide"><a id="a-app-guide" href="http://www.acfun.cn/app/"
 							target="_blank" class="tool"><i class="icon icon-app-phone"></i>
 							<p class="app-text">客户端</p>
 							<div class="app-show">
@@ -31,7 +31,7 @@
 									src="images/app-word.png"
 									class="app-word" height="19" width="141">
 								<div class="tail"></div>
-							</div></a><a id="a-login-guide" href="http://www.acfun.cn/login/"
+							</div></a><a id="a-login-guide" href="/acfun/login.jsp
 							target="_blank" class="tool"><i class="icon icon-user"></i>
 							<p>登录/注册</p></a><a id="a-avatar-guide"
 							href="http://www.acfun.cn/member/" target="_blank"
@@ -100,7 +100,7 @@
 			<div id="guide-bar">
 				<div class="inner">
 					<div class="l">
-						<a href="http://www.acfun.cn/" title="天下漫友是一家" class="first only">首页</a><a
+						<a href="/acfun/" title="天下漫友是一家" class="first only">首页</a><a
 							href="http://www.acfun.cn/v/list144/index.htm" class="only">番剧</a><a
 							href="http://www.acfun.cn/v/list1/index.htm" data-channel="anime">动画</a><a
 							href="http://www.acfun.cn/v/list58/index.htm"
@@ -261,7 +261,7 @@
 		</div>
 		<div id="header">
 			<div id="header-inner" class="inner"></div>
-			<div style="left: 1180.5px;" id="btn-top-shortcut" class="">
+			<div id="btn-top-shortcut" class="">
 				<a id="feedback"
 					href="http://www.acfun.cn/feedback/#from=http://www.acfun.cn/reg/"
 					target="_blank" class="item feedback"><i
@@ -278,7 +278,7 @@
 			<div id="mainer-inner">
 				<div id="area-reg">
 					<div class="block l">
-						<div class="bg-login"></div>
+						<div class="bg-login" style="display: none;"></div>
 					</div>
 					<div class="block r">
 						<div class="area-reg">
@@ -299,7 +299,7 @@
 										required="required" placeholder="请输入手机号码" id="ipt-mobile-reg"
 										name="mobile" spellcheck="false" data-name="手机号码"
 										data-direction="right" autocomplete="off"
-										class="mobile l error" type="text"><span
+										class="mobile l" type="text"><span
 										class="clearfix"></span>
 								</div>
 								<div class="area">
@@ -307,26 +307,26 @@
 										required="required" placeholder="请输入昵称" id="ipt-username-reg"
 										name="name" spellcheck="false" data-name="昵称"
 										data-direction="right" data-length="4,16"
-										class="regname name l error" type="text"><span
+										class="regname name l" type="text"><span
 										class="clearfix"></span>
 								</div>
 								<div class="area">
 									<i class="inp-icon icon icon-lock"></i><input
 										required="required" id="ipt-pwd-reg" name="password"
 										data-name="密码" data-length="6,32" data-direction="right"
-										placeholder="请输入密码" class="password l error" type="password"><span
+										placeholder="请输入密码" class="password l" type="password"><span
 										class="clearfix"></span>
 								</div>
 								<div class="area">
 									<input required="required" id="ipt-repwd-reg" name="password2"
 										data-name="确认密码" data-length="6,32" data-direction="right"
-										placeholder="确认密码" class="re-password l error" type="password"><span
+										placeholder="确认密码" class="re-password l" type="password"><span
 										class="clearfix"></span>
 								</div>
 								<div class="area">
 									<input required="required" id="ipt-mobile-code" name="code"
 										data-name="手机验证码" data-length="6,6" data-direction="right"
-										placeholder="手机验证码" class="mcode l error" type="text"><input
+										placeholder="手机验证码" class="mcode l" type="text"><input
 										id="send-mobile-code" value="发送验证码" disabled="disabled"
 										class="dis" type="button"><span class="clearfix"></span>
 								</div>
@@ -335,7 +335,7 @@
 										type="checkbox"><label for="ipt-agree-reg"
 										class="agree-b">我已经认真阅读并同意AcFun的<a
 										href="http://www.acfun.cn/info/#page=agreement"
-										target="_blank">《使用协议》</a>。</label><a href="http://www.acfun.cn/login/" class="back-login">返回登录</a><span
+										target="_blank">《使用协议》</a>。</label><a href="/acfun/login.jsp" class="back-login">返回登录</a><span
 										class="clearfix"></span>
 								</div>
 								<div class="area-tool">
@@ -486,5 +486,9 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="js/core.js"></script>
+	<script type="text/javascript" src="js/jquery.transit.js"></script>
+	<script type="text/javascript" src="js/reg.js"></script>
 </body>
 </html>
