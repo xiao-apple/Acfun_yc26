@@ -22,7 +22,7 @@ var navs = [{
 	"children": [{
 		"title": "用户列表",
 		"icon": "fa-address-book",
-		"href": ""
+		"href": "user.html"
 	}, {
 		"title": "封禁用户列表",
 		"icon": "fa-address-book",

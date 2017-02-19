@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Table</title>
+		<link rel="stylesheet" href="plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="css/global.css" media="all">
+		<link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/table.css" />
+	</head>
+
+	<body>
+		<div class="admin-main">
+		<blockquote class="layui-elem-quote">
+				<a href="javascript:;" class="layui-btn layui-btn-small" id="add">
+					<i class="layui-icon">&#xe608;</i> 添加信息
+				</a>
+				<a href="#" class="layui-btn layui-btn-small" id="import">
+					<i class="layui-icon">&#xe608;</i> 导入信息
+				</a>
+				<a href="#" class="layui-btn layui-btn-small">
+					<i class="fa fa-shopping-cart" aria-hidden="true"></i> 导出信息
+				</a>
+				<a href="javascript:;" class="layui-btn layui-btn-small" id="search">
+					<i class="layui-icon">&#xe615;</i> 搜索
+				</a>
+			</blockquote>
+			<fieldset class="layui-elem-field">
+				<legend>用户列表</legend>
+				<div class="layui-field-box">
+					<table class="site-table table-hover">
+						<thead>
+							<tr>
+								<th><input type="checkbox" id="selected-all"></th>
+								<th>ID</th>
+								<th>密码</th>
+								<th>姓名</th>
+								<th>昵称</th>
+								<th>头像</th>
+								<th>QQ号</th>
+								<th>手机号码</th>
+								<th>邮箱</th>
+								<th>性别</th>
+								<th>地址</th>
+								<th>个性签名</th>
+								<th>注册时间</th>
+								<th>状态</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>000000</td>
+								<td>
+									<a href="/manage/article_edit_1">jh5656</a>
+								</td>
+								<td>刘德华</td>
+								<td>华华</td>
+								<td><img src="images/1.jpg" id="pic"></td>
+								<td>正常</td>
+								<td>99</td>
+								<td>99</td>
+								<td>99</td>
+								<td>99</td>
+								<td>99</td>
+								<td>2016-11-16 11:50</td>
+								<td style="text-align:center;"><i class="layui-icon" style="color:green;"></i></td>
+								<td>
+									<a href="javascript:;" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">封禁</a>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>666666</td>
+								<td>
+									<a href="/manage/article_edit_19">gg516511</a>
+								</td>
+								<td>周星驰</td>
+								<td>星星</td>
+								<td><img src="images/1.jpg" id="pic"></td>
+								<td>5353535353543</td>
+								<td>453435434534345</td>
+								<td>45354343434</td>
+								<td>45345343</td>
+								<td>45345354343</td>
+								<td>4345354345354</td>
+								<td>2016-11-18 10:18</td>
+								<td style="text-align:center;"><i class="layui-icon" style="color:green;"></i></td>
+								<td>
+									<a href="javascript:;" data-id="2" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">封禁</a>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox"></td>
+								<td>888888</td>
+								<td>
+									<a href="/manage/article_edit_6">re5644616</a>
+								</td>
+								<td>张学友</td>
+								<td>小张</td>
+								<td><img src="images/1.jpg" id="pic"></td>
+								<td>正常</td>
+								<td>0</td>
+								<td>99</td>
+								<td>99</td>
+								<td>99</td>
+								<td>99</td>
+								<td>2016-11-17 14:17</td>
+								<td style="text-align:center;"><i class="layui-icon" style="color:red;">?</i></td>
+								<td>
+									<a href="javascript:;" data-id="3" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">封禁</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+			</fieldset>
+			<div class="admin-table-page">
+				<div id="page" class="page">
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="plugins/layui/layui.js"></script>
+		<script>
+			layui.config({
+				base: 'plugins/layui/modules/'
+			});
+
+			layui.use(['icheck', 'laypage','layer'], function() {
+				var $ = layui.jquery,
+					laypage = layui.laypage,
+					layer = parent.layer === undefined ? layui.layer : parent.layer;
+				$('input').iCheck({
+					checkboxClass: 'icheckbox_flat-green'
+				});
+
+				//page
+				laypage({
+					cont: 'page',
+					pages: 25 //总页数
+						,
+					groups: 5 //连续显示分页数
+						,
+					jump: function(obj, first) {
+						//得到了当前页，用于向服务端请求对应数据
+						var curr = obj.curr;
+						if(!first) {
+							//layer.msg('第 '+ obj.curr +' 页');
+						}
+					}
+				});
+
+				$('#search').on('click', function() {
+					parent.layer.alert('你点击了搜索按钮')
+				});
+
+				$('#add').on('click', function() {
+					$.get('temp/edit-form.html', null, function(form) {
+						layer.open({
+							type: 1,
+							title: '添加表单',
+							content: form,
+							btn: ['保存', '取消'],
+							area: ['600px', '400px'],
+							maxmin: true,
+							yes: function(index) {
+								console.log(index);
+							},
+							full: function(elem) {
+								var win = window.top === window.self ? window : parent.window;
+								$(win).on('resize', function() {
+									var $this = $(this);
+									elem.width($this.width()).height($this.height()).css({
+										top: 0,
+										left: 0
+									});
+									elem.children('div.layui-layer-content').height($this.height() - 95);
+								});
+							}
+						});
+					});
+				});
+
+				$('#import').on('click', function() {
+					var that = this;
+					var index = layer.tips('只想提示地精准些', that,{tips: [1, 'white']});
+					$('#layui-layer'+index).children('div.layui-layer-content').css('color','#000000');
+				});
+
+				$('.site-table tbody tr').on('click', function(event) {
+					var $this = $(this);
+					var $input = $this.children('td').eq(0).find('input');
+					$input.on('ifChecked', function(e) {
+						$this.css('background-color', '#EEEEEE');
+					});
+					$input.on('ifUnchecked', function(e) {
+						$this.removeAttr('style');
+					});
+					$input.iCheck('toggle');
+				}).find('input').each(function() {
+					var $this = $(this);
+					$this.on('ifChecked', function(e) {
+						$this.parents('tr').css('background-color', '#EEEEEE');
+					});
+					$this.on('ifUnchecked', function(e) {
+						$this.parents('tr').removeAttr('style');
+					});
+				});
+				$('#selected-all').on('ifChanged', function(event) {
+					var $input = $('.site-table tbody tr td').find('input');
+					$input.iCheck(event.currentTarget.checked ? 'check' : 'uncheck');
+				});
+			});
+		</script>
+	</body>
+
+</html>
