@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间与映射接口的全类名一致 -->
+<mapper namespace="com.yc.acfun.mapper.DanmuMapper">
+	<select id="queryDanmu" parameterType="java.lang.String" resultType="Danmu">
+	 select text,color,size,position,time from danmu where resource_id = #{id}
+	</select>
+	
+	<insert id="storeDanmu">
+	insert into danmu(resource_id,text,color,size,position,time) values(#{id},#{danmu.text},#{danmu.color},#{danmu.size},#{danmu.position},#{danmu.time})
+	</insert>
+</mapper>

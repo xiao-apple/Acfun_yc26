@@ -81,24 +81,49 @@ $("#ipt-pwd-login").blur(function() {
 
 function info(obj, txt, min, max) {
 	if($("#win-hint-form").length==0){
-		$("#area-window").append(
-				'<div id="win-hint-form" class="win win-hint warning" style="left: '
-						+ ($(obj).offset().left + 306) + 'px; top: '
-						+ $(obj).offset().top
-						+ 'px; opacity: 1; display: block;"><div class="mainer">'
-						+ txt + '长度应在' + min + '到' + max
-						+ '个字符之间</div><div class="tail right"></div></div>');
+		if(min!=undefined&&max!=undefined){
+			$("#area-window").append(
+					'<div id="win-hint-form" class="win win-hint warning" style="left: '
+							+ ($(obj).offset().left + 300) + 'px; top: '
+							+ $(obj).offset().top
+							+ 'px; opacity: 1; display: block;"><div class="mainer">'
+							+ txt + '长度应在' + min + '到' + max
+							+ '个字符之间</div><div class="tail right"></div></div>');
+		}else{
+			$("#area-window").append(
+					'<div id="win-hint-form" class="win win-hint warning" style="left: '
+							+ ($(obj).offset().left + 300) + 'px; top: '
+							+ $(obj).offset().top
+							+ 'px; opacity: 1; display: block;"><div class="mainer">'
+							+ txt + '</div><div class="tail right"></div></div>');
+		}
 	}
 }
 $("#ipt-account-login").focus();
 
 $(".btn-login").click(function(){
 	if(check()){
-		alert("可以登录");
+		$.post("/acfun/user/login","name="+$("#ipt-account-login").val().trim()+"&pwd="+$("#ipt-pwd-login").val().trim(),function(data){
+			if(data.code==0){
+				//写入cookie
+				var user = data.data;
+				$.cookie("userid",user.user_id,{ path: '/', expires: 365});
+				$.cookie("username",user.user_nickname,{ path: '/', expires: 365});
+				$.cookie("userimg",user.user_head,{ path: '/', expires: 365});
+				if($.cookie("userimg")!="null"){
+					$(".avatar").attr('src',$.cookie("userimg"));
+				}
+				$(".username").text($.cookie("username"));
+				//登陆成功代码
+				if(true){
+					c=$(".area-login");
+					c.transition({opacity:0,rotateY:180},700,'linear',function(){var n,t,a,i=$("#area-login");return i.find("div.area-login").addClass("login-success"),c.transition({opacity:1,rotateY:360},700,'linear')})
+				}
+				setTimeout("location.replace('/acfun')",4000)
+			}else{
+				info($(".area-tool")[0],data.message);
+			}
+		},"json");
 	}
-	//登陆成功代码
-	if(true){
-		c=$(".area-login");
-		c.transition({opacity:0,rotateY:180},700,'linear',function(){var n,t,a,i=$("#area-login");return i.find("div.area-login").addClass("login-success"),c.transition({opacity:1,rotateY:360},700,'linear')})
-	}
+	
 });

@@ -261,17 +261,6 @@
 		</div>
 		<div id="header">
 			<div id="header-inner" class="inner"></div>
-			<div id="btn-top-shortcut" class="">
-				<a id="feedback"
-					href="http://www.acfun.cn/feedback/#from=http://www.acfun.cn/reg/"
-					target="_blank" class="item feedback"><i
-					class="icon icon-paper-plane"></i>
-					<p class="hint">意见反馈</p></a>
-				<div id="to-top" class="item top">
-					<i class="icon icon-chevron-up"></i>
-					<p class="hint">返回顶部</p>
-				</div>
-			</div>
 		</div>
 		<div style="min-height: 527px;" id="mainer">
 			<input id="rightNum" type="hidden">
@@ -290,14 +279,14 @@
 									</p>
 									<p>请妥善保管!</p>
 								</div>
-								<a href="http://www.acfun.cn/">稍后将会自动回到首页...</a>
+								<a href="/acfun">稍后将会自动回到首页...</a>
 							</div>
 							<form id="form-reg" class="form">
 								<h3 class="title">注册 AcFun</h3>
 								<div class="area">
 									<i class="inp-icon icon icon-mobile"></i><input
 										required="required" placeholder="请输入手机号码" id="ipt-mobile-reg"
-										name="mobile" spellcheck="false" data-name="手机号码"
+										name="user_telephone" spellcheck="false" data-name="手机号码"
 										data-direction="right" autocomplete="off"
 										class="mobile l" type="text"><span
 										class="clearfix"></span>
@@ -305,14 +294,14 @@
 								<div class="area">
 									<i class="inp-icon icon icon-user"></i><input
 										required="required" placeholder="请输入昵称" id="ipt-username-reg"
-										name="name" spellcheck="false" data-name="昵称"
+										name="user_nickname" spellcheck="false" data-name="昵称"
 										data-direction="right" data-length="4,16"
 										class="regname name l" type="text"><span
 										class="clearfix"></span>
 								</div>
 								<div class="area">
 									<i class="inp-icon icon icon-lock"></i><input
-										required="required" id="ipt-pwd-reg" name="password"
+										required="required" id="ipt-pwd-reg" name="user_password"
 										data-name="密码" data-length="6,32" data-direction="right"
 										placeholder="请输入密码" class="password l" type="password"><span
 										class="clearfix"></span>
@@ -487,6 +476,7 @@
 		</div>
 	</div>
 	<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.js"></script>
 	<script type="text/javascript" src="js/core.js"></script>
 	<script type="text/javascript" src="js/jquery.transit.js"></script>
 	<script type="text/javascript" src="js/reg.js"></script>

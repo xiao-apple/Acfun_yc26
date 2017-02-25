@@ -170,9 +170,18 @@
             var time = $(e.data.that.id + " .danmu-div").data("nowTime") + 3;
             var textObj = '{ "text":"' + text + '","color":"' + color + '","size":"' + size + '","position":"' + position + '","time":' + time + '}';
             if (e.data.that.options.urlToPostDanmu)
-                $.post(e.data.that.options.urlToPostDanmu, {
-                    danmu: textObj
-                });
+//                $.post(e.data.that.options.urlToPostDanmu, {
+//                    danmu: textObj
+//                });
+            $.ajax({ 
+	            type:"POST", 
+	            url:e.data.that.options.urlToPostDanmu, 
+	            dataType:"json", 
+	            contentType:"application/json",               
+	            data:textObj,
+	            success:function(data){ 
+	            } 
+	         }); 
             textObj = '{ "text":"' + text + '","color":"' + color + '","size":"' + size + '","position":"' + position + '","time":' + time + ',"isnew":""}';
             var newObj = eval('(' + textObj + ')');
             $(e.data.that.id + " .danmu-div").danmu("addDanmu", newObj);

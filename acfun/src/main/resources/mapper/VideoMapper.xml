@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间与映射接口的全类名一致 -->
+<mapper namespace="com.yc.acfun.mapper.VideoMapper">
+	<select id="getVideoInfo" parameterType="java.lang.String" resultType="Video">
+		SELECT resource_id id ,resource_commentCount commentCount,resource_introduce description,r.partition_id channelId,
+	resource_title title ,resource_duration duration,resource_good goodCount,resource_favoriteCount favoriteCount,resource_click viewCount,resource_cover coverImg, 
+	resource_time contributeTime,r.user_id userId,u.user_nickname username ,u.user_head userAvatar,u.user_autograph userSign ,resource_content videoPath,  
+	p.partition_name channelName,p2.partition_id  parentChannelId,p2.partition_name parentChannelName
+	FROM `resource` r INNER JOIN `user` u on u.user_id=r.user_id INNER JOIN `partition` p on p.partition_id=r.partition_id INNER JOIN `partition` p2 on p2.partition_id=p.partition_first_id 
+	where r.resource_id = #{vid}
+	</select>
+</mapper>

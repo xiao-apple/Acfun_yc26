@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间与映射接口的全类名一致 -->
+<mapper namespace="com.yc.acfun.mapper.DataMapper">
+	<select id="selectChannel" resultType="int" parameterType="int">
+		select count(1) from `partition` where partition_id = #{id}
+	</select>
+	<insert id="insertChannel" parameterType="PageInfo">
+		insert into `partition` values(#{channelId},#{parentChannelId},#{channelName})
+	</insert>
+	
+	<insert id="insertParentChannel" parameterType="PageInfo">
+		insert into `partition` values(#{parentChannelId},null,#{parentChannelName}) 
+	</insert>
+	
+	<insert id="insertResource" parameterType="PageInfo">
+		insert into resource(user_id,resource_id,resource_title,partition_id,resource_cover,resource_introduce,resource_content,resource_time,resource_type,resource_duration) 
+		values(#{userId},#{id},#{title},#{channelId},concat('/acfun/images/covers/ac',${id},#{coverFormat}),#{description},concat('/acfun/videos/ac',${id},'.mp4'),now(),1,#{duration})
+	</insert>
+	
+	<select id="selectResource" resultType="int" parameterType="PageInfo">
+		select count(1) from resource where resource_id = #{id}
+	</select>
+	<select id="selectTag" resultType="int" parameterType="Tag">
+		select count(1) from label where label_id = #{id}
+	</select>
+	
+	<insert id="insertTag" parameterType="Tag">
+		insert into label values(#{id},#{name},1)
+	</insert>
+	
+	<update id="addTagNum" parameterType="Tag">
+		update label set label_num = label_num +1 where label_id = #{id}
+	</update>
+	
+	<insert id="updateRes" parameterType="java.util.Map">
+		insert into label_res (label_id,resource_id) values(#{lid},#{rid})
+	</insert>
+	
+	<select id="selectUser" parameterType="PageInfo" resultType="int">
+		select count(1) from user where user_id = #{userId}
+	</select>
+	
+	<insert id="insertUser" parameterType="PageInfo">
+		insert into user(user_id,user_nickname,user_head) values(#{userId},#{username},concat('/acfun/images/avatars/',${userId},#{headFormat}))
+	</insert>
+</mapper>

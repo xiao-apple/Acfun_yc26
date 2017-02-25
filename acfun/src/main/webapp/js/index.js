@@ -40,6 +40,14 @@ window.onload=function(){
 	$("#header-guide li").mouseout(function(){
 		$(this).removeClass('hover');
 	});
+	
+	if($.cookie('userimg')!=undefined){
+		if($.cookie('userimg')!='null'){
+			$(".user-avatar img").attr('src',$.cookie('userimg'));
+		}
+		$(".guide-user").addClass('user-logined');
+		$(".user-name").text($.cookie('username'));
+	}
 }
 
 function slide(){
@@ -55,6 +63,8 @@ function slide(){
 		slider_count.eq(count).addClass('active');
 	}
 }
+
+
 
 
 

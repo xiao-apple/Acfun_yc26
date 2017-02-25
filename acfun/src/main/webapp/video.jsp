@@ -1,8 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- DanmuPlayer (//github.com/chiruom/danmuplayer/) - Licensed under the MIT license -->
 <!DOCTYPE html>
 <html>
 <head>
-<title>视频页面 - AcFun弹幕视频网 - 认真你就输啦 (?ω?)ノ- ( ゜- ゜)つロ</title>
+<base href="/acfun/">
+<title>${vinfo.title} - AcFun弹幕视频网 - 认真你就输啦 (?ω?)ノ- ( ゜- ゜)つロ</title>
 <link href="http://cdn.aixifan.com/ico/favicon.ico" rel="shortcut icon">
 <link rel="stylesheet"
 	href="css/core.css">
@@ -73,14 +75,14 @@ section.player #player.small {
 						href="http://www.acfun.cn/member/" target="_blank"
 						class="user-avatar item"><img
 							src="images/avatar.jpg"
-							height="30" width="30"></a><a href="http://www.acfun.cn/login/"
+							height="30" width="30"></a><a href="/acfun/login.jsp"
 						target="_blank" class="item user-login">登录/注册</a><span
 						class="user-message-count hidden"></span>
 					<div class="guide-item-con">
 							<p class="clearfix">
 								<a href="http://www.acfun.cn/member/" target="_blank"
 									class="fl user-name"></a><a
-									href="http://www.acfun.cn/logout.aspx"
+									href="/acfun/user/logout"
 									class="fr icon icon-logout user-logout">退出</a>
 							</p>
 							<div id="user-message" class="user-message"></div>
@@ -354,31 +356,29 @@ section.player #player.small {
 					"isShowCount" : 1
 				}
 			</script>
-			<div id="pageInfo" data-title="【SSIdol】TT－金可儿"
-				data-desc="微博：@SSIdol_金可儿 。喜欢我可以关注我的微博哟～～～
-&lt;br/&gt;好开心～终于开始投稿舞蹈视频了～～之前更多还是投稿唱歌作品～希望大家会喜欢吧～第一次录制很紧张！！不要嫌弃我！！以后会更加努力的！！也请大家多多期待我接下来的其它投稿哟～"
-				data-name="SSIdol" data-view="14.2万" data-collect="1133"
-				data-comment="78"
-				data-pic="http://imgs.aixifan.com/content/2017_02_16/1487238722.jpg"
-				data-vid="4870616" data-cid="135" data-pcid="123" data-aid="3477952"
-				data-sid="4870616" data-from="zhuzhan" data-isshowcount="1"
-				data-uid="4563574" data-isallowedaddtag="false"></div>
-			<div class="title">future gather - fripSide;</div>
+			<div id="pageInfo" data-title="${vinfo.title}"
+				data-desc="${vinfo.description}"
+				data-name="${vinfo.username}" data-view="${vinfo.viewCount}" data-collect="${vinfo.favoriteCount}"
+				data-comment="${vinfo.commentCount}"
+				data-pic="${vinfo.coverImg}"
+				data-cid="${vinfo.channelId}" data-pcid="${vinfo.parentChannelId}" data-aid="${vinfo.id}"
+				data-uid="${vinfo.userId}" data-vpath="${vinfo.videoPath}"></div>
+			<div class="title">${vinfo.title}</div>
 			<div class="crumbs">
 				<div id="bd_crumb" class="fl">
 					<a href="http://www.acfun.cn/" class="sp1">主页</a><span class="sp2">&gt;</span><a
-						href="http://www.acfun.cn/v/list123/index.htm" class="sp3">舞蹈</a><span
+						href="http://www.acfun.cn/v/list123/index.htm" class="sp3">${vinfo.parentChannelName}</a><span
 						class="sp4">&gt;</span><a
-						href="http://www.acfun.cn/v/list135/index.htm" class="sp5">综合舞蹈</a><a
-						href="http://www.acfun.cn/u/4563574.aspx" target="_blank"
+						href="http://www.acfun.cn/v/list135/index.htm" class="sp5">${vinfo.channelName}</a><a
+						href="/acfun/u/${vinfo.userId}" target="_blank"
 						class="avatar-wrap"><img
-						src="images/13135752soswsn54.jpg"
-						class="avatar"></a><a href="http://www.acfun.cn/u/4563574.aspx"
-						target="_blank" class="name-wrap">SSIdol</a><span class="sp6">发布于</span>
+						src="${vinfo.userAvatar}"
+						class="avatar"></a><a href="/acfun/u/${vinfo.userId}"
+						target="_blank" class="name-wrap">${vinfo.username}</a><span class="sp6">发布于</span>
 					<!--坑爹的百分点-->
 					<span class="time hidden">2017年 2月16日(EEE) H时14分</span><span
-						class="time">2017-02-16 18:14</span><span data-uname="SSIdol"
-						data-type="投稿" data-oid="3477952" data-proof="【SSIdol】TT－金可儿"
+						class="time">${vinfo.contributeTime}</span><span data-uname="${vinfo.username}"
+						data-type="投稿" data-oid="${vinfo.id}" data-proof="${vinfo.title}"
 						class="sp7">举报视频</span>
 				</div>
 				<div class="fr">
@@ -395,15 +395,15 @@ section.player #player.small {
 		</section>
 		<section class="clearfix wp area crumb">
 			<span class="view fl"><span class="sp1">播放</span><span
-				class="sp2">14.9万</span></span><span class="danmu fl"><span
+				class="sp2">${vinfo.viewCount}</span></span><span class="danmu fl"><span
 				class="sp1">弹幕</span><span class="sp2">213</span></span><span id="bd_comm"
-				class="comm fl"><span class="sp1">评论</span><span class="sp2">85</span></span><span
+				class="comm fl"><span class="sp1">评论</span><span class="sp2">${vinfo.commentCount}</span></span><span
 				class="shu fl"></span><span id="bd_collection" data-status="0"
 				class="collection fl"><div class="fl ico">
 					<div class="img"></div>
 				</div>
 				<span class="sp3 fl">收藏</span><br>
-			<span class="sp4">1,165</span></span><span id="bd_phoneshow"
+			<span class="sp4">${vinfo.favoriteCount}</span></span><span id="bd_phoneshow"
 				class="phone fl"><div class="fl ico">
 					<div class="img"></div>
 				</div>
@@ -422,7 +422,7 @@ section.player #player.small {
 					<span data-num="1" class="bananaer fl"></span><span data-num="2"
 						class="bananaer fl"></span><span data-num="3" class="bananaer fl"></span><span
 						data-num="4" class="bananaer fl"></span><span data-num="5"
-						class="bananaer fl"></span><span class="text fl">喂<span>SSIdol</span>食&nbsp;0&nbsp;香蕉
+						class="bananaer fl"></span><span class="text fl">喂<span>${vinfo.username}</span>食&nbsp;0&nbsp;香蕉
 					</span>
 				</div>
 				<div id="bd_throwbanana" class="fly-banana">
@@ -441,7 +441,7 @@ section.player #player.small {
 					<div class="title">简介</div>
 					<div class="desc gheight">
 						<div class="sp1">
-							微博：@SSIdol_金可儿 。喜欢我可以关注我的微博哟～～～ <br>好开心～终于开始投稿舞蹈视频了～～之前更多还是投稿唱歌作品～希望大家会喜欢吧～第一次录制很紧张！！不要嫌弃我！！以后会更加努力的！！也请大家多多期待我接下来的其它投稿哟～
+							${vinfo.description}
 						</div>
 						<span style="display: inline;" class="open">展开详情</span><span
 							class="close">关闭详情</span>
@@ -475,11 +475,11 @@ section.player #player.small {
 				</div>
 				<div class="column-right fr">
 					<div class="upzhu"></div>
-					<div data-uid="4563574" class="user">
+					<div data-uid="${vinfo.userId}" class="user">
 						<a href="http://www.acfun.cn/u/4563574.aspx" target="_blank"
 							id="bd_uphead" class="a1"><div class="backg"></div>
 							<img
-							src="images/13135752soswsn54.jpg"
+							src="${vinfo.userAvatar}"
 							class="avatar">
 						<div class="banana-num"></div>
 							<div class="bubble">
@@ -489,7 +489,7 @@ section.player #player.small {
 							</div>
 							<div class="eating"></div></a><a
 							href="http://www.acfun.cn/u/4563574.aspx" target="_blank"
-							id="bd_upname" class="a2"><div class="title">SSIdol</div></a>
+							id="bd_upname" class="a2"><div class="title">${vinfo.username}</div></a>
 						<div class="tool">
 							<span
 								style="color: rgb(255, 255, 255); background: rgb(253, 76, 91) none repeat scroll 0% 0%;"
@@ -500,7 +500,7 @@ section.player #player.small {
 						</div>
 					</div>
 					<div class="bottom">
-						<div title="国内首支跨次元科技偶像女团" class="desc">国内首支跨次元科技偶像女团</div>
+						<div title="${vinfo.description}" class="desc">${vinfo.userSign}</div>
 						<div class="crumbs">
 							<span class="sp1">28</span><span>投稿&nbsp;/&nbsp;</span><span
 								class="sp2">1,939</span><span>听众</span>
@@ -869,6 +869,7 @@ section.player #player.small {
 		</div>
 	</div>
 	<script src="js/jquery-3.1.0.min.js"></script>
+	<script src="js/jquery.cookie.js"></script>
 	<script src="js/jquery.shCircleLoader.js"></script>
 	<script src="js/sco.tooltip.js"></script>
 	<script src="js/colpick.js"></script>

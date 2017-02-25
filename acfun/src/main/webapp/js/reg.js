@@ -107,25 +107,21 @@ code.focus(function(){
 	}
 });
 //keyup events
-$("input").keyup(function(){
+$("input").keyup(function(e){
+	if(e.which==9){
+		return;
+	}
 	$(this).focus();
 });
 //blur events
 $("input").blur(function(){
 	$("#win-hint-form").remove();
-	if($(this).attr('name')=='mobile'&&!$(this).hasClass('error')){
-		$.get('/acfun/user/checkTel?tel='+$(this).val().trim(),function(data){
-			if(data.trim()=="true"){
-				info(this,"手机号码已被注册")
-			}
-		},"text");
+	obj=this;
+	if($(this).attr('name')=='user_telephone'&&!$(this).hasClass('error')){
+		mobileCheck();
 	}
-	if($(this).attr('name')=='name'&&!$(this).hasClass('error')){
-		$.get('/acfun/user/checkUname?name='+$(this).val().trim(),function(data){
-			if(data.trim()=="true"){
-				info(this,"用户名已被使用");
-			}
-		},"text");
+	if($(this).attr('name')=='user_nickname'&&!$(this).hasClass('error')){
+		checkName();
 	}
 });
 //reg event
@@ -135,6 +131,17 @@ reg_btn.click(function(){
 //reg function
 function register(){
 	var result = true;
+	$("input").each(function(){
+		if($(this).hasClass("already")){
+			result = false;
+			mobileCheck();
+			checkName();
+			return false;
+		}
+	});
+	if(result==false){
+		return;
+	}
 	$("input").each(function(){
 		if($(this).hasClass("error")){
 			result = false;
@@ -154,8 +161,14 @@ function register(){
 		setTimeout('$("#win-hint-form").remove()',3000);
 	}
 	if(result){
-		//register
-		alert("可以注册")
+		$.post("/acfun/user/reg",$("#form-reg").serialize(),function(data){
+			if(data.code==0){
+				$("#form-reg").css('display','none');
+				$(".after-reg").removeClass('hidden');
+				$(".mobile").text(mobile.val());
+				setTimeout("location.replace('/acfun/')",3000);
+			}
+		},"json");
 	}
 }
 //sendSMS event
@@ -165,19 +178,44 @@ $('#send-mobile-code').click(function(){
 	$(this).attr('disabled','disabled');
 	s = setInterval('countdown($("#send-mobile-code"))',1000);
 	$.get("/acfun/user/sendSMS?tel="+mobile.val().trim(),function(data){
-		
-	},"text");
+		if(data.code!=0){
+			info(code[0],"验证码发送失败,请稍后再试");
+		}
+	},"json");
 });
 
 function countdown(obj){
 	if(n==0){
-		obj.val("发送验证码");
 		obj.removeClass('dis');
 		obj.removeAttr('disabled');
 		clearInterval(s);
+		obj.val("发送验证码");
+		return;
 	}
 	obj.val('重新发送（'+n+'）');
 	n--;
 }
 //focus input[mobile] for init
 mobile.focus();
+
+function mobileCheck(){
+	$.get('/acfun/user/checkTel?tel='+mobile.val().trim(),function(data){
+		if(data.code==0){
+			info(mobile.get(0),"手机号码已被注册");
+			mobile.addClass('already');
+		}else{
+			mobile.removeClass('already');
+		}
+	},"json");
+}
+
+function checkName(){
+	$.get('/acfun/user/checkUname?name='+username.val().trim(),function(data){
+		if(data.code==0){
+			info(username.get(0),"用户名已被使用");
+			username.addClass('already');
+		}else{
+			username.removeClass('already');
+		}
+	},"json");
+}
