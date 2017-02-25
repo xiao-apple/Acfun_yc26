@@ -39,36 +39,33 @@
 					<div id="area-user-guide">
 						<a id="a-app-guide" href="http://www.acfun.cn/app/"
 							target="_blank" class="tool"><i class="icon icon-app-phone"></i>
-						<p class="app-text">客户端</p>
+							<p class="app-text">客户端</p>
 							<div class="app-show">
-								<img alt="" src="img/app-code.png"
-									class="app-code">
+								<img alt="" src="img/app-code.png" class="app-code">
 								<p class="app-tip">扫描下载最新版客户端</p>
-								<img alt="" src="img/app-word.png"
-									class="app-word" height="19" width="141">
+								<img alt="" src="img/app-word.png" class="app-word" height="19"
+									width="141">
 								<div class="tail"></div>
-							</div></a><a id="a-login-guide" href="http://www.acfun.cn/login/"
-							target="_blank" class="tool hidden"><i class="icon icon-user"></i>
-						<p>登录/注册</p></a><a id="a-avatar-guide"
-							href="http://www.acfun.cn/member/" target="_blank" class="thumb"><img
-							src="img/avatar.jpg" class="avatar">
-						<p class="info-hint hidden">0</p></a><a id="a-history-guide"
-							href="http://www.acfun.cn/member/#area=history" target="_blank"
+							</div></a><a id="a-login-guide" href="page/login.jsp" target="_blank"
+							class="tool hidden"><i class="icon icon-user"></i>
+							<p>登录/注册</p></a><a id="a-avatar-guide"
+							href="page/profile.jsp" target="_blank"
+							class="thumb"><img src="" class="avatar">
+							<p class="info-hint">5</p></a><a id="a-history-guide"
+							href="page/history.jsp" target="_blank"
 							class="tool"><i class="icon icon-history"></i>
-						<p>看过</p></a><a id="a-post-guide"
-							href="pageupload-video.jsp"
+							<p>看过</p></a><a id="a-post-guide" href="page/upload-video.jsp"
 							target="_blank" class="tool"><i class="icon icon-upload"></i>
-						<p>投稿</p></a><a id="a-favor-guide"
-							href="page/favourite.jsp" target="_blank"
-							class="tool"><i class="icon icon-folder-open"></i>
-						<p>收藏</p></a><span class="clearfix"></span>
+							<p>投稿</p></a><a id="a-favor-guide" href="page/favourite.jsp"
+							target="_blank" class="tool"><i class="icon icon-folder-open"></i>
+							<p>收藏</p></a><span class="clearfix"></span>
 					</div>
 					<div id="win-info-guide" class="win hidden">
 						<div class="mainer">
 							<div class="a">
 								<div class="l">
 									<a id="a-name-guide" href="http://www.acfun.cn/member/"
-										target="_blank" title="前往我的个人中心" class="name">李玄雨丶</a>
+										target="_blank" title="前往我的个人中心" class="name"></a>
 								</div>
 								<div class="r">
 									<a id="a-logout-guide"
@@ -323,17 +320,14 @@
 								class="cover"><i class="icon icon-user"></i>编辑资料</span></a>
 							<div class="d">
 								<a href="http://www.acfun.cn/u/8150118.aspx" target="_blank"
-									class="name">李玄雨丶</a>
+									class="name"></a>
 							</div>
 							<div data-group="1" class="group">
 								<a href="http://www.acfun.cn/info/#page=limit" target="_blank">正式会员</a>
 							</div>
-							<button id="btn-sign-user" data-checked="0" data-group="1"
-								class="btn primary">
-								<i class="icon icon-check-circle"></i>签到
-							</button>
+							
 							<p title="点击以修改签名" class="desc">
-								这个人很懒，什么都没有写…<i class="icon icon-edit"></i>
+								<i class="icon icon-edit"></i>
 							</p>
 							<div class="area-extra">
 								<div class="space"></div>
@@ -388,11 +382,11 @@
 							</div>
 							<div class="part-guide-left">
 								<div class="banner">
-									<p class="tab fixed unfold">
+									<p id="fold" class="tab fixed">
 										<i class="icon icon-upload"></i>投稿·管理
 									</p>
 								</div>
-								<div class="mainer">
+								<div id="list" class="mainer hidden">
 									<a href="page/upload-video.jsp" class="tab"><i class="icon"></i>视频投稿</a><a
 										href="page/post-article.jsp" class="tab"><i class="icon"></i>文章投稿</a><a
 										href="page/post-history.jsp" class="tab"><i class="icon"></i>过往投稿</a><a
@@ -459,7 +453,7 @@
 										<div class="l">
 											<input required="required" id="ipt-old-password"
 												data-name="现有密码" data-length="6,64" placeholder="请输入现有密码"
-												data-direction="right" class="req error" type="password">
+												data-direction="right" class="password" type="password">
 										</div>
 										<span class="clearfix"></span>
 									</div>
@@ -620,19 +614,16 @@
 			</div>
 		</div>
 	</div>
-	<script src="css/hm.js"></script>
-	<script src="css/sensorsdata.js" async=""></script>
-	<script style="color: rgb(0, 0, 0);">var globalConfig = {version: "0.8.8"};</script>
 	
-	<script>var path={base:"http://www.acfun.cn",cdn:"http://cdn.aixifan.com",ssl:"https://ssl.acfun.tv",api:"http://api.acfun.cn"},date=1484019945341;</script>
-	<script src="css/a.js"></script>
 	<script>(function () {
     var updateTime = +new Date(2015, 6, 21);
     if ($.now() - updateTime < 5 * 24 * 60 * 60 * 1000) {
         $('#app-footer-link .bg-new-app').addClass('new');
     }
 })();</script>
-	<script src="css/ubb.js"></script>
-	<script src="css/member.js"></script>
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="js/click.js"></script>
+	<script type="text/javascript" src="js/userinfo.js"></script>
+	<script type="text/javascript" src="js/change-password.js"></script>
 </body>
 </html>

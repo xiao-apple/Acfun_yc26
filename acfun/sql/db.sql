@@ -52,10 +52,13 @@ CREATE TABLE comment (   -- 评论表
 -- ----------------------------
 DROP TABLE IF EXISTS follow;
 CREATE TABLE follow (     -- 关注表
-  followme_id int(50) DEFAULT NULL,    -- 关注我的
+  user_id int (50) DEFAULT NULL,
   mefollow_id int(50) DEFAULT NULL     -- 我关注的
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+insert into follow values('10002','10001')
+insert into follow values('10001','10003')
+select count(1) from follow where user_id=10001
 -- ----------------------------
 -- Records of follow
 -- ----------------------------
@@ -83,7 +86,7 @@ CREATE TABLE message (     -- 私信表
 -- ----------------------------
 DROP TABLE IF EXISTS partition;
 CREATE TABLE partition (     -- 分区表
-  partition_id int(10) NOT NULL,    -- 分区id
+  partition_id int(10) NOT NULL,    
   partition_first_id varchar(50) DEFAULT NULL,    -- 父分区id
   partition_name varchar(50) DEFAULT NULL,    -- 分区名
   PRIMARY KEY (partition_id)
@@ -125,6 +128,7 @@ CREATE TABLE resource (     -- 资源表(视频、文章)
   PRIMARY KEY (resource_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
 -- ----------------------------
 -- Records of resource
 -- ----------------------------
@@ -149,6 +153,13 @@ CREATE TABLE user (    -- 用户表
   user_time datetime DEFAULT NULL,         -- 注册时间
   PRIMARY KEY (user_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+select * from user
+insert into user values(10001,'a','张三','啊呀',null,12345,1387548747,'4578@qq.com','男','湖南 郴州',1,'你好帅呀','2016-02-18')
+insert into user values(10002,'a','张三','啊呀',null,12345,1387548747,'4578@qq.com','男','湖南 郴州',1,'你好帅呀','2016-02-18')
+insert into user values(10003,'a','张三','啊呀',null,12345,1387548747,'4578@qq.com','男','湖南 郴州',1,'你好帅呀','2016-02-18')
+select * from user where user_id=10001
+update user set user_address='湖南 郴州' where user_id=10003
+update user set user_head='img/avatar.jpg' where user_id=10002
 
 -- ----------------------------
 -- Records of user

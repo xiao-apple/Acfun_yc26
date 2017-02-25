@@ -14,8 +14,7 @@
 <link rel="stylesheet" media="screen and (min-width: 1440px)"
 	href="css/wide.css">
 <link rel="stylesheet" href="css/member.css">
-<link id="style-theme-member" rel="stylesheet"
-	href="css/theme.css">
+<link id="style-theme-member" rel="stylesheet" href="css/theme.css">
 </head>
 <body>
 	<div id="stage">
@@ -39,35 +38,32 @@
 					<div id="area-user-guide">
 						<a id="a-app-guide" href="http://www.acfun.cn/app/"
 							target="_blank" class="tool"><i class="icon icon-app-phone"></i>
-						<p class="app-text">客户端</p>
+							<p class="app-text">客户端</p>
 							<div class="app-show">
 								<img alt="" src="img/app-code.png" class="app-code">
 								<p class="app-tip">扫描下载最新版客户端</p>
-								<img alt="" src="img/app-word.png" class="app-word"
-									height="19" width="141">
+								<img alt="" src="img/app-word.png" class="app-word" height="19"
+									width="141">
 								<div class="tail"></div>
-							</div></a><a id="a-login-guide" href="http://www.acfun.cn/login/"
-							target="_blank" class="tool hidden"><i class="icon icon-user"></i>
-						<p>登录/注册</p></a><a id="a-avatar-guide"
-							href="http://www.acfun.cn/member/#area=push" target="_blank"
-							class="thumb"><img src="img/avatar.jpg" class="avatar">
-						<p class="info-hint">5</p></a><a id="a-history-guide"
-							href="http://www.acfun.cn/member/#area=history" target="_blank"
-							class="tool"><i class="icon icon-history"></i>
-						<p>看过</p></a><a id="a-post-guide"
-							href="http://www.acfun.cn/member/#area=upload-video"
+							</div></a><a id="a-login-guide" href="page/login.jsp" target="_blank"
+							class="tool hidden"><i class="icon icon-user"></i>
+							<p>登录/注册</p></a><a id="a-avatar-guide" href="page/profile.jsp"
+							target="_blank" class="thumb"><img src="" class="avatar">
+							<p class="info-hint">5</p></a><a id="a-history-guide"
+							href="page/history.jsp" target="_blank" class="tool"><i
+							class="icon icon-history"></i>
+							<p>看过</p></a><a id="a-post-guide" href="page/upload-video.jsp"
 							target="_blank" class="tool"><i class="icon icon-upload"></i>
-						<p>投稿</p></a><a id="a-favor-guide"
-							href="page/favourite.jsp" target="_blank"
-							class="tool"><i class="icon icon-folder-open"></i>
-						<p>收藏</p></a><span class="clearfix"></span>
+							<p>投稿</p></a><a id="a-favor-guide" href="page/favourite.jsp"
+							target="_blank" class="tool"><i class="icon icon-folder-open"></i>
+							<p>收藏</p></a><span class="clearfix"></span>
 					</div>
 					<div id="win-info-guide" class="win hidden">
 						<div class="mainer">
 							<div class="a">
 								<div class="l">
 									<a id="a-name-guide" href="http://www.acfun.cn/member/"
-										target="_blank" title="前往我的个人中心" class="name">李玄雨丶</a>
+										target="_blank" title="前往我的个人中心" class="name"></a>
 								</div>
 								<div class="r">
 									<a id="a-logout-guide"
@@ -91,8 +87,7 @@
 						<div class="mainer">
 							<div class="b"></div>
 							<div class="c">
-								<a href="page/history.jsp"
-									target="_blank">查看更多</a>
+								<a href="page/history.jsp" target="_blank">查看更多</a>
 							</div>
 							<div class="tail"></div>
 						</div>
@@ -100,10 +95,8 @@
 					<div id="win-post-guide" class="win hidden">
 						<div class="mainer">
 							<div class="b">
-								<a href="page/upload-video.jsp"
-									target="_blank">投视频</a><a
-									href="page/post-article.jsp"
-									target="_blank">投文章</a>
+								<a href="page/upload-video.jsp" target="_blank">投视频</a><a
+									href="page/post-article.jsp" target="_blank">投文章</a>
 							</div>
 							<div class="tail"></div>
 						</div>
@@ -138,9 +131,9 @@
 							href="http://www.acfun.cn/v/list125/index.htm"
 							data-channel="fishpond">鱼♂塘</a><a
 							href="http://www.acfun.cn/v/list110/index.htm"
-							data-channel="article">文章</a><a
-							href="http://www.acfun.cn/rank/" target="_blank"
-							data-channel="extra" class="last">更多</a><span class="clearfix"></span>
+							data-channel="article">文章</a><a href="http://www.acfun.cn/rank/"
+							target="_blank" data-channel="extra" class="last">更多</a><span
+							class="clearfix"></span>
 					</div>
 					<div class="r">
 						<form id="area-search-guide" target="_blank" method="get"
@@ -300,7 +293,7 @@
 					href="http://www.acfun.cn/feedback/#from=http://www.acfun.cn/member/"
 					target="_blank" class="item feedback"><i
 					class="icon icon-paper-plane"></i>
-				<p class="hint">意见反馈</p></a>
+					<p class="hint">意见反馈</p></a>
 				<div style="opacity: 0; visibility: hidden;" id="to-top"
 					class="item top">
 					<i class="icon icon-chevron-up"></i>
@@ -314,21 +307,18 @@
 					<div id="area-main-left" class="l">
 						<div id="block-user-left" data-active="active">
 							<a href="page/profile.jsp" class="thumb"><img
-								src="img/avatar.jpg" class="avatar"><span
-								class="cover"><i class="icon icon-user"></i>编辑资料</span></a>
+								src="img/avatar.jpg" class="avatar"><span class="cover"><i
+									class="icon icon-user"></i>编辑资料</span></a>
 							<div class="d">
 								<a href="http://www.acfun.cn/u/8150118.aspx" target="_blank"
-									class="name">李玄雨丶</a>
+									class="name"></a>
 							</div>
 							<div data-group="1" class="group">
 								<a href="http://www.acfun.cn/info/#page=limit" target="_blank">正式会员</a>
 							</div>
-							<button id="btn-sign-user" data-checked="0" data-group="1"
-								class="btn primary">
-								<i class="icon icon-check-circle"></i>签到
-							</button>
+
 							<p title="点击以修改签名" class="desc">
-								这个人很懒，什么都没有写…<i class="icon icon-edit"></i>
+								<i class="icon icon-edit"></i>
 							</p>
 							<div class="area-extra">
 								<div class="space"></div>
@@ -383,18 +373,18 @@
 							</div>
 							<div class="part-guide-left">
 								<div class="banner">
-									<p class="tab fixed unfold">
+									<p id="fold" class="tab fixed">
 										<i class="icon icon-upload"></i>投稿·管理
 									</p>
 								</div>
-								<div class="mainer">
+								<div id="list" class="mainer hidden">
 									<a href="page/upload-video.jsp" class="tab"><i class="icon"></i>视频投稿</a><a
 										href="page/post-article.jsp" class="tab"><i class="icon"></i>文章投稿</a><a
 										href="page/post-history.jsp" class="tab"><i class="icon"></i>过往投稿</a><a
 										href="page/post-manage.jsp" class="tab"><i class="icon"></i>视频管理</a>
 								</div>
 							</div>
-							
+
 							<div class="part-guide-left">
 								<div class="banner">
 									<a href="page/push.jsp" class="tab fixed"><i
@@ -412,8 +402,8 @@
 										class="hint hidden hint-followers-left">(0)</span></a>
 								</div>
 							</div>
-							
-							
+
+
 						</div>
 					</div>
 					<div id="area-main-right" class="r">
@@ -483,6 +473,10 @@
 									href="#area=change-email" class="tab active"><i
 									class="icon"></i>修改邮箱</a>
 							</div>
+							
+
+
+
 							<div id="block-first" class="block">
 								<div class="banner">
 									<p class="tab fixed">
@@ -520,12 +514,10 @@
 											<p class="subtitle">验证码</p>
 										</div>
 										<div class="l b">
-											<input required="required" placeholder="请输入验证码"
+											<input name="vcode" required="required" placeholder="请输入验证码"
 												id="ipt-captcha-personal" data-name="验证码" data-length="4,4"
-												class="captcha" type="text"><img
-												src="img/captcha.jpg"
-												onclick="this.src='/captcha.svl?d='+new Date()"
-												class="captcha-pic"><span class="clearfix"></span>
+												class="captcha" type="text"><img id="yzm"
+												src="vcode.jpg" title="看不清，换一张" /> <span class="clearfix"></span>
 										</div>
 										<span class="clearfix"></span>
 									</div>
@@ -535,28 +527,26 @@
 									</div>
 								</div>
 							</div>
-							<div id="block-second" class="block hidden">
-								<div class="banner">
-									<p class="tab fixed">
-										修改邮箱<span class="hint">Change Email</span>
-									</p>
-								</div>
-								<div class="mainer form">
-									<p class="alert">
-										验证邮件已发送，请到<span></span>查收！ 验证邮件24小时内有效，请尽快登录您的邮箱点击验证链接完成验证。
-										没收到邮件？点击重新发送。 邮箱失效？点击联系客服。
-									</p>
-									<p class="sub-divider"></p>
-									<div class="unit">
-										<div class="l a">
-											<button class="btn success">重新发送</button>
-										</div>
-										<div class="l b">
-											<a id="btn-service-online" class="btn success">联系客服</a>
-										</div>
-										<span class="clearfix"></span>
+
+							
+
+
+								<div id="block-second" class="block hidden">
+									<div class="banner">
+										<p class="tab fixed">
+											修改邮箱<span class="hint">Change Email</span>
+										</p>
+									</div>
+									<div class="mainer form">
+										<p class="alert">
+											验证邮件已发送，请到<span style="color: red; padding-left: 10px;"></span>查收！
+											验证邮件24小时内有效，请尽快登录您的邮箱点击验证链接完成验证。
+										</p>
+										<p class="sub-divider"></p>
+										
 									</div>
 								</div>
+								
 							</div>
 							<script>(function(){var e;$("#block-first div.form").setup({start:function(){},finish:function(){return $.get("/member/profile.aspx").done(function(e){return $("#ipt-oemail-personal").val($.parseSafe(e.email)).hide().parent().append('<span class="ext-info">'+$.parseSafe(e.email)+"</span>")}),$("#ipt-email-personal").on("blur",function(){var e,a,n;return e=$(this),e.hasClass("error")?void 0:(a=$.parseSafe($("#ipt-email-personal").val()),a=-1!==a.search("请输入")?"":a,null!=(n=system.port.verifyEmail)&&n.abort(),system.port.verifyEmail=$.post("/member/isEmailExist.aspx",{email:a}).done(function(a){return"true"===a.data.status?(e.info("warning::"+a.data.msg),e.addClass("disable")):e.removeClass("disable")}))})},callback:function(){return e(0,function(){return $("#block-second .unit .a").delegate(".success","click",function(){return e(1)})})}}),e=function(e,a){var n,t;if(!$("#ipt-email-personal").hasClass("disable"))return null!=(t=system.port.sendEmail)&&t.abort(),n=$.parseSafe($("#ipt-email-personal").val()),n=-1!==n.search("请输入")?"":n,setTimeout(function(){return system.port.sendEmail=$.post("/member/sendEmailYz.aspx",{email:n,captcha:function(){var a;return e?"yzm":(a=$.parseSafe($("#ipt-captcha-personal").val()),a=-1!==a.search("请输入")?"":a)}}).done(function(e){var t;return e.data.msg?("true"===e.data.status?($("#block-first").hide(),$("#block-second .alert span").css({color:"red","padding-left":"10px"}).html(n),$("#block-second").hide().removeClass("hidden").slideDown(),$.getScript("http://wpa.b.qq.com/cgi/wpa.php?key=XzgwMDA1NTU2NF8zMDU4NzZfODAwMDU1NTY0XzJf",function(){return $$("#btn-service-online").click(function(){return $('iframe[src="about:blank"]').contents().find("#launchBtn")[0].click()})})):($(".captcha-pic").click(),t=e.data.msg,$.info("error::"+t)),"function"==typeof a?a():void 0):void $.info("error::"+e.info)}).fail(function(e){return $.info("error::网络错误，请稍后再试！")})},500)}}).call(this);</script>
 						</div>
@@ -683,26 +673,15 @@
 			</div>
 		</div>
 	</div>
-	<script src="css/hm.js"></script>
-	<script src="css/sensorsdata.js" async=""></script>
-	<script style="color: rgb(0, 0, 0);">var globalConfig = {version: "0.8.8"};</script>
-	<!--[if lt IE 8]><script src="http://cdn.aixifan.com/dotnet/20130418/??script/json2.js,script/jquery.1.11.1.min.js,script/prepare.0.0.5.min.js,script/jquery.md5.min.js"></script><![endif]-->
-	<!--[if IE 8]><script src="http://cdn.aixifan.com/dotnet/20130418/??script/jquery.1.11.1.min.js,script/prepare.0.0.5.min.js,script/jquery.md5.min.js"></script><![endif]-->
-	<!--[if (gte IE 9)|!(IE)]><!-->
-	<script src="css/a_002.js"></script>
-	<!--<![endif]-->
-	<!--[if (gte IE 9)|!(IE)]><!-->
-	<script src="css/jquery.js"></script>
-	<!--<![endif]-->
-	<script>var path={base:"http://www.acfun.cn",cdn:"http://cdn.aixifan.com",ssl:"https://ssl.acfun.tv",api:"http://api.acfun.cn"},date=1484019945341;</script>
-	<script src="css/a.js"></script>
 	<script>(function () {
     var updateTime = +new Date(2015, 6, 21);
     if ($.now() - updateTime < 5 * 24 * 60 * 60 * 1000) {
         $('#app-footer-link .bg-new-app').addClass('new');
     }
 })();</script>
-	<<script src="js/ubb.js"></script>
-	<script src="js/member.js"></script> 
+	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="js/click.js"></script>
+	<script type="text/javascript" src="js/userinfo.js"></script>
+	<script type="text/javascript" src="js/change-email.js"></script>
 </body>
 </html>

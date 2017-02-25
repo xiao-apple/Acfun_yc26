@@ -17,7 +17,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	font-family: inherit;
 	*zoom: 1
 }
-
+.edui-popup-content.edui-default{ height: auto !important; }
 strong {
 	font-weight: bold
 }
@@ -2489,7 +2489,7 @@ body {
 	width: 96px;
 	height: 27px;
 	display: block;
-	background: url(../project/sanae/style/image/logo-new.png?salt=ac201714)
+	background: url(../img/logo-new.png?salt=ac201714)
 		50% 50% no-repeat;
 	margin: 9px 12px 0 0;
 	text-indent: -999px;
@@ -3508,7 +3508,7 @@ body {
 	width: 70px;
 	height: 22px;
 	display: block;
-	background: url("../img/sprite-guide.png") -170px
+	background: url("../img/sprite-guide1.png") -170px
 		-32px no-repeat;
 	margin: 15px auto 8px auto
 }
@@ -3524,7 +3524,7 @@ body {
 	position: absolute;
 	right: -20px;
 	top: -12px;
-	background: url("../project/app/style/image/new3.png") 50% 50% no-repeat
+	background: url("../img/new3.png") 50% 50% no-repeat
 }
 
 #app-footer-link .new {

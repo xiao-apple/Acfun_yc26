@@ -8,11 +8,14 @@
 <link type="text/css" rel="stylesheet" href="css/core.css">
 <link rel="stylesheet" href="css/font-awesome.css">
 <link rel="stylesheet" href="css/style.css">
-<link type="text/css" rel="stylesheet" media="screen and (min-width: 1440px)"
-	href="css/wide.css">
-<link type="text/css" type="text/css" rel="stylesheet" href="css/member.css">
+<link type="text/css" rel="stylesheet"
+	media="screen and (min-width: 1440px)" href="css/wide.css">
+<link type="text/css" type="text/css" rel="stylesheet"
+	href="css/member.css">
 <link type="text/css" id="style-theme-member" rel="stylesheet"
 	href="css/theme.css">
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
 	<div id="stage">
@@ -36,50 +39,49 @@
 					<div id="area-user-guide">
 						<a id="a-app-guide" href="http://www.acfun.cn/app/"
 							target="_blank" class="tool"><i class="icon icon-app-phone"></i>
-						<p class="app-text">客户端</p>
+							<p class="app-text">客户端</p>
 							<div class="app-show">
 								<img alt="" src="img/app-code.png" class="app-code">
 								<p class="app-tip">扫描下载最新版客户端</p>
-								<img alt="" src="img/app-word.png" class="app-word"
-									height="19" width="141">
+								<img alt="" src="img/app-word.png" class="app-word" height="19"
+									width="141">
 								<div class="tail"></div>
-							</div></a><a id="a-login-guide" href="http://www.acfun.cn/login/"
-							target="_blank" class="tool hidden"><i class="icon icon-user"></i>
-						<p>登录/注册</p></a><a id="a-avatar-guide"
-							href="http://www.acfun.cn/member/page/push.jsp" target="_blank"
-							class="thumb"><img src="img/avatar.jpg" class="avatar">
-						<p class="info-hint">5</p></a><a id="a-history-guide"
-							href="http://www.acfun.cn/member/#area=history" target="_blank"
+							</div></a><a id="a-login-guide" href="page/login.jsp" target="_blank"
+							class="tool hidden"><i class="icon icon-user"></i>
+							<p>登录/注册</p></a><a id="a-avatar-guide"
+							href="page/profile.jsp" target="_blank"
+							class="thumb"><img src="" class="avatar">
+							<p class="info-hint">5</p></a><a id="a-history-guide"
+							href="page/history.jsp" target="_blank"
 							class="tool"><i class="icon icon-history"></i>
-						<p>看过</p></a><a id="a-post-guide"
-							href="page/upload-video.jsp"
+							<p>看过</p></a><a id="a-post-guide" href="page/upload-video.jsp"
 							target="_blank" class="tool"><i class="icon icon-upload"></i>
-						<p>投稿</p></a><a id="a-favor-guide"
-							href="page/favourite.jsp" target="_blank"
-							class="tool"><i class="icon icon-folder-open"></i>
-						<p>收藏</p></a><span class="clearfix"></span>
+							<p>投稿</p></a><a id="a-favor-guide" href="page/favourite.jsp"
+							target="_blank" class="tool"><i class="icon icon-folder-open"></i>
+							<p>收藏</p></a><span class="clearfix"></span>
 					</div>
 					<div id="win-info-guide" class="win hidden">
 						<div class="mainer">
 							<div class="a">
 								<div class="l">
-									<a id="a-name-guide" href="http://www.acfun.cn/member/"
-										target="_blank" title="前往我的个人中心" class="name">李玄雨丶</a>
+									<a id="a-name-guide" href=""
+										target="_blank" title="前往我的个人中心" class="name"></a>
 								</div>
 								<div class="r">
 									<a id="a-logout-guide"
-										href="http://www.acfun.cn/logout.aspx?returnUrl=http://www.acfun.cn/member/"
+										href=""
 										title="退出登录"><i class="icon icon-power-off"></i>退出登录</a>
 								</div>
 								<span class="clearfix"></span>
 							</div>
 							<div class="b">
-								<a class="unit" href="http://www.acfun.cn/member/page/push.jsp"
+								<a class="unit" href="page/push.jsp"
 									target="_blank"><i class="icon icon-play-circle"></i>您有<span
 									class="pts">5</span>条新推送</a>
 							</div>
 							<div class="c">
-								<a href="http://www.acfun.cn/member/page/push.jsp" target="_blank">查看更多</a>
+								<a href="page/push.jsp"
+									target="_blank">查看更多</a>
 							</div>
 							<div class="tail"></div>
 						</div>
@@ -88,7 +90,7 @@
 						<div class="mainer">
 							<div class="b"></div>
 							<div class="c">
-								<a href="http://www.acfun.cn/member/#area=history"
+								<a href="page/history.jsp"
 									target="_blank">查看更多</a>
 							</div>
 							<div class="tail"></div>
@@ -97,10 +99,8 @@
 					<div id="win-post-guide" class="win hidden">
 						<div class="mainer">
 							<div class="b">
-								<a href="page/upload-video.jsp"
-									target="_blank">投视频</a><a
-									href="page/post-article.jsp"
-									target="_blank">投文章</a>
+								<a href="page/upload-video.jsp" target="_blank">投视频</a><a
+									href="page/post-article.jsp" target="_blank">投文章</a>
 							</div>
 							<div class="tail"></div>
 						</div>
@@ -135,9 +135,9 @@
 							href="http://www.acfun.cn/v/list125/index.htm"
 							data-channel="fishpond">鱼♂塘</a><a
 							href="http://www.acfun.cn/v/list110/index.htm"
-							data-channel="article">文章</a><a
-							href="http://www.acfun.cn/rank/" target="_blank"
-							data-channel="extra" class="last">更多</a><span class="clearfix"></span>
+							data-channel="article">文章</a><a href="http://www.acfun.cn/rank/"
+							target="_blank" data-channel="extra" class="last">更多</a><span
+							class="clearfix"></span>
 					</div>
 					<div class="r">
 						<form id="area-search-guide" target="_blank" method="get"
@@ -297,7 +297,7 @@
 					href="http://www.acfun.cn/feedback/#from=http://www.acfun.cn/member/"
 					target="_blank" class="item feedback"><i
 					class="icon icon-paper-plane"></i>
-				<p class="hint">意见反馈</p></a>
+					<p class="hint">意见反馈</p></a>
 				<div id="to-top" class="item top">
 					<i class="icon icon-chevron-up"></i>
 					<p class="hint">返回顶部</p>
@@ -310,21 +310,18 @@
 					<div id="area-main-left" class="l">
 						<div id="block-user-left" data-active="active">
 							<a href="page/profile.jsp" class="thumb"><img
-								src="img/avatar.jpg" class="avatar"><span
-								class="cover"><i class="icon icon-user"></i>编辑资料</span></a>
+								src="" class="avatar"><span class="cover"><i
+									class="icon icon-user"></i>编辑资料</span></a>
 							<div class="d">
-								<a href="http://www.acfun.cn/u/8150118.aspx" target="_blank"
-									class="name">李玄雨丶</a>
+								<a href=""
+									target="_blank" class="name"></a>
 							</div>
 							<div data-group="1" class="group">
-								<a href="http://www.acfun.cn/info/#page=limit" target="_blank">正式会员</a>
+								<a >正式会员</a>
 							</div>
-							<button id="btn-sign-user" data-checked="0" data-group="1"
-								class="btn primary">
-								<i class="icon icon-check-circle"></i>签到
-							</button>
+							
 							<p title="点击以修改签名" class="desc">
-								这个人很懒，什么都没有写…<i class="icon icon-edit"></i>
+								<i class="icon icon-edit"></i>
 							</p>
 							<div class="area-extra">
 								<div class="space"></div>
@@ -379,18 +376,18 @@
 							</div>
 							<div class="part-guide-left">
 								<div class="banner">
-									<p class="tab fixed unfold">
+									<p id="fold" class="tab fixed">
 										<i class="icon icon-upload"></i>投稿·管理
 									</p>
 								</div>
-								<div class="mainer">
+								<div id="list" class="mainer hidden">
 									<a href="page/upload-video.jsp" class="tab"><i class="icon"></i>视频投稿</a><a
 										href="page/post-article.jsp" class="tab"><i class="icon"></i>文章投稿</a><a
 										href="page/post-history.jsp" class="tab"><i class="icon"></i>过往投稿</a><a
 										href="page/post-manage.jsp" class="tab"><i class="icon"></i>视频管理</a>
 								</div>
 							</div>
-							
+
 							<div class="part-guide-left">
 								<div class="banner">
 									<a href="page/push.jsp" class="tab fixed"><i
@@ -408,7 +405,7 @@
 										class="hint hidden hint-followers-left">(0)</span></a>
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
 					<div id="area-main-right" class="r">
@@ -568,7 +565,8 @@
 								<span class="clearfix"></span>
 							</div>
 							<div id="block-banner-right" class="block banner">
-								<a href="page/profile.jsp" class="tab active"><i class="icon"></i>编辑资料</a>
+								<a href="page/profile.jsp" class="tab active"><i
+									class="icon"></i>编辑资料</a>
 							</div>
 							<div id="block-first" class="block">
 								<div class="banner">
@@ -578,8 +576,9 @@
 								</div>
 								<div class="mainer form">
 									<xmp id="temp-basic" class="hidden">&lt;div class="l
-									a"&gt;&lt;a href="page/change-avatar.jsp" class="thumb"&gt;&lt;img
-									id="img-avatar-personal" title="单击修改头像" src="[avatar]"
+									a"&gt;&lt;a href="page/change-avatar.jsp"
+									class="thumb"&gt;&lt;img id="img-avatar-personal"
+									title="单击修改头像" src="[avatar]"
 									class="avatar"/&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class="l
 									b"&gt;&lt;a id="name-personal" href="/u/[uid].aspx"
 									class="name"&gt;[name]&lt;/a&gt;&lt;span
@@ -589,7 +588,7 @@
 									target="_blank" class="group
 									group-zhuce"&gt;注册会员&lt;/a&gt;&lt;a
 									class="answer"&gt;[游戏答题转正]&lt;/a&gt;&lt;p
-									id="hint-reg-personal"&gt;注册于 [regTime]&lt;/p&gt;&lt;pre
+									id="hint-reg-personal"&gt;注册于[regTime]&lt;/p&gt;&lt;pre
 									id="area-sign-personal" title="单击修改签名"
 									data-direction="bottom"&gt;[sign]&lt;i class="icon
 									icon-edit"&gt;&lt;/i&gt;&lt;/pre&gt;&lt;/div&gt;&lt;span
@@ -597,22 +596,23 @@
 									<div id="unit-basic" class="">
 										<div class="l a">
 											<a href="page/change-avatar.jsp" class="thumb"><img
-												id="img-avatar-personal" title="单击修改头像"
-												src="img/avatar.jpg" class="avatar"></a>
+												id="img-avatar-personal" title="单击修改头像" src=""
+												class="avatar"></a>
 										</div>
 										<div class="l b">
 											<a id="name-personal"
-												href="http://www.acfun.cn/u/8150118.aspx" class="name">李玄雨丶</a><span
-												id="uid-personal">Uid:8150118</span><a
-												href="http://www.acfun.cn/info/#page=limit" target="_blank"
+												href=""
+												class="name"></a><span
+												id="uid-personal"></span><a
+												 target="_blank"
 												class="group group-zhengshi">正式会员</a><a
 												style="display: none;"
-												href="http://www.acfun.cn/info/#page=limit" target="_blank"
+												 target="_blank"
 												class="group group-zhuce">注册会员</a><a style="display: none;"
 												class="answer">[游戏答题转正]</a>
-											<p id="hint-reg-personal">注册于 2016年11月14日(星期一) 19时27分</p>
+											<p id="hint-reg-personal">注册于xxxxx</p>
 											<pre id="area-sign-personal" title="单击修改签名"
-												data-direction="bottom">这个人很懒，什么都没有写...<i
+												data-direction="bottom" style="opacity: 1; visibility: visible;"><i
 													class="icon icon-edit"></i>
 											</pre>
 										</div>
@@ -649,26 +649,13 @@
 											<p class="subtitle">性别</p>
 										</div>
 										<div class="l b">
-											<select id="ipt-gender-personal"><option value="-1">不公开</option>
-												<option selected="selected" value="1">男</option>
-												<option value="0">女</option></select>
+											<select id="ipt-gender-personal"><option value="不公开">不公开</option>
+												<option  value="男">男</option>
+												<option value="女">女</option></select>
 										</div>
 										<span class="clearfix"></span>
 									</div>
-									<div class="unit">
-										<div class="l a">
-											<p class="subtitle">性取向</p>
-										</div>
-										<div class="l b">
-											<select id="ipt-sex-personal"><option
-													selected="selected" value="-1">不公开</option>
-												<option value="1">异性恋</option>
-												<option value="0">同性恋</option>
-												<option value="2">双性恋</option>
-												<option value="3">其它</option></select>
-										</div>
-										<span class="clearfix"></span>
-									</div>
+									
 									<p class="sub-divider"></p>
 									<div class="unit">
 										<div class="l a">
@@ -676,7 +663,8 @@
 										</div>
 										<div class="l b">
 											<input placeholder="请输入真实姓名" id="ipt-truename-personal"
-												data-name="真实姓名" data-length="0,8" class="name" type="text">
+												data-name="真实姓名" data-length="0,8" class="name" type="text"
+												value="">
 										</div>
 										<span class="clearfix"></span>
 									</div>
@@ -685,9 +673,9 @@
 											<p class="subtitle">邮箱地址</p>
 										</div>
 										<div class="l b">
-											<span id="ipt-email-personal">xxxxqq.com</span><a
+											<span id="ipt-email-personal"></span><a
 												href="page/change-email.jsp" class="btn success r"><span>修改邮箱</span>
-											<div class="i icon icon-angle-right"></div></a>
+												<div class="i icon icon-angle-right"></div></a>
 										</div>
 										<span class="clearfix"></span>
 									</div>
@@ -696,11 +684,11 @@
 											<p class="subtitle">手机号码</p>
 										</div>
 										<div class="l b">
-											<span id="ipt-tel-personal" class="l">xxxxxxx</span><a
+											<span id="ipt-tel-personal" class="l"></span><a
 												href="page/change-phone.jsp"
 												class="btn success r verify-mobile"><span
 												class="change-mobile">修改电话</span>
-											<div class="i icon icon-angle-right"></div></a>
+												<div class="i icon icon-angle-right"></div></a>
 										</div>
 										<span class="clearfix"></span>
 									</div>
@@ -758,17 +746,7 @@
     input#ipt-tel-personal.tel(data-name="联系电话", data-length="0,20", type="tel")
 span.clearfix-->
 									<p class="sub-divider"></p>
-									<div class="unit">
-										<div class="l a">
-											<p class="subtitle">个人主页</p>
-										</div>
-										<div class="l b">
-											<input placeholder="请输入个人空间地址" id="ipt-home-personal"
-												data-name="个人空间地址" data-length="0,63" class="req"
-												type="text">
-										</div>
-										<span class="clearfix"></span>
-									</div>
+									
 									<div class="unit">
 										<div class="l a">
 											<p class="subtitle">QQ号码</p>
@@ -776,7 +754,7 @@ span.clearfix-->
 										<div class="l b">
 											<input placeholder="请输入QQ号码" id="ipt-qq-personal"
 												data-name="QQ号码" data-length="0,63" class="number"
-												type="text">
+												type="text" value="">
 										</div>
 										<span class="clearfix"></span>
 									</div>
@@ -788,7 +766,7 @@ span.clearfix-->
 									</div>
 								</div>
 							</div>
-							<script>(function(){var e,r,a,n,t,s;e=$("#block-second"),n=e.find("div.mainer:first"),t=$("#ipt-location-a-personal"),s=$("#ipt-location-b-personal"),t.change(function(){var e,r,a,n,i;for(e=["不限"],e=function(){switch(t.val()){case"安徽":return["不限","合肥","芜湖","蚌埠","淮南","马鞍山","淮北","铜陵","安庆","黄山","滁州","阜阳","宿州","巢湖","六安","亳州","池州","宣城"];case"北京":return["不限","东城区","西城区","崇文区","宣武区","朝阳区","丰台区","石景山区","海淀区","门头沟区","房山区","通州区","顺义区","昌平区","大兴区","怀柔区","平谷区","密云县","延庆县"];case"重庆":return["不限","万州区","涪陵区","渝中区","大渡口区","江北区","沙坪坝区","九龙坡区","南岸区","北碚区","万盛区","双桥区","渝北区","巴南区","黔江区","长寿区","綦江县","潼南县","铜梁县","大足县","荣昌县","璧山县","梁平县","城口县","丰都县","垫江县","武隆县","忠县","开县","云阳县","奉节县","巫山县","巫溪县","石柱土家族自治县","秀山土家族苗族自治县","酉阳土家族苗族自治县","彭水苗族土家族自治县","江津区","合川区","永川区","南川区"];case"福建":return["不限","福州","厦门","莆田","三明","泉州","漳州","南平","龙岩","宁德"];case"甘肃":return["不限","兰州","嘉峪关","金昌","白银","天水","武威","张掖","平凉","酒泉","庆阳","定西","陇南","临夏","甘南"];case"广东":return["不限","广州","韶关","深圳","珠海","汕头","佛山","江门","湛江","茂名","肇庆","惠州","梅州","汕尾","河源","阳江","清远","东莞","中山","潮州","揭阳","云浮"];case"广西":return["不限","南宁","柳州","桂林","梧州","北海","防城港","钦州","贵港","玉林","百色","贺州","河池","来宾","崇左"];case"贵州":return["不限","贵阳","六盘水","遵义","安顺","铜仁","黔西南","毕节","黔东南","黔南"];case"海南":return["不限","海口","三亚","三沙","其它"];case"河北":return["不限","石家庄","唐山","秦皇岛","邯郸","邢台","保定","张家口","承德","沧州","廊坊","衡水"];case"黑龙江":return["不限","哈尔滨","齐齐哈尔","鸡西","鹤岗","双鸭山","大庆","伊春","佳木斯","七台河","牡丹江","黑河","绥化","大兴安岭"];case"河南":return["不限","郑州","开封","洛阳","平顶山","安阳","鹤壁","新乡","焦作","濮阳","许昌","漯河","三门峡","南阳","商丘","信阳","周口","驻马店","济源"];case"湖北":return["不限","武汉","黄石","十堰","宜昌","襄阳","鄂州","荆门","孝感","荆州","黄冈","咸宁","随州","恩施土家族苗族自治州","仙桃","潜江","天门","神农架"];case"湖南":return["不限","长沙","株洲","湘潭","衡阳","邵阳","岳阳","常德","张家界","益阳","郴州","永州","怀化","娄底","湘西土家族苗族自治州"];case"内蒙古":return["不限","呼和浩特","包头","乌海","赤峰","通辽","鄂尔多斯","呼伦贝尔","兴安盟","锡林郭勒盟","乌兰察布盟","巴彦淖尔盟","阿拉善盟"];case"江苏":return["不限","南京","无锡","徐州","常州","苏州","南通","连云港","淮安","盐城","扬州","镇江","泰州","宿迁"];case"江西":return["不限","南昌","景德镇","萍乡","九江","新余","鹰潭","赣州","吉安","宜春","抚州","上饶"];case"吉林":return["不限","长春","吉林","四平","辽源","通化","白山","松原","白城","延边朝鲜族自治州"];case"辽宁":return["不限","沈阳","大连","鞍山","抚顺","本溪","丹东","锦州","营口","阜新","辽阳","盘锦","铁岭","朝阳","葫芦岛"];case"宁夏":return["不限","银川","石嘴山","吴忠","固原","中卫"];case"青海":return["不限","西宁","海东","海北","黄南","海南","果洛","玉树","海西"];case"山西":return["不限","太原","大同","阳泉","长治","晋城","朔州","晋中","运城","忻州","临汾","吕梁"];case"山东":return["不限","济南","青岛","淄博","枣庄","东营","烟台","潍坊","济宁","泰安","威海","日照","莱芜","临沂","德州","聊城","滨州","菏泽"];case"上海":return["不限","黄浦区","卢湾区","徐汇区","长宁区","静安区","普陀区","闸北区","虹口区","杨浦区","闵行区","宝山区","嘉定区","浦东新区","金山区","松江区","青浦区","南汇区","奉贤区","崇明县"];case"四川":return["不限","成都","自贡","攀枝花","泸州","德阳","绵阳","广元","遂宁","内江","乐山","南充","眉山","宜宾","广安","达州","雅安","巴中","资阳","阿坝","甘孜","凉山"];case"天津":return["不限","和平区","河东区","河西区","南开区","河北区","红桥区","塘沽区","汉沽区","大港区","东丽区","西青区","津南区","北辰区","武清区","宝坻区","宁河县","静海县","蓟县","滨海新区","保税区"];case"西藏":return["不限","拉萨","昌都","山南","日喀则","那曲","阿里","林芝"];case"新疆":return["不限","乌鲁木齐","克拉玛依","吐鲁番","哈密","昌吉","博尔塔拉","巴音郭楞","阿克苏","克孜勒苏","喀什","和田","伊犁","塔城","阿勒泰","石河子"];case"云南":return["不限","昆明","曲靖","玉溪","保山","昭通","楚雄","红河","文山","思茅","西双版纳","大理","德宏","丽江","怒江","迪庆","临沧"];case"浙江":return["不限","杭州","宁波","温州","嘉兴","湖州","绍兴","金华","衢州","舟山","台州","丽水"];case"陕西":return["不限","西安","铜川","宝鸡","咸阳","渭南","延安","汉中","榆林","安康","商洛"];case"台湾":return["不限","台北市","高雄市","基隆市","台中市","台南市","新竹市","嘉义市","台北县","宜兰县","桃园县","新竹县","苗栗县","台中县","彰化县","南投县","云林县","嘉义县","台南县","高雄县","屏东县","澎湖县","台东县","花莲县","其它"];case"香港":return["不限","中西区","东区","九龙城区","观塘区","南区","深水埗区","黄大仙区","湾仔区","油尖旺区","离岛区","葵青区","北区","西贡区","沙田区","屯门区","大埔区","荃湾区","元朗区","其它"];case"澳门":return["不限","花地玛堂区","圣安多尼堂区","大堂区","望德堂区","风顺堂区","氹仔","路环","其它"];case"海外":return["不限","美国","英国","法国","俄罗斯","加拿大","巴西","澳大利亚","印尼","泰国","马来西亚","新加坡","菲律宾","越南","印度","日本","新西兰","韩国","德国","意大利","爱尔兰","荷兰","瑞士","乌克兰","南非","芬兰","瑞典","奥地利","西班牙","比利时","挪威","丹麦","波兰","阿根廷","白俄罗斯","哥伦比亚","古巴","埃及","希腊","匈牙利","伊朗","蒙古","墨西哥","葡萄牙","沙特阿拉伯","土耳其","其它"];case"其它":return["不限"];default:return["不公开"]}}(),a="",n=0,i=e.length;i>n;n++)r=e[n],a+='<option value="'+r+'">'+r+"</option>";return s.html(a)}),$("#btn-sign-personal").click(function(){var e;return e=$("#area-sign-personal"),e.edit({width:$("#hint-reg-personal").width()-4,hide:!0,callback:function(r){return m.changeSign({singer:e,sign:$.parseSafe($.trim(r))})}})}),r=$("#block-user-left .group").eq(0),a=r.data().group,$("#block-second div.form").setup({finish:function(){var e,r;return r=$("#unit-basic"),e=$("#temp-basic").html(),r.html($.parseTemp(e,{name:user.name,uid:user.uid,avatar:user.avatar,sign:$("#block-user-left").children(".desc").html().replace(/<i.*?<\/i>/,""),email:user.email,regTime:""})).removeClass("hidden"),$.get("/member/profile.aspx").done(function(t){var s,i;return t.success?(r.html($.parseTemp(e,{name:t.username,uid:t.uid,avatar:t.userImg,sign:t.sign||"这个人很懒，什么都没有写...",email:t.email,regTime:$.parseTime(t.regTime)})),a>0?(r.find(".group-zhuce").hide(),r.find(".answer").hide()):(r.find(".group-zhengshi").hide(),r.find(".answer").on("click",function(e){var r,a;return e.preventDefault(),r=$(this),a="../html/pop",a=-1===a.search(/http\:\/\//)?"/dotnet/date/html/"+a+".html":a,a+=$.salt(),$.get(a).done(function(e){return $("#mainer").append("<div>"+e+"</div>"),StartAnsQues(r)}).fail(function(){return $.info("error::通信失败！")})})),$("#area-sign-personal").click(function(){return $("#btn-sign-personal").click()}),$("#ipt-truename-personal").val($.parseSafe(t.realname)),$("#ipt-home-personal").val($.parseSafe(t.blog)),$("#ipt-qq-personal").val($.parseSafe(t.qq)),t.moblie?($("#ipt-tel-personal").html($.parseSafe(t.moblie).replace(/^(\d{3})\d{0,9}(\d{2})$/,"$1****$2")),t.mobileCheck||$("#ipt-tel-personal").parent().append('<span class="ext-info">验证成功后可获得改名卡一张</span>')):$("#ipt-tel-personal").html("验证成功后可获得改名卡一张").css({color:"red"}),t.email?$("#ipt-email-personal").html($.parseSafe(t.email)).next().attr({href:"#area=change-email"}).children("span").html("修改邮箱"):$("#ipt-email-personal").html("验证成功后可获得3香蕉奖励").css({color:"red"}),t.mobileCheck&&$("#ipt-tel-personal").next().attr({href:"#area=change-phone"}).children("span").html("修改电话").removeClass("verify-mobile").addClass("change-mobile"),t.comefrom&&(s=t.comefrom.split(","),$("#ipt-location-a-personal").val(s[0]).change(),setTimeout(function(){return $("#ipt-location-b-personal").val(s[1])},20)),i=t.gender?-1===t.gender?-1:1:0,$("#ipt-gender-personal").val(i),$("#ipt-sex-personal").val(t.sextrend)):(n.prepend('<p class="alert alert-danger">'+t.result+"</p>"),$.info("warning::"+t.result))}).fail(function(){return n.prepend('<p class="alert alert-danger">获取用户资料失败。请于稍后重试。</p>'),$.info("error::获取用户资料失败。请于稍后重试。")})},callback:function(){return $.post("/member/profileSubmit.aspx",{comefrom:($("#ipt-location-a-personal").val()+","+$("#ipt-location-b-personal").val()).replace(/\,?不公开/g,""),qq:function(){var e;return e=$.parseSafe($("#ipt-qq-personal").val()),e=-1!==e.search("请输入")?"":e},blog:function(){var e;return e=$.parseSafe($("#ipt-home-personal").val()),e=-1!==e.search("请输入")?"":e},realname:function(){var e;return e=$.parseSafe($("#ipt-truename-personal").val()),e=-1!==e.search("请输入")?"":e},gender:$("#ipt-gender-personal").val(),sextrend:$("#ipt-sex-personal").val()}).done(function(e){return e.success?($.info("success::扩展信息修改成功。"),m.refreshPart(),$$("#curtain").click()):$.info("warning::"+e.result)}).fail(function(){return $.info("error::同服务器通信失败。请于稍后重试。")})}})}).call(this);</script>
+							<script>(function(){var e,r,a,n,t,s;e=$("#block-second"),n=e.find("div.mainer:first"),t=$("#ipt-location-a-personal"),s=$("#ipt-location-b-personal"),t.change(function(){var e,r,a,n,i;for(e=["不限"],e=function(){switch(t.val()){case"安徽":return["不限","合肥","芜湖","蚌埠","淮南","马鞍山","淮北","铜陵","安庆","黄山","滁州","阜阳","宿州","巢湖","六安","亳州","池州","宣城"];case"北京":return["不限","东城区","西城区","崇文区","宣武区","朝阳区","丰台区","石景山区","海淀区","门头沟区","房山区","通州区","顺义区","昌平区","大兴区","怀柔区","平谷区","密云县","延庆县"];case"重庆":return["不限","万州区","涪陵区","渝中区","大渡口区","江北区","沙坪坝区","九龙坡区","南岸区","北碚区","万盛区","双桥区","渝北区","巴南区","黔江区","长寿区","綦江县","潼南县","铜梁县","大足县","荣昌县","璧山县","梁平县","城口县","丰都县","垫江县","武隆县","忠县","开县","云阳县","奉节县","巫山县","巫溪县","石柱土家族自治县","秀山土家族苗族自治县","酉阳土家族苗族自治县","彭水苗族土家族自治县","江津区","合川区","永川区","南川区"];case"福建":return["不限","福州","厦门","莆田","三明","泉州","漳州","南平","龙岩","宁德"];case"甘肃":return["不限","兰州","嘉峪关","金昌","白银","天水","武威","张掖","平凉","酒泉","庆阳","定西","陇南","临夏","甘南"];case"广东":return["不限","广州","韶关","深圳","珠海","汕头","佛山","江门","湛江","茂名","肇庆","惠州","梅州","汕尾","河源","阳江","清远","东莞","中山","潮州","揭阳","云浮"];case"广西":return["不限","南宁","柳州","桂林","梧州","北海","防城港","钦州","贵港","玉林","百色","贺州","河池","来宾","崇左"];case"贵州":return["不限","贵阳","六盘水","遵义","安顺","铜仁","黔西南","毕节","黔东南","黔南"];case"海南":return["不限","海口","三亚","三沙","其它"];case"河北":return["不限","石家庄","唐山","秦皇岛","邯郸","邢台","保定","张家口","承德","沧州","廊坊","衡水"];case"黑龙江":return["不限","哈尔滨","齐齐哈尔","鸡西","鹤岗","双鸭山","大庆","伊春","佳木斯","七台河","牡丹江","黑河","绥化","大兴安岭"];case"河南":return["不限","郑州","开封","洛阳","平顶山","安阳","鹤壁","新乡","焦作","濮阳","许昌","漯河","三门峡","南阳","商丘","信阳","周口","驻马店","济源"];case"湖北":return["不限","武汉","黄石","十堰","宜昌","襄阳","鄂州","荆门","孝感","荆州","黄冈","咸宁","随州","恩施土家族苗族自治州","仙桃","潜江","天门","神农架"];case"湖南":return["不限","长沙","株洲","湘潭","衡阳","邵阳","岳阳","常德","张家界","益阳","郴州","永州","怀化","娄底","湘西土家族苗族自治州"];case"内蒙古":return["不限","呼和浩特","包头","乌海","赤峰","通辽","鄂尔多斯","呼伦贝尔","兴安盟","锡林郭勒盟","乌兰察布盟","巴彦淖尔盟","阿拉善盟"];case"江苏":return["不限","南京","无锡","徐州","常州","苏州","南通","连云港","淮安","盐城","扬州","镇江","泰州","宿迁"];case"江西":return["不限","南昌","景德镇","萍乡","九江","新余","鹰潭","赣州","吉安","宜春","抚州","上饶"];case"吉林":return["不限","长春","吉林","四平","辽源","通化","白山","松原","白城","延边朝鲜族自治州"];case"辽宁":return["不限","沈阳","大连","鞍山","抚顺","本溪","丹东","锦州","营口","阜新","辽阳","盘锦","铁岭","朝阳","葫芦岛"];case"宁夏":return["不限","银川","石嘴山","吴忠","固原","中卫"];case"青海":return["不限","西宁","海东","海北","黄南","海南","果洛","玉树","海西"];case"山西":return["不限","太原","大同","阳泉","长治","晋城","朔州","晋中","运城","忻州","临汾","吕梁"];case"山东":return["不限","济南","青岛","淄博","枣庄","东营","烟台","潍坊","济宁","泰安","威海","日照","莱芜","临沂","德州","聊城","滨州","菏泽"];case"上海":return["不限","黄浦区","卢湾区","徐汇区","长宁区","静安区","普陀区","闸北区","虹口区","杨浦区","闵行区","宝山区","嘉定区","浦东新区","金山区","松江区","青浦区","南汇区","奉贤区","崇明县"];case"四川":return["不限","成都","自贡","攀枝花","泸州","德阳","绵阳","广元","遂宁","内江","乐山","南充","眉山","宜宾","广安","达州","雅安","巴中","资阳","阿坝","甘孜","凉山"];case"天津":return["不限","和平区","河东区","河西区","南开区","河北区","红桥区","塘沽区","汉沽区","大港区","东丽区","西青区","津南区","北辰区","武清区","宝坻区","宁河县","静海县","蓟县","滨海新区","保税区"];case"西藏":return["不限","拉萨","昌都","山南","日喀则","那曲","阿里","林芝"];case"新疆":return["不限","乌鲁木齐","克拉玛依","吐鲁番","哈密","昌吉","博尔塔拉","巴音郭楞","阿克苏","克孜勒苏","喀什","和田","伊犁","塔城","阿勒泰","石河子"];case"云南":return["不限","昆明","曲靖","玉溪","保山","昭通","楚雄","红河","文山","思茅","西双版纳","大理","德宏","丽江","怒江","迪庆","临沧"];case"浙江":return["不限","杭州","宁波","温州","嘉兴","湖州","绍兴","金华","衢州","舟山","台州","丽水"];case"陕西":return["不限","西安","铜川","宝鸡","咸阳","渭南","延安","汉中","榆林","安康","商洛"];case"台湾":return["不限","台北市","高雄市","基隆市","台中市","台南市","新竹市","嘉义市","台北县","宜兰县","桃园县","新竹县","苗栗县","台中县","彰化县","南投县","云林县","嘉义县","台南县","高雄县","屏东县","澎湖县","台东县","花莲县","其它"];case"香港":return["不限","中西区","东区","九龙城区","观塘区","南区","深水埗区","黄大仙区","湾仔区","油尖旺区","离岛区","葵青区","北区","西贡区","沙田区","屯门区","大埔区","荃湾区","元朗区","其它"];case"澳门":return["不限","花地玛堂区","圣安多尼堂区","大堂区","望德堂区","风顺堂区","氹仔","路环","其它"];case"海外":return["不限","美国","英国","法国","俄罗斯","加拿大","巴西","澳大利亚","印尼","泰国","马来西亚","新加坡","菲律宾","越南","印度","日本","新西兰","韩国","德国","意大利","爱尔兰","荷兰","瑞士","乌克兰","南非","芬兰","瑞典","奥地利","西班牙","比利时","挪威","丹麦","波兰","阿根廷","白俄罗斯","哥伦比亚","古巴","埃及","希腊","匈牙利","伊朗","蒙古","墨西哥","葡萄牙","沙特阿拉伯","土耳其","其它"];case"其它":return["不限"];default:return["不公开"]}}(),a="",n=0,i=e.length;i>n;n++)r=e[n],a+='<option value="'+r+'">'+r+"</option>";return s.html(a)}),r=$("#block-user-left .group").eq(0),a=r.data().group,$("#block-second div.form").setup({finish:function(){var e,r;return r=$("#unit-basic"),e=$("#temp-basic").html(),r.html($.parseTemp(e,{name:user.name,uid:user.uid,avatar:user.avatar,sign:$("#block-user-left").children(".desc").html().replace(/<i.*?<\/i>/,""),email:user.email,regTime:""})).removeClass("hidden"),$.get("/member/profile.aspx").done(function(t){var s,i;return t.success?(r.html($.parseTemp(e,{name:t.username,uid:t.uid,avatar:t.userImg,sign:t.sign||"这个人很懒，什么都没有写...",email:t.email,regTime:$.parseTime(t.regTime)})),a>0?(r.find(".group-zhuce").hide(),r.find(".answer").hide()):(r.find(".group-zhengshi").hide(),r.find(".answer").on("click",function(e){var r,a;return e.preventDefault(),r=$(this),a="../html/pop",a=-1===a.search(/http\:\/\//)?"/dotnet/date/html/"+a+".html":a,a+=$.salt(),$.get(a).done(function(e){return $("#mainer").append("<div>"+e+"</div>"),StartAnsQues(r)}).fail(function(){return $.info("error::通信失败！")})})),$("#area-sign-personal").click(function(){return $("#btn-sign-personal").click()}),$("#ipt-truename-personal").val($.parseSafe(t.realname)),$("#ipt-home-personal").val($.parseSafe(t.blog)),$("#ipt-qq-personal").val($.parseSafe(t.qq)),t.moblie?($("#ipt-tel-personal").html($.parseSafe(t.moblie).replace(/^(\d{3})\d{0,9}(\d{2})$/,"$1****$2")),t.mobileCheck||$("#ipt-tel-personal").parent().append('<span class="ext-info">验证成功后可获得改名卡一张</span>')):$("#ipt-tel-personal").html("验证成功后可获得改名卡一张").css({color:"red"}),t.email?$("#ipt-email-personal").html($.parseSafe(t.email)).next().attr({href:"#area=change-email"}).children("span").html("修改邮箱"):$("#ipt-email-personal").html("验证成功后可获得3香蕉奖励").css({color:"red"}),t.mobileCheck&&$("#ipt-tel-personal").next().attr({href:"#area=change-phone"}).children("span").html("修改电话").removeClass("verify-mobile").addClass("change-mobile"),t.comefrom&&(s=t.comefrom.split(","),$("#ipt-location-a-personal").val(s[0]).change(),setTimeout(function(){return $("#ipt-location-b-personal").val(s[1])},20)),i=t.gender?-1===t.gender?-1:1:0,$("#ipt-gender-personal").val(i),$("#ipt-sex-personal").val(t.sextrend)):(n.prepend('<p class="alert alert-danger">'+t.result+"</p>"),$.info("warning::"+t.result))}).fail(function(){return n.prepend('<p class="alert alert-danger">获取用户资料失败。请于稍后重试。</p>'),$.info("error::获取用户资料失败。请于稍后重试。")})},callback:function(){return $.post("/member/profileSubmit.aspx",{comefrom:($("#ipt-location-a-personal").val()+","+$("#ipt-location-b-personal").val()).replace(/\,?不公开/g,""),qq:function(){var e;return e=$.parseSafe($("#ipt-qq-personal").val()),e=-1!==e.search("请输入")?"":e},blog:function(){var e;return e=$.parseSafe($("#ipt-home-personal").val()),e=-1!==e.search("请输入")?"":e},realname:function(){var e;return e=$.parseSafe($("#ipt-truename-personal").val()),e=-1!==e.search("请输入")?"":e},gender:$("#ipt-gender-personal").val(),sextrend:$("#ipt-sex-personal").val()}).done(function(e){return e.success?($.info("success::扩展信息修改成功。"),m.refreshPart(),$$("#curtain").click()):$.info("warning::"+e.result)}).fail(function(){return $.info("error::同服务器通信失败。请于稍后重试。")})}})}).call(this);</script>
 						</div>
 					</div>
 					<span class="clearfix"></span>
@@ -913,13 +891,9 @@ span.clearfix-->
 			</div>
 		</div>
 	</div>
-	
+
 	<script style="color: rgb(0, 0, 0);">var globalConfig = {version: "0.8.8"};</script>
-	<!--[if lt IE 8]><script src="http://cdn.aixifan.com/dotnet/20130418/??script/json2.js,script/jquery.1.11.1.min.js,script/prepare.0.0.5.min.js,script/jquery.md5.min.js"></script><![endif]-->
-	<!--[if IE 8]><script src="http://cdn.aixifan.com/dotnet/20130418/??script/jquery.1.11.1.min.js,script/prepare.0.0.5.min.js,script/jquery.md5.min.js"></script><![endif]-->
-	<!--[if (gte IE 9)|!(IE)]><!-->
-	
-	<!--<![endif]-->
+
 	<script>var path={base:"http://www.acfun.cn",cdn:"http://cdn.aixifan.com",ssl:"https://ssl.acfun.tv",api:"http://api.acfun.cn"},date=1484019945341;</script>
 
 	<script>(function () {
@@ -928,6 +902,9 @@ span.clearfix-->
         $('#app-footer-link .bg-new-app').addClass('new');
     }
 })();</script>
-	
+
+	<script type="text/javascript" src="js/click.js"></script>
+	<script type="text/javascript" src="js/userinfo.js"></script>
+	<script type="text/javascript" src="js/profile.js"></script>
 </body>
 </html>

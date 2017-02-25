@@ -1,0 +1,15 @@
+2017-02-19 14:54:28,376 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select * from user where user_id=? 
+2017-02-19 14:54:28,400 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 10001(Integer)
+2017-02-19 14:54:28,423 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1
+2017-02-19 14:55:08,216 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select * from user where user_id=? 
+2017-02-19 14:55:08,242 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 10001(Integer)
+2017-02-19 14:55:08,270 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1
+2017-02-19 15:26:14,296 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select * from user where user_id=? 
+2017-02-19 15:26:14,315 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 10001(Integer)
+2017-02-19 15:26:14,335 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1
+2017-02-19 16:39:46,056 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select * from user where user_id=? 
+2017-02-19 16:39:46,080 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 10001(Integer)
+2017-02-19 16:39:46,104 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1
+2017-02-19 17:28:43,550 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select * from user where user_id=? 
+2017-02-19 17:28:43,570 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 10001(Integer)
+2017-02-19 17:28:43,592 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1
