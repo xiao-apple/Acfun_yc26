@@ -1,0 +1,68 @@
+.info-box {
+	position: fixed;
+	left: 0;
+	bottom: 45px;
+	font-size: 12px;
+	line-height: 18px;
+	z-index: 10;
+}
+
+.info-box p {
+	position: relative;
+	z-index: 11;
+	display: table;
+	margin: 0 0 8px 0;
+	padding: 0 8px 0 4px;
+	width: auto;
+	height: auto;
+	border-left: 4px solid #0068b8;
+	border-radius: 1px;
+	background-color: #0074cc;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+	color: #fff;
+	white-space: pre-wrap;
+	word-break: break-all;
+	font-size: 12px;
+	line-height: 24px;
+	left: -100%;
+}
+
+.info-box p.info {
+	background: #205f98;
+	border-color: #1d5589
+}
+
+.info-box p.error {
+	background: #df4d34;
+	border-color: #d63c22
+}
+
+.info-box p.success {
+	background: #97ba00;
+	border-color: #88a700
+}
+
+.info-box p.warning {
+	background: #f89100;
+	border-color: #df8300
+}
+
+.info-box p i {
+	font-size: 15px;
+	margin-right: 5px;
+	vertical-align: middle
+}
+
+.info-rise {
+	z-index: 10;
+	position: absolute;
+	padding: 0 4px;
+	border-radius: 1px;
+	background-color: #f69;
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+	color: #fff;
+	text-align: center;
+	font-size: 12px;
+	line-height: 1.5;
+	cursor: default
+}

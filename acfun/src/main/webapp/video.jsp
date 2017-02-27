@@ -4,18 +4,16 @@
 <html>
 <head>
 <base href="/acfun/">
-<title>${vinfo.title} - AcFun弹幕视频网 - 认真你就输啦 (?ω?)ノ- ( ゜- ゜)つロ</title>
+<title>${vinfo.title}- AcFun弹幕视频网 - 认真你就输啦 (?ω?)ノ- ( ゜- ゜)つロ</title>
 <link href="http://cdn.aixifan.com/ico/favicon.ico" rel="shortcut icon">
-<link rel="stylesheet"
-	href="css/core.css">
-<link rel="stylesheet"
-	href="css/detail.css">
-<link rel="stylesheet"
-	href="css/comm_v.css">
+<link rel="stylesheet" href="css/core.css">
+<link rel="stylesheet" href="css/detail.css">
+<link rel="stylesheet" href="css/comm_v.css">
 <link href="css/scojs.css" rel="stylesheet">
 <link href="css/colpick.css" rel="stylesheet">
 <link href="css/bootstrap.css" rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
+<link href="umeditor/themes/default/css/umeditor.css" rel="stylesheet">
 <style>
 section.player #player.small {
 	left: 904.5px
@@ -39,8 +37,7 @@ section.player #player.small {
 			<div class="clearfix wp nav-parent">
 				<ul class="fl">
 					<h1 class="fl logo">
-						<a href="http://www.acfun.cn/"><img
-							src="images/logo.png"
+						<a href="http://www.acfun.cn/"><img src="images/logo.png"
 							height="27" width="88"></a>
 					</h1>
 					<li data-category="105" data-cid="0"><a
@@ -73,16 +70,14 @@ section.player #player.small {
 				<ol id="header-guide" class="fr header-guide">
 					<li class="guide-item guide-user"><a
 						href="http://www.acfun.cn/member/" target="_blank"
-						class="user-avatar item"><img
-							src="images/avatar.jpg"
+						class="user-avatar item"><img src="images/avatar.jpg"
 							height="30" width="30"></a><a href="/acfun/login.jsp"
 						target="_blank" class="item user-login">登录/注册</a><span
 						class="user-message-count hidden"></span>
-					<div class="guide-item-con">
+						<div class="guide-item-con">
 							<p class="clearfix">
 								<a href="http://www.acfun.cn/member/" target="_blank"
-									class="fl user-name"></a><a
-									href="/acfun/user/logout"
+									class="fl user-name"></a><a href="/acfun/user/logout"
 									class="fr icon icon-logout user-logout">退出</a>
 							</p>
 							<div id="user-message" class="user-message"></div>
@@ -92,16 +87,15 @@ section.player #player.small {
 					<li class="guide-item guide-history"><a
 						href="http://www.acfun.cn/member/#area=history" target="_blank"
 						class="icon icon-history item"></a>
-					<div class="guide-item-con">
+						<div class="guide-item-con">
 							<ul></ul>
 							<a href="http://www.acfun.cn/member/#area=history"
 								target="_blank" class="more">查看更多</a>
-						</div>
-						<script id="temp-history" type="text/template"><li><a href="[url]" target="_blank">[title]</a><p>浏览于[time]</p></li></script></li>
+						</div> <script id="temp-history" type="text/template"><li><a href="[url]" target="_blank">[title]</a><p>浏览于[time]</p></li></script></li>
 					<li class="guide-item guide-upload"><a
 						href="http://www.acfun.cn/member/#area=upload-video"
 						target="_blank" class="icon icon-upload item"></a>
-					<div class="guide-item-con">
+						<div class="guide-item-con">
 							<ul>
 								<li><a href="http://www.acfun.cn/member/#area=upload-video"
 									target="_blank">投视频</a></li>
@@ -118,7 +112,9 @@ section.player #player.small {
 						action="http://www.acfun.cn/search/">
 						<input id="search-text" placeholder="逗鱼时刻"
 							data-url="http://www.acfun.cn/v/ac3478844" autocomplete="off"
-							type="text"><button id="search-btn" class="search-btn"><i class="icon icon-search"></i><span>搜索</span>
+							type="text">
+						<button id="search-btn" class="search-btn">
+							<i class="icon icon-search"></i><span>搜索</span>
 						</button>
 						<div class="search-result hidden"></div>
 						<script id="temp-search-hot" type="text/template"><div class="hot-search">今日热搜</div><ul class="search-hot-ul"><li class="search-hot-item"><a id="hot-key-count-1" href="http://www.acfun.cn/search/#query=全境通告" target="_blank"><span class="num">1</span><b>全境通告</b></a></li><li class="search-hot-item"><a id="hot-key-count-2" href="http://www.acfun.cn/search/#query=大秦帝国" target="_blank"><span class="num">2</span><b>大秦帝国</b></a></li><li class="search-hot-item"><a id="hot-key-count-3" href="http://www.acfun.cn/search/#query=如朕亲临" target="_blank"><span class="num">3</span><b>如朕亲临</b></a></li><li><a id="hot-key-count-4" href="http://www.acfun.cn/search/#query=Voice" target="_blank"><span class="num">4</span><b>Voice</b></a></li><li><a id="hot-key-count-5" href="http://www.acfun.cn/search/#query=海豹六队" target="_blank"><span class="num">5</span><b>海豹六队</b></a></li><li><a id="hot-key-count-6" href="http://www.acfun.cn/search/#query=四重奏" target="_blank"><span class="num">6</span><b>四重奏</b></a></li><li><a id="hot-key-count-7" href="http://www.acfun.cn/search/#query=明天我们要结婚" target="_blank"><span class="num">7</span><b>明天我们要结婚</b></a></li></ul></script>
@@ -357,12 +353,12 @@ section.player #player.small {
 				}
 			</script>
 			<div id="pageInfo" data-title="${vinfo.title}"
-				data-desc="${vinfo.description}"
-				data-name="${vinfo.username}" data-view="${vinfo.viewCount}" data-collect="${vinfo.favoriteCount}"
-				data-comment="${vinfo.commentCount}"
-				data-pic="${vinfo.coverImg}"
-				data-cid="${vinfo.channelId}" data-pcid="${vinfo.parentChannelId}" data-aid="${vinfo.id}"
-				data-uid="${vinfo.userId}" data-vpath="${vinfo.videoPath}"></div>
+				data-desc="${vinfo.description}" data-name="${vinfo.username}"
+				data-view="${vinfo.viewCount}" data-collect="${vinfo.favoriteCount}"
+				data-comment="${vinfo.commentCount}" data-pic="${vinfo.coverImg}"
+				data-cid="${vinfo.channelId}" data-pcid="${vinfo.parentChannelId}"
+				data-aid="${vinfo.id}" data-uid="${vinfo.userId}"
+				data-vpath="${vinfo.videoPath}"></div>
 			<div class="title">${vinfo.title}</div>
 			<div class="crumbs">
 				<div id="bd_crumb" class="fl">
@@ -371,15 +367,15 @@ section.player #player.small {
 						class="sp4">&gt;</span><a
 						href="http://www.acfun.cn/v/list135/index.htm" class="sp5">${vinfo.channelName}</a><a
 						href="/acfun/u/${vinfo.userId}" target="_blank"
-						class="avatar-wrap"><img
-						src="${vinfo.userAvatar}"
+						class="avatar-wrap"><img src="${vinfo.userAvatar}"
 						class="avatar"></a><a href="/acfun/u/${vinfo.userId}"
-						target="_blank" class="name-wrap">${vinfo.username}</a><span class="sp6">发布于</span>
+						target="_blank" class="name-wrap">${vinfo.username}</a><span
+						class="sp6">发布于</span>
 					<!--坑爹的百分点-->
 					<span class="time hidden">2017年 2月16日(EEE) H时14分</span><span
-						class="time">${vinfo.contributeTime}</span><span data-uname="${vinfo.username}"
-						data-type="投稿" data-oid="${vinfo.id}" data-proof="${vinfo.title}"
-						class="sp7">举报视频</span>
+						class="time">${vinfo.contributeTime}</span><span
+						data-uname="${vinfo.username}" data-type="投稿"
+						data-oid="${vinfo.id}" data-proof="${vinfo.title}" class="sp7">举报视频</span>
 				</div>
 				<div class="fr">
 					<a href="http://www.acfun.cn/member/#area=admin;aid=3477952"
@@ -390,8 +386,7 @@ section.player #player.small {
 		<section class="clearfix wp area player">
 			<div id="player">
 				<div class="handle">拖动播放器</div>
-				<div id="danmup">
-			</div>
+				<div id="danmup"></div>
 		</section>
 		<section class="clearfix wp area crumb">
 			<span class="view fl"><span class="sp1">播放</span><span
@@ -401,24 +396,17 @@ section.player #player.small {
 				class="shu fl"></span><span id="bd_collection" data-status="0"
 				class="collection fl"><div class="fl ico">
 					<div class="img"></div>
-				</div>
-				<span class="sp3 fl">收藏</span><br>
-			<span class="sp4">${vinfo.favoriteCount}</span></span><span id="bd_phoneshow"
-				class="phone fl"><div class="fl ico">
+				</div> <span class="sp3 fl">收藏</span><br> <span class="sp4">${vinfo.favoriteCount}</span></span><span
+				id="bd_phoneshow" class="phone fl"><div class="fl ico">
 					<div class="img"></div>
-				</div>
-				<span class="sp3 fl">手机观看</span><br>
-			<span class="sp4">更流畅</span>
-			<div class="qrcode-download">
-					<img
-						src="images/erweima.png">
+				</div> <span class="sp3 fl">手机观看</span><br> <span class="sp4">更流畅</span>
+				<div class="qrcode-download">
+					<img src="images/erweima.png">
 					<p>扫描下载最新版客户端</p>
 				</div></span><span data-status="0" class="banana fl"><div class="fl ico">
 					<div class="img"></div>
-				</div>
-				<span class="sp3 fl">投蕉</span><br>
-			<span class="sp4">746</span>
-			<div class="div-banana">
+				</div> <span class="sp3 fl">投蕉</span><br> <span class="sp4">746</span>
+				<div class="div-banana">
 					<span data-num="1" class="bananaer fl"></span><span data-num="2"
 						class="bananaer fl"></span><span data-num="3" class="bananaer fl"></span><span
 						data-num="4" class="bananaer fl"></span><span data-num="5"
@@ -440,9 +428,7 @@ section.player #player.small {
 				<div class="columen-left fl">
 					<div class="title">简介</div>
 					<div class="desc gheight">
-						<div class="sp1">
-							${vinfo.description}
-						</div>
+						<div class="sp1">${vinfo.description}</div>
 						<span style="display: inline;" class="open">展开详情</span><span
 							class="close">关闭详情</span>
 					</div>
@@ -477,11 +463,9 @@ section.player #player.small {
 					<div class="upzhu"></div>
 					<div data-uid="${vinfo.userId}" class="user">
 						<a href="http://www.acfun.cn/u/4563574.aspx" target="_blank"
-							id="bd_uphead" class="a1"><div class="backg"></div>
-							<img
-							src="${vinfo.userAvatar}"
-							class="avatar">
-						<div class="banana-num"></div>
+							id="bd_uphead" class="a1"><div class="backg"></div> <img
+							src="${vinfo.userAvatar}" class="avatar">
+							<div class="banana-num"></div>
 							<div class="bubble">
 								<div class="bubble-1 fl"></div>
 								<div class="bubble-3 fl"></div>
@@ -556,7 +540,7 @@ section.player #player.small {
 							<p class="comment_pts_num">85条评论</p>
 							<p class="tab more">
 								<button id="btn-refresh" class="btn primary"
-									onclick="$$('#area-comment').data().func.refreshComm();">
+									onclick="loadComment(1)">
 									<i class="icon _icon-refresh"></i>刷新评论
 								</button>
 								<button id="btn-fastreply" class="btn primary hidden">
@@ -569,76 +553,102 @@ section.player #player.small {
 								您尚未登录，请先行<a
 									href="http://www.acfun.cn/login/?returnUrl=http://www.acfun.cn/v/ac3477952">[登录/注册]</a>。
 							</p>
-								</span><span class="clearfix"></span>
-							</div>
-							<div class="item-comment-divider"></div>
-							<div class="item-comment-divider"></div>
-								</span><span class="clearfix"></span>
-							</div>
+							</span><span class="clearfix"></span>
 						</div>
+						</span><span class="clearfix"></span>
 					</div>
-					<div id="area-editor"></div>
-				</div>
-				<div class="anchor-right fl hidden">
-					<div class="tab-anchor">相关主播</div>
-					<!--Created by user on 2016/11/1.-->
-					<div class="anchorMessage"></div>
-					<div id="anchor-temp" class="hidden">
-						<div class="anchor-box">
-							<div class="head [hid]">
-								<a
-									href="http://live.acfun.cn/space#from=0;platformId=[platformId];videoId=[videoId];compereId=[compereId];isLive=[isLive];contentId=;liveType=[liveType];"
-									target="_blank" class="images fl">[userImg]</a>
-								<div class="rig fl">
-									<a
-										href="http://live.acfun.cn/space#from=0;platformId=[platformId];videoId=[videoId];compereId=[compereId];isLive=[isLive];contentId=;liveType=[liveType];"
-										target="_blank" title="[nickName]"
-										class="name text-overflow fl">[nickName]</a><span
-										class="p1 fl">[followed]粉丝</span><strong class="clearfix"></strong>
-									<div class="p2 text-overflow">[verifiedInfo]</div>
-								</div>
-								<strong class="clearfix"></strong>
-							</div>
-							<a
-								href="http://live.acfun.cn/space#from=0;platformId=[platformId];videoId=[videoId];compereId=[compereId];isLive=[isLive];contentId=;liveType=[liveType];"
-								target="_blank"><div
-									style="background: url([img]); background-size: 100%"
-									class="bg [ac]">
-									<div class="islive [live] [av]">[state]</div>
-									<div class="mask-gradient mask">
-										<b class="text-overflow">[title]</b>
-									</div>
-									<div class="mask-pop">
-										<div class="playP"></div>
-									</div>
-								</div></a>
+					<div id="area-editor">
+			<div id="area-editor-inner" class="form">
+				<div id="umeditor-container" style="width:100%;"></div>
+				<div id="block-tool-editor">
+					<div class="captcha-block hidden">
+						<div class="captcha-body">
+							<input type="text" class="captcha-ipt" placeholder="请输入验证码"
+								style="width: 120px; height: 26px" /> <img width="90"
+								height="28" class="captcha-img"
+								style="position: relative; top: 1px; margin-right: 5px; cursor: pointer" />
+							<span class="captcha-next"
+								style="color: #409CD7; cursor: pointer">换一张</span>
 						</div>
+						<p class="captcha-hint" style="padding: 6px 0 4px 3px">请输入验证码完成评论</p>
 					</div>
-					<div class="openanchor hidden">
-						<div>
-							<span>展开全部主播</span><i class="icon"></i>
-						</div>
+					<div class="l">
+						<button id="btn-send-editor" class="btn success do">
+							<i class="icon icon-check-circle"></i>发送评论
+						</button>
 					</div>
+					<div class="r">
+						<button id="btn-quote-return" class="btn danger hidden"
+							onclick="$('#item-editor-shadow').click();">
+							<i class="icon icon-times-circle-o"></i>取消
+						</button>
+					</div>
+					<span class="clearfix"></span>
 				</div>
-				<div class="columen-right fr">
-					<ul id="bd_recommend"></ul>
-					<div id="temp-recom-view" class="hidden">
-						<li class="has-img"><a href="http://www.acfun.cn/v/[link]"
-							title="[title]" target="_blank" class="fl img-wp">[img]</a><b><a
-								href="http://www.acfun.cn/v/[link]" title="[title]"
-								target="_blank">[title]</a></b>
-						<p class="text-overflow">
-								<a href="http://www.acfun.cn/v/[userurl]" target="_blank"
-									title="[username]">UP: [username]</a>
-							</p>
-							<p>
-								<span class="icon icon-view-player"><strong>[view]</strong></span><span
-									class="icon icon-comments"><strong>[comm]</strong></span>
-							</p></li>
-					</div>
-				</div>
-			</section>
+			</div>
+			<span class="clearfix"></span>
 		</div>
+				</div>
+		</div>
+	</div>
+	<div class="anchor-right fl hidden">
+		<div class="tab-anchor">相关主播</div>
+		<!--Created by user on 2016/11/1.-->
+		<div class="anchorMessage"></div>
+		<div id="anchor-temp" class="hidden">
+			<div class="anchor-box">
+				<div class="head [hid]">
+					<a
+						href="http://live.acfun.cn/space#from=0;platformId=[platformId];videoId=[videoId];compereId=[compereId];isLive=[isLive];contentId=;liveType=[liveType];"
+						target="_blank" class="images fl">[userImg]</a>
+					<div class="rig fl">
+						<a
+							href="http://live.acfun.cn/space#from=0;platformId=[platformId];videoId=[videoId];compereId=[compereId];isLive=[isLive];contentId=;liveType=[liveType];"
+							target="_blank" title="[nickName]" class="name text-overflow fl">[nickName]</a><span
+							class="p1 fl">[followed]粉丝</span><strong class="clearfix"></strong>
+						<div class="p2 text-overflow">[verifiedInfo]</div>
+					</div>
+					<strong class="clearfix"></strong>
+				</div>
+				<a
+					href="http://live.acfun.cn/space#from=0;platformId=[platformId];videoId=[videoId];compereId=[compereId];isLive=[isLive];contentId=;liveType=[liveType];"
+					target="_blank"><div
+						style="background: url([img]); background-size: 100%"
+						class="bg [ac]">
+						<div class="islive [live] [av]">[state]</div>
+						<div class="mask-gradient mask">
+							<b class="text-overflow">[title]</b>
+						</div>
+						<div class="mask-pop">
+							<div class="playP"></div>
+						</div>
+					</div></a>
+			</div>
+		</div>
+		<div class="openanchor hidden">
+			<div>
+				<span>展开全部主播</span><i class="icon"></i>
+			</div>
+		</div>
+	</div>
+	<div class="columen-right fr">
+		<ul id="bd_recommend"></ul>
+		<div id="temp-recom-view" class="hidden">
+			<li class="has-img"><a href="http://www.acfun.cn/v/[link]"
+				title="[title]" target="_blank" class="fl img-wp">[img]</a><b><a
+					href="http://www.acfun.cn/v/[link]" title="[title]" target="_blank">[title]</a></b>
+				<p class="text-overflow">
+					<a href="http://www.acfun.cn/v/[userurl]" target="_blank"
+						title="[username]">UP: [username]</a>
+				</p>
+				<p>
+					<span class="icon icon-view-player"><strong>[view]</strong></span><span
+						class="icon icon-comments"><strong>[comm]</strong></span>
+				</p></li>
+		</div>
+	</div>
+	</section>
+	</div>
 	</div>
 	<div id="footer" class="footer">
 		<div class="wp footer-con">
@@ -649,8 +659,8 @@ section.player #player.small {
 						<p>
 							<a href="http://www.acfun.cn/info/#page=about" target="_blank">关于我们</a><a
 								href="http://www.acfun.cn/info/#page=contact" target="_blank"
-								class="mr0">联系我们</a><br>
-							<a href="http://www.acfun.cn/info/#page=joinus" target="_blank">AC招聘</a>
+								class="mr0">联系我们</a><br> <a
+								href="http://www.acfun.cn/info/#page=joinus" target="_blank">AC招聘</a>
 						</p>
 					</div>
 					<div class="item-official">
@@ -659,16 +669,15 @@ section.player #player.small {
 							<a href="http://weibo.com/danmushipin/" target="_blank">新浪微博</a><a
 								href="http://tb.am/cbaz8/" target="_blank" class="mr0">官方网店</a><br>
 							<a class="i-o-ewm"><span class="i-o-code"><img
-									src="images/erweima.jpg"></span>
-								微信公众号</a>
+									src="images/erweima.jpg"></span> 微信公众号</a>
 						</p>
 					</div>
 					<div class="item-download">
 						<h5>下载</h5>
 						<p>
 							<a href="http://www.acfun.cn/app/" target="_blank" class="mr0">移动客户端</a><span
-								class="new">new</span><br>
-							<a href="http://www.acfun.cn/emot/" target="_blank" class="mr0">AC娘表情包</a>
+								class="new">new</span><br> <a
+								href="http://www.acfun.cn/emot/" target="_blank" class="mr0">AC娘表情包</a>
 						</p>
 					</div>
 					<div class="item-function">
@@ -685,28 +694,25 @@ section.player #player.small {
 							<a href="http://www.acfun.cn/feedback/" target="_blank">意见反馈</a><a
 								href="http://www.acfun.cn/report/" target="_blank">举报</a><a
 								href="http://www.acfun.cn/about/help" target="_blank"
-								class="mr0">帮助中心</a><br>
-							<a href="http://www.acfun.cn/info/#page=disclaimer"
-								target="_blank">免责声明</a><a
+								class="mr0">帮助中心</a><br> <a
+								href="http://www.acfun.cn/info/#page=disclaimer" target="_blank">免责声明</a><a
 								href="http://www.acfun.cn/info/#page=agreement" target="_blank">用户协议</a>
 						</p>
 					</div>
 				</div>
 				<div class="fr no-select footer-avatar-ac">
-					<img
-						src="images/15.gif"
-						height="61" width="70"><span class="num"></span>
+					<img src="images/15.gif" height="61" width="70"><span
+						class="num"></span>
 				</div>
 			</div>
 			<div class="clearfix footer-link">
 				<div class="item-link1">
 					<i class="item-icon-1"></i><a href="http://www.12377.cn/"
-						target="_blank">中国互联网举报中心</a><br>
-					<i class="item-icon-2"></i><span>网络文化经营单位</span>
+						target="_blank">中国互联网举报中心</a><br> <i class="item-icon-2"></i><span>网络文化经营单位</span>
 				</div>
 				<div class="item-link2">
-					<span>京ICP备15067359号</span><br>
-					<a href="http://www.bjjubao.org/" target="_blank">北京互联网举报中心</a><br>
+					<span>京ICP备15067359号</span><br> <a
+						href="http://www.bjjubao.org/" target="_blank">北京互联网举报中心</a><br>
 					<a href="http://www.bjwhzf.gov.cn/accuse.do" target="_blank">北京12318文化市场举报热线</a>
 				</div>
 				<div class="item-link3">
@@ -714,22 +720,20 @@ section.player #player.small {
 					<a href="http://www.acfun.cn/about/qualification" target="_blank">京网文[2016]0948-099号</a>
 				</div>
 				<div class="item-link4">
-					<span>节目制作经营许可证（京）字第05158号</span><br>
-					<a href="http://www.bj.cyberpolice.cn/index.jsp" target="_blank">网络110报警服务</a>
+					<span>节目制作经营许可证（京）字第05158号</span><br> <a
+						href="http://www.bj.cyberpolice.cn/index.jsp" target="_blank">网络110报警服务</a>
 				</div>
 				<div class="item-link5 hidden">
 					<a target="_blank" key="58807ce2efbfb0190275685d" logo_size="83x30"
 						logo_type="business"
 						href="http://v.pinpaibao.com.cn/authenticate/cert/?site=www.acfun.cn&amp;at=business"><b
 						id="aqLogoWRWUK" style="display: none;"></b><img
-						style="border: none;" alt="安全联盟认证"
-						src="images/hy_83x30.png"
+						style="border: none;" alt="安全联盟认证" src="images/hy_83x30.png"
 						height="30" width="83"></a>
 				</div>
 			</div>
 			<div class="footer-bottom">
-				<a href="http://www.acfun.cn/"><img
-					src="images/logo-gray.png"
+				<a href="http://www.acfun.cn/"><img src="images/logo-gray.png"
 					height="24" width="78"></a>
 				<p>本站不提供任何视听上传服务，所有内容均来自视频分享站点所提供的公开引用资源。Copyright © 2007-2017
 					AcFun. 保留所有权利</p>
@@ -749,8 +753,7 @@ section.player #player.small {
 	</div>
 	<div id="pop-login" style="display: none" class="pop">
 		<div class="login-logo">
-			<img
-				src="images/area-login.png">
+			<img src="images/area-login.png">
 		</div>
 		<div class="login-tool">
 			<div class="fl help">
@@ -875,6 +878,13 @@ section.player #player.small {
 	<script src="js/colpick.js"></script>
 	<script src="js/jquery.danmu.js"></script>
 	<script src="js/main.js"></script>
+	 <!-- 配置文件 -->
+	 <script src="umeditor/third-party/template.min.js"></script>
+    <script src="umeditor/umeditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script src="umeditor/umeditor.js"></script>
+    <script src="umeditor/lang/zh-cn/zh-cn.js"></script>
+	<script src="js/core.js"></script>
 	<script src="js/video.js"></script>
 </body>
 </html>

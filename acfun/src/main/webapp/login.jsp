@@ -298,7 +298,7 @@
 						<div class="area-login">
 							<div class="after-login">
 								<a class="thumb"><img
-									src="%E7%99%BB%E5%BD%95%20-%20AcFun%E5%BC%B9%E5%B9%95%E8%A7%86%E9%A2%91%E7%BD%91_files/avatar.jpg"
+									src="images/avatar_login.jpg"
 									class="avatar"></a>
 								<p class="welcom">
 									欢迎回来<br>
@@ -356,134 +356,6 @@
 			</div>
 		</div>
 		<span class="clearfix"></span>
-		<div id="footer">
-			<div id="footer-inner">
-				<div class="top-footer">
-					<div class="l">
-						<div class="unit unit-0">
-							<div class="a">合作</div>
-							<div class="b">
-								<a id="" target="_blank"
-									href="http://www.acfun.cn/info/#page=about" class="a-0">关于我们</a><a
-									id="" target="_blank"
-									href="http://www.acfun.cn/info/#page=contact" class="a-1">联系我们</a><a
-									id="" target="_blank"
-									href="http://www.acfun.cn/info/#page=joinus" class="a-2">AC招聘</a>
-							</div>
-							<span class="clearfix"></span>
-						</div>
-						<div class="unit unit-1">
-							<div class="a">官方</div>
-							<div class="b">
-								<a id="" target="_blank" href="http://weibo.com/danmushipin/"
-									class="a-0">新浪微博</a><a id="" target="_blank"
-									href="http://tb.am/cbaz8" class="a-1">官方网店</a><a id=""
-									target="_blank" href="javascript:void(0);" class="a-2">微信公众号</a>
-							</div>
-							<span class="clearfix"></span>
-						</div>
-						<div class="unit unit-2">
-							<div class="a">下载</div>
-							<div class="b">
-								<a id="app-footer-link" target="_blank"
-									href="http://www.acfun.cn/app/">移动客户端<span
-									class="bg-new-app"></span></a><a id="" target="_blank"
-									href="http://www.acfun.cn/emot/" class="a-1">AC娘表情包</a>
-							</div>
-							<span class="clearfix"></span>
-						</div>
-						<div class="unit unit-3">
-							<div class="a">友情链接</div>
-							<div class="b">
-								<a id="" target="_blank" href="https://www.douyu.com/"
-									class="a-0">斗鱼直播</a><a id="" target="_blank"
-									href="http://h.nimingban.com/" class="a-1">匿名版</a><a id=""
-									target="_blank" href="http://lg.dianbo.me/index.php"
-									class="a-2">AC大逃杀</a>
-							</div>
-							<span class="clearfix"></span>
-						</div>
-						<div class="unit unit-4">
-							<div class="a">反馈</div>
-							<div class="b">
-								<a id="" target="_blank" href="http://www.acfun.cn/feedback/"
-									class="a-0">意见反馈</a><a id="" target="_blank"
-									href="http://www.acfun.cn/report/" class="a-1">举报</a><a id=""
-									target="_blank" href="http://www.acfun.cn/about/help"
-									class="a-2">帮助中心</a><a id="" target="_blank"
-									href="http://www.acfun.cn/info/#page=disclaimer" class="a-3">免责声明</a><a
-									id="" target="_blank"
-									href="http://www.acfun.cn/info/#page=agreement" class="a-4">用户协议</a>
-							</div>
-							<span class="clearfix"></span>
-						</div>
-						<div class="erweima">
-							<div class="arrow-top"></div>
-							<img
-								src="%E7%99%BB%E5%BD%95%20-%20AcFun%E5%BC%B9%E5%B9%95%E8%A7%86%E9%A2%91%E7%BD%91_files/erweima.jpg"
-								height="140px" width="140px">
-						</div>
-						<span class="clearfix"></span>
-						<div class="arrow-right"></div>
-					</div>
-					<div class="r">
-						<div id="avatar-ac-footer" class="">
-							<img
-								src="%E7%99%BB%E5%BD%95%20-%20AcFun%E5%BC%B9%E5%B9%95%E8%A7%86%E9%A2%91%E7%BD%91_files/19.gif">
-						</div>
-					</div>
-					<span class="clearfix"></span>
-				</div>
-				<div class="bottom-footer">
-					<ul id="explain">
-						<li><p class="report">
-								<span class="reportImg"></span><a href="http://www.12377.cn/"
-									target="_blank">中国互联网举报中心</a>
-							</p>
-							<p class="inter">
-								<span class="reportImg"></span><span>网络文化经营单位</span>
-							</p></li>
-						<li><p>
-								<span>京ICP备15067359号</span>
-							</p>
-							<p>
-								<a href="http://www.bjjubao.org/" target="_blank">北京互联网举报中心</a>
-							</p>
-							<p>
-								<a href="http://www.bjwhzf.gov.cn/accuse.do" target="_blank">北京12318文化市场举报热线</a>
-							</p></li>
-						<li><p>
-								<span>节目制作经营许可证（京）字第05158号</span>
-							</p>
-							<p>
-								<a href="http://www.bj.cyberpolice.cn/index.jsp" target="_blank">网络110报警服务</a>
-							</p></li>
-						<li><p>
-								<a href="http://www.miitbeian.gov.cn/" target="_blank">
-									京ICP证161323号</a>
-							</p>
-							<p>
-								<a href="http://www.acfun.cn/about/qualification"
-									target="_blank">京网文[2016]0948-099号</a>
-							</p>
-							<p class="hidden">
-								<a target="_blank" key="58807ce2efbfb0190275685d"
-									logo_size="83x30" logo_type="business"
-									href="http://v.pinpaibao.com.cn/authenticate/cert/?site=www.acfun.cn&amp;at=business"><script
-										src="%E7%99%BB%E5%BD%95%20-%20AcFun%E5%BC%B9%E5%B9%95%E8%A7%86%E9%A2%91%E7%BD%91_files/aq_auth.js"></script><b
-									id="aqLogoIZHGL" style="display: none;"></b><img
-									style="border: none;" alt="安全联盟认证"
-									src="%E7%99%BB%E5%BD%95%20-%20AcFun%E5%BC%B9%E5%B9%95%E8%A7%86%E9%A2%91%E7%BD%91_files/hy_83x30.png"
-									height="30" width="83"></a>
-							</p></li>
-						<div style="clear: both"></div>
-					</ul>
-					<a id="a-logo-footer" href="http://www.acfun.cn/"></a>
-					<p>本站不提供任何视听上传服务，所有内容均来自视频分享站点所提供的公开引用资源。Copyright © 2007-2017
-						AcFun. 保留所有权利</p>
-				</div>
-			</div>
-		</div>
 	</div>
 	<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="js/core.js"></script>
