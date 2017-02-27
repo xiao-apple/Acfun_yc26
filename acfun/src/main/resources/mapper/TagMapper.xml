@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间与映射接口的全类名一致 -->
+<mapper namespace="com.yc.acfun.mapper.TagMapper">
+	<select id="queryTag" parameterType="java.lang.String" resultType="Tag">
+		select label_id id,label_name name from label where label_id in  
+		(SELECT label_id FROM `label_res` where resource_id=#{id})
+	</select>
+</mapper>

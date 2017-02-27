@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间与映射接口的全类名一致 -->
+<mapper namespace="com.yc.acfun.mapper.CommentMapper">
+	<select id="queryComment" resultMap="CommentBeanMap" >
+		select #{pBean.pageSize} pagesize ,#{pBean.pageNumber} pagenumber ,count(1) total,#{id} id ,(#{pBean.pageNumber}-1)*#{pBean.pageSize} start from comment where resource_id=#{id}
+	</select>
+	
+	<resultMap type="PaginationBean" id="CommentBeanMap">
+		<result property="pageSize" column="pagesize"/>
+		<result property="pageNumber" column="pagenumber"/>
+		<result property="total" column="total"/>
+		<result property="data" column="id"/>
+		<collection property="rows" column="{pagesize=pagesize, start=start,id=id}" ofType="Comment" select="getPartComments" />
+	</resultMap>
+	<select id="getPartComments" resultType="Comment">
+		SELECT comment_id cid,c.user_id uid,comment_content content,comment_time time,u.user_nickname username,u.user_head avatar,comment_floor floor FROM `comment` c 
+		inner join `user` u on c.user_id  = u.user_id where resource_id =#{id} and comment_state=0 ORDER BY time desc limit #{start},#{pagesize};
+	</select>
+
+	<insert id="commit" parameterType="java.util.Map">
+		<selectKey order="BEFORE" keyProperty="floor" resultType="int" >
+			SELECT count(1)+1 from comment where resource_id = #{id}
+		</selectKey>
+		insert into comment values(0,#{uid},#{id},#{content},now(),0,#{floor})
+	</insert>
+</mapper>

@@ -38,4 +38,9 @@
 		<property name="basePackage" value="com.yc.acfun.mapper"/>
 		<property name="sqlSessionFactoryBeanName" value="SqlSessionFactory"/>
 	</bean>
+	<bean class="com.yc.acfun.entity.SMSData">
+		<property name="url" value="${sms.url}"/>
+		<property name="appkey" value="${sms.appkey}"/>
+		<property name="secret" value="${sms.secret}"/>
+	</bean>
 </beans>
