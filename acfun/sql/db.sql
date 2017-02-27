@@ -25,6 +25,17 @@ CREATE TABLE collection (   -- 收藏表
   resource_id int(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+insert into collection values(10001,1927813)
+insert into collection values(10001,1927814)
+insert into collection values(10001,1927815);
+insert into collection values(10001,1927816);
+insert into collection values(10001,1927817);
+insert into collection values(10001,1927818);
+insert into collection values(10001,1927819);
+insert into collection values(10001,1927820);
+insert into collection values(10001,1927821);
+insert into collection values(10001,1927822);
+insert into collection values(10001,1927823);
 -- ----------------------------
 -- Records of collection
 -- ----------------------------
@@ -84,14 +95,15 @@ CREATE TABLE message (     -- 私信表
 -- ----------------------------
 -- Table structure for partition
 -- ----------------------------
-DROP TABLE IF EXISTS partition;
-CREATE TABLE partition (     -- 分区表
-  partition_id int(10) NOT NULL,    
-  partition_first_id varchar(50) DEFAULT NULL,    -- 父分区id
-  partition_name varchar(50) DEFAULT NULL,    -- 分区名
-  PRIMARY KEY (partition_id)
+DROP TABLE IF EXISTS partitions;
+CREATE TABLE `partitions` (
+  `partition_id` int(10) NOT NULL,
+  `partition_first_id` int(10) DEFAULT NULL,
+  `partition_name` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`partition_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+insert into partitions values(109,1,'海贼王')
 -- ----------------------------
 -- Records of partition
 -- ----------------------------
@@ -129,10 +141,42 @@ CREATE TABLE resource (     -- 资源表(视频、文章)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
+CREATE TABLE resource (
+  user_id int(50) DEFAULT NULL,
+  resource_id bigint(20) NOT NULL,
+  resource_title varchar(100) NOT NULL,
+  partition_id int(50) DEFAULT NULL,
+  resource_cover varchar(200) DEFAULT NULL,
+  resource_introduce varchar(1000) DEFAULT NULL,
+  resource_content longtext,
+  resource_state int(10) DEFAULT NULL,
+  resource_time datetime DEFAULT NULL,
+  resource_click int(255) DEFAULT NULL,
+  resource_good int(255) DEFAULT NULL,
+  
+  resource_type int(1) DEFAULT NULL,
+  resource_duration bigint(20) DEFAULT NULL,
+  resource_commentCount int(11) DEFAULT NULL,
+  resource_favoriteCount int(11) DEFAULT NULL,
+  PRIMARY KEY (resource_id)
+) 
+
+select * from resource
 -- ----------------------------
 -- Records of resource
 -- ----------------------------
-
+INSERT INTO resource VALUES ('10002', '1927813', '新海诚作品合集：秒5、她和她的猫、星之声、言叶之庭、云之彼端、追逐繁星的孩子、某人的目光', '109', '/acfun/images/covers/ac1927813.jpg', '你总会在这里看到曾经的你亦或现在正在悄然改变的你。c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927814', '新海诚作品合集：秒5、她和她的猫、星之声、言叶之庭、云之彼端、追逐繁星的孩子、某人的目光', '109', '/acfun/images/covers/ac1927813.jpg', '你总会在这里看到曾经的你亦或现在正在悄然改变的你。c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927815', '新海诚作品合集：秒5、她和她的猫、星之声、言叶之庭、云之彼端、追逐繁星的孩子、某人的目光', '109', '/acfun/images/covers/ac1927813.jpg', '你总会在这里看到曾经的你亦或现在正在悄然改变的你。c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927816', '新海诚作品合集：秒5、她和她的猫、星之声、言叶之庭、云之彼端、追逐繁星的孩子、某人的目光', '109', '/acfun/images/covers/ac1927813.jpg', '你总会在这里看到曾经的你亦或现在正在悄然改变的你。c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927817', '新海诚作品合集：秒5、她和她的猫、星之声、言叶之庭、云之彼端、追逐繁星的孩子、某人的目光', '109', '/acfun/images/covers/ac1927813.jpg', '你总会在这里看到曾经的你亦或现在正在悄然改变的你。c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927818', '新海诚作品合集：秒5、她和她的猫、星之声、言叶之庭、云之彼端、追逐繁星的孩子、某人的目光', '109', '/acfun/images/covers/ac1927813.jpg', '你总会在这里看到曾经的你亦或现在正在悄然改变的你。c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927819', '新海诚作品合集：秒5、她和她的猫、星之声、言叶之庭、云之彼端、追逐繁星的孩子、某人的目光', '109', '/acfun/images/covers/ac1927813.jpg', '你总会在这里看到曾经的你亦或现在正在悄然改变的你。c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927820', '新海诚作品合集：秒5、她和她的猫、星之声、言叶之庭、云之彼端、追逐繁星的孩子、某人的目光', '109', '/acfun/images/covers/ac1927813.jpg', '你总会在这里看到曾经的你亦或现在正在悄然改变的你。c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927821', '新海诚作品合集：秒5、她和她的猫、星之声、言叶之庭、云之彼端、追逐繁星的孩子、某人的目光', '109', '/acfun/images/covers/ac1927813.jpg', '你总会在这里看到曾经的你亦或现在正在悄然改变的你。c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927822', '新海诚作品合集：秒5、她和她的猫、星之声、言叶之庭、云之彼端、追逐繁星的孩子、某人的目光', '109', '/acfun/images/covers/ac1927813.jpg', '你总会在这里看到曾经的你亦或现在正在悄然改变的你。c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927823', '新海诚作品合集：秒5、她和她的猫、星之声、言叶之庭、云之彼端、追逐繁星的孩子、某人的目光', '109', '/acfun/images/covers/ac1927813.jpg', '你总会在这里看到曾经的你亦或现在正在悄然改变的你。c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+commit
 -- ----------------------------
 -- Table structure for user
 -- ----------------------------
@@ -157,9 +201,24 @@ select * from user
 insert into user values(10001,'a','张三','啊呀',null,12345,1387548747,'4578@qq.com','男','湖南 郴州',1,'你好帅呀','2016-02-18')
 insert into user values(10002,'a','张三','啊呀',null,12345,1387548747,'4578@qq.com','男','湖南 郴州',1,'你好帅呀','2016-02-18')
 insert into user values(10003,'a','张三','啊呀',null,12345,1387548747,'4578@qq.com','男','湖南 郴州',1,'你好帅呀','2016-02-18')
-select * from user where user_id=10001
+
+select * from user where user_id=10001 limit 0,5
+
 update user set user_address='湖南 郴州' where user_id=10003
 update user set user_head='img/avatar.jpg' where user_id=10002
 
 -- ----------------------------
 -- Records of user
+
+		select c.resource_id,u.user_id,user_nickname,user_head,resource_cover,resource_time,partition_name,resource_title,resource_introduce,resource_click,resource_commentCount,resource_favoriteCount
+		from user u,resource r,partitions s,collection c 
+		where u.user_id=r.user_id and r.partition_id=s.partition_id and c.resource_id=r.resource_id and c.user_id=10001 limit 5*(1-1),5*1
+
+		
+		
+
+select count(1) total,ceil(count(1)/6) totalPage,5 pageSize,3 currPage from 
+(select 
+user_nickname
+from user u,resource r,partitions s,collection c
+where u.user_id=r.user_id and r.partition_id=s.partition_id and c.resource_id=r.resource_id and c.user_id=10001)t
