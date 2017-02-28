@@ -3,10 +3,10 @@
 <html>
 <head>
 <title>注册 - AcFun弹幕视频网</title>
-<link rel="stylesheet" href="css/core_01.css">
-<link rel="stylesheet" href="css/font-awesome.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/reg.css">
+<link rel="stylesheet" href="css_ms/core_01.css">
+<link rel="stylesheet" href="css_ms/font-awesome.css">
+<link rel="stylesheet" href="css_ms/style.css">
+<link rel="stylesheet" href="css_ms/reg.css">
 </head>
 <body>
 	<div id="stage">

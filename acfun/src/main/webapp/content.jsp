@@ -3,11 +3,11 @@
 <html class="rgba borderradius">
 <head>
 <title>内容页 - AcFun弹幕视频网 - 认真你就输啦 (・ω・)ノ- ( ゜- ゜)つロ</title>
-<link rel="stylesheet" href="css/core_01.css">
-<link rel="stylesheet" href="css/font-awesome.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/article-view.css">
-<link rel="stylesheet" href="css/comm.css" id="style-require-comm">
+<link rel="stylesheet" href="css_ms/core_01.css">
+<link rel="stylesheet" href="css_ms/font-awesome.css">
+<link rel="stylesheet" href="css_ms/style.css">
+<link rel="stylesheet" href="css_ms/article-view.css">
+<link rel="stylesheet" href="css_ms/comm.css" id="style-require-comm">
 </head>
 <body>
 	<div

@@ -5,13 +5,13 @@
 <head>
 <title>登录 - AcFun弹幕视频网</title>
 <link rel="stylesheet"
-	href="css/core_01.css">
+	href="css_ms/core_01.css">
 <link rel="stylesheet"
-	href="css/font-awesome.css">
+	href="css_ms/font-awesome.css">
 <link rel="stylesheet"
-	href="css/style.css">
+	href="css_ms/style.css">
 <link rel="stylesheet"
-	href="css/style_002.css">
+	href="css_ms/style_002.css">
 </head>
 <body>
 	<div id="stage">

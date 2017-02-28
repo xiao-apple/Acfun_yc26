@@ -6,13 +6,13 @@
 <base href="/acfun/">
 <title>${vinfo.title}- AcFun弹幕视频网 - 认真你就输啦 (?ω?)ノ- ( ゜- ゜)つロ</title>
 <link href="http://cdn.aixifan.com/ico/favicon.ico" rel="shortcut icon">
-<link rel="stylesheet" href="css/core.css">
-<link rel="stylesheet" href="css/detail.css">
-<link rel="stylesheet" href="css/comm_v.css">
-<link href="css/scojs.css" rel="stylesheet">
-<link href="css/colpick.css" rel="stylesheet">
-<link href="css/bootstrap.css" rel="stylesheet">
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css_ms/core.css">
+<link rel="stylesheet" href="css_ms/detail.css">
+<link rel="stylesheet" href="css_ms/comm_v.css">
+<link href="css_ms/scojs.css" rel="stylesheet">
+<link href="css_ms/colpick.css" rel="stylesheet">
+<link href="css_ms/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" href="css_ms/main.css">
 <link href="umeditor/themes/default/css/umeditor.css" rel="stylesheet">
 <style>
 section.player #player.small {
