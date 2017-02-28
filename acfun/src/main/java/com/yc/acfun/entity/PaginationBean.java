@@ -3,6 +3,7 @@ package com.yc.acfun.entity;
 import java.util.List;
 
 public class PaginationBean<T> {
+<<<<<<< HEAD
 	private Integer pageSize;
 	private Integer pageNumber;
 	private List<T> rows;

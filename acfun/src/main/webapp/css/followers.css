@@ -1,0 +1,133 @@
+#block-first .item {
+	border-bottom: 1px dashed #ddd;
+	margin: 0 auto;
+	padding: 16px 0;
+	position: relative
+}
+
+#block-first .l {
+	text-align: right;
+	width: 64px
+}
+
+#block-first .r {
+	text-align: left;
+	width: 610px;
+	position: relative
+}
+
+#block-first .thumb {
+	margin: 2px 0 0 0;
+	position: relative;
+	transition: none
+}
+
+#block-first .avatar {
+	width: 50px;
+	height: 50px;
+	position: relative
+}
+
+#block-first .name {
+	display: inline-block;
+	*display: inline;
+	font-size: 14px
+}
+
+#block-first .uid {
+	display: inline-block;
+	*display: inline;
+	font-size: 12px;
+	margin: 0 0 0 4px;
+	color: #999
+}
+
+#block-first .sign {
+	font-size: 13px;
+	color: #666;
+	line-height: 1.2;
+	margin: 4px 0;
+	width: 460px
+}
+
+#block-first .info {
+	font-size: 12px;
+	color: #999;
+	line-height: 1.2;
+	margin: 4px auto
+}
+
+#block-first .pts {
+	color: #006a92;
+	font-size: 12px;
+	margin: 0 1px
+}
+
+#block-first .from {
+	color: #006a92;
+	font-size: 12px;
+	margin: 0 1px
+}
+
+#block-first .area-tool-followed {
+	position: absolute;
+	right: 8px;
+	top: 0;
+	font-size: 12px;
+	color: #999
+}
+
+#block-first .hint-list-index {
+	position: absolute;
+	left: auto;
+	top: auto;
+	right: 8px;
+	bottom: 0;
+	font-size: 64px;
+	line-height: 64px;
+	height: 64px;
+	width: auto;
+	text-align: right;
+	color: #eee;
+	z-index: 0;
+	letter-spacing: -.1em;
+	cursor: default
+}
+
+.verified-ico {
+	width: 18px;
+	height: 18px;
+	display: none;
+	position: relative;
+	top: 4px
+}
+
+.verified-1 {
+	background: url("../../project/homura/style/image/monkey.png") no-repeat
+		50% 50%;
+	background-size: 18px 18px;
+	display: inline-block
+}
+
+.verified-2 {
+	background: url("../../project/homura/style/image/verified-blue.png")
+		no-repeat 50% 50%;
+	background-size: 18px 18px;
+	display: inline-block
+}
+
+.verified-3 {
+	background: url("../../project/homura/style/image/verified-yellow.png")
+		no-repeat 50% 50%;
+	background-size: 18px 18px;
+	display: inline-block
+}
+
+@media screen and (min-width:1440px) {
+	#list-followed-followed .item .r {
+		width: 830px;
+	}
+	#list-followed-followed .item .r .sign {
+		width: 680px
+	}
+}

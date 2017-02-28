@@ -14,4 +14,17 @@ public interface UserService {
 
 	User selectUser(int userId);
 
+	User showUser(int id);
+
+	boolean updateAutograph(User user);
+
+	boolean updateInfo(User user);
+
+	boolean changPassword(User user);
+
+	boolean changEmail(User user);
+
+	int showfollow(int id);
+
+
 }

@@ -1,0 +1,584 @@
+.inline-block, #area-mails-mail.area-audio .btn-sound-google {
+	display: inline-block;
+	_display: inline
+}
+
+.debug {
+	background-color: rgba(0, 0, 0, 0.5);
+	transition: .2s all ease
+}
+
+.abs {
+	position: absolute;
+	display: block
+}
+
+.l {
+	float: left
+}
+
+.r {
+	float: right
+}
+
+.hidden {
+	display: none !important
+}
+
+.no-select {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	cursor: default
+}
+
+.no-float {
+	float: none !important
+}
+
+.wait {
+	cursor: wait !important;
+}
+
+.wait * {
+	cursor: wait
+}
+
+#block-second .banner .more {
+	overflow: visible;
+	margin: 0 8px 0 0;
+	padding: 4px 0 0;
+	border: none;
+}
+
+#block-second .banner .more:hover {
+	background: none;
+	box-shadow: none
+}
+
+#block-second .banner .hint {
+	color: #999;
+	font-size: 12px
+}
+
+#block-second .banner .name {
+	color: #c33;
+	font-size: 100%
+}
+
+#block-second .mainer {
+	padding: 0
+}
+
+#block-second .unit .l {
+	width: 120px;
+	padding: 0 0 0 40px
+}
+
+#block-second .unit .r {
+	width: 620px
+}
+
+#tab-drift-mail {
+	position: absolute;
+	display: block;
+	background: #08c;
+	color: #fff;
+	width: 32px;
+	height: 96px;
+	right: -32px;
+	top: 8px;
+	box-shadow: inset 1px 0 2px rgba(0, 0, 0, 0.3), 0 1px 2px
+		rgba(0, 0, 0, 0.3);
+	border-radius: 0 2px 2px 0;
+	text-align: center;
+	font-size: 14px;
+	line-height: 1.4;
+	transition: right ease .2s .2s;
+}
+
+#tab-drift-mail:hover {
+	right: -32px
+}
+
+#block-main-mail {
+	width: 100%;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+#block-main-mail .verified-ico {
+	width: 18px;
+	height: 18px;
+	display: block;
+	position: absolute;
+	bottom: -2px;
+	right: -2px
+}
+
+#block-main-mail .verified-1 {
+	background: url("../../project/homura/style/image/monkey.png") no-repeat
+		50% 50%;
+	background-size: 18px 18px
+}
+
+#block-main-mail .verified-2 {
+	background: url("../../project/homura/style/image/verified-blue.png")
+		no-repeat 50% 50%;
+	background-size: 18px 18px
+}
+
+#block-main-mail .verified-3 {
+	background: url("../../project/homura/style/image/verified-yellow.png")
+		no-repeat 50% 50%;
+	background-size: 18px 18px
+}
+
+#btn-tool-mail {
+	min-width: 0;
+	*width: auto;
+	padding: 0;
+}
+
+#btn-tool-mail .menu {
+	min-width: 180px
+}
+
+#btn-tool-mail .icon {
+	margin: 0 .2em
+}
+
+#area-left-mail {
+	width: 25%;
+	height: auto;
+	position: relative
+}
+
+#area-contact-mail {
+	height: 540px;
+	border-bottom: 1px solid #eee;
+}
+
+#area-contact-mail .item {
+	border-bottom: 1px solid #eee;
+	display: block;
+	position: relative;
+	cursor: pointer;
+	overflow: hidden;
+	background-color: #fff;
+}
+
+#area-contact-mail .item:hover {
+	background-color: #fafafa;
+}
+
+#area-contact-mail .item:hover .btn-delete-mail {
+	display: inline
+}
+
+#area-contact-mail .item.active {
+	background-color: #f9f9f9;
+}
+
+#area-contact-mail .item.active .name {
+	color: #c00
+}
+
+#area-contact-mail .item.unreaded .cont {
+	color: #08c
+}
+
+#area-contact-mail .item .l {
+	margin: 0;
+	padding: 8px 4px 8px 8px;
+	text-align: right;
+	width: auto;
+	height: auto;
+	overflow: hidden
+}
+
+#area-contact-mail .item .r {
+	margin: 0;
+	padding: 8px 8px 8px 0;
+	text-align: left;
+	width: 128px;
+	height: auto;
+	overflow: hidden
+}
+
+#area-contact-mail .item .name {
+	font-size: 13px;
+	height: 16px;
+	line-height: 16px;
+	margin: 0;
+	padding: 0;
+	display: block;
+	position: relative;
+	overflow: hidden
+}
+
+#area-contact-mail .item .avatar {
+	width: 30px;
+	height: 30px
+}
+
+#area-contact-mail .item .cont {
+	font-size: 13px;
+	height: 16px;
+	line-height: 16px;
+	margin: 0;
+	padding: 0;
+	color: #666;
+	overflow: hidden
+}
+
+#area-contact-mail .item .time {
+	font-size: 12px;
+	color: #798;
+	float: right
+}
+
+#area-contact-mail .item .from {
+	font-size: 12px;
+	color: #999
+}
+
+#area-contact-mail .item .btn-delete-mail {
+	float: right;
+	color: #c33;
+	display: none
+}
+
+#area-pager-mail {
+	border-top: 1px solid #fff;
+	width: 100%;
+	height: 32px;
+	line-height: 32px;
+	position: relative;
+	display: block;
+}
+
+#area-pager-mail .area-pager {
+	margin: 0;
+	padding: 0 2px;
+	overflow: visible
+}
+
+#area-pager-mail .pager {
+	min-width: 24px;
+	height: 24px;
+	line-height: 24px;
+	margin-top: 3px
+}
+
+#area-pager-mail .hint {
+	display: none
+}
+
+#area-right-mail {
+	width: 75%;
+	_width: 74.9%;
+	height: auto;
+	position: relative
+}
+
+#area-mails-mail {
+	overflow-y: auto;
+	overflow-x: hidden;
+	border-right: 1px solid #eee;
+	background-color: #fff;
+	max-height: 540px;
+	width: 100%;
+	position: relative;
+}
+
+#area-mails-mail .item {
+	margin: 8px auto;
+}
+
+#area-mails-mail .item.to .l {
+	padding: 0 16px 0 0;
+	float: right;
+	text-align: left
+}
+
+#area-mails-mail .item.to .r {
+	padding: 0 0 0 16px;
+	float: left;
+	text-align: right
+}
+
+#area-mails-mail .item.to .cont {
+	background-color: #fbfaf2;
+	border-color: 1px solid #e1dfd0
+}
+
+#area-mails-mail .item.to .subtail {
+	border-color: #e1dfd0;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid transparent;
+	top: 16px;
+	left: auto;
+	right: -17px
+}
+
+#area-mails-mail .item.to .tail {
+	border-color: #fbfaf2;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 8px solid transparent;
+	top: 16px;
+	left: 100%
+}
+
+#area-mails-mail .item.to .btn-report-mail {
+	display: none
+}
+
+#area-mails-mail .item .l {
+	padding: 0 0 0 16px;
+	width: auto
+}
+
+#area-mails-mail .item .r {
+	padding: 0 16px 0 0;
+	width: 420px;
+	*width: 410px
+}
+
+#area-mails-mail .item .btn {
+	display: inline-block;
+	_display: inline;
+	float: none;
+	margin: 0 0 4px
+}
+
+#area-mails-mail .avatar {
+	width: 60px;
+	height: 60px
+}
+
+#area-mails-mail .name {
+	font-size: 13px;
+	height: 16px;
+	line-height: 16px;
+	margin: 0;
+	padding: 0
+}
+
+#area-mails-mail .cont {
+	display: inline-block;
+	_display: inline;
+	font-size: 13px;
+	line-height: 1.4;
+	color: #333;
+	background-color: #f2f8fb;
+	position: relative;
+	margin: 0;
+	padding: 8px;
+	border: 1px solid #e1e9ed;
+	border-radius: 4px;
+	max-width: 100%;
+	*width: auto;
+	text-align: left;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+	word-wrap: break-word;
+}
+
+#area-mails-mail .cont:hover .area-tool-mail {
+	z-index: 0
+}
+
+#area-mails-mail .cont .thumb {
+	display: inline-block;
+	_display: inline;
+	float: none;
+	margin: 0 4px;
+	width: auto;
+	height: auto;
+}
+
+#area-mails-mail .cont .thumb img {
+	display: block;
+	float: none;
+	max-width: 360px;
+	max-height: 270px;
+	background: transparent
+		url("http://cdn.aixifan.com/dotnet/20130217/style/image/bg-trans.png")
+		left top repeat;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+	border-radius: 2px
+}
+
+#area-mails-mail .cont .emotion {
+	max-width: 80px;
+	max-height: 80px;
+	*width: auto;
+	*height: auto
+}
+
+#area-mails-mail .time {
+	font-size: 12px;
+	color: #798;
+	margin: 4px 0 4px 16px;
+	text-align: right
+}
+
+#area-mails-mail .tail {
+	position: absolute;
+	display: block;
+	border: 8px solid #f2f8fb;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-left: 8px solid transparent;
+	content: "";
+	display: inline-block;
+	*display: none;
+	top: 16px;
+	left: -16px
+}
+
+#area-mails-mail .subtail {
+	position: absolute;
+	display: block;
+	border: 10px solid #e1e9ed;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-left: 8px solid transparent;
+	content: "";
+	display: inline-block;
+	*display: none;
+	top: 16px;
+	left: -18px
+}
+
+#area-mails-mail .btn-more-mail {
+	display: block;
+	position: relative;
+	background-color: #f9f9f9;
+	color: #999;
+	height: auto;
+	font-size: 13px;
+	text-align: center;
+	border: 1px dashed #ccc;
+	margin: 16px 8px;
+	padding: 4px 1%;
+	cursor: pointer
+}
+
+#area-mails-mail .divider {
+	height: 1px;
+	margin: 16px 8px;
+	border-bottom: 1px dashed #ccc
+}
+
+#area-mails-mail .btn-sound-google {
+	cursor: pointer;
+	display: none
+}
+
+#area-mails-mail .area-tool-mail {
+	margin: 0 2px 0 0;
+	position: relative;
+	z-index: -1;
+}
+
+#area-mails-mail .area-tool-mail a {
+	color: #c33
+}
+
+#area-editor-mail {
+	width: 100%;
+	height: auto;
+	position: relative;
+	background: #fff;
+	margin: 0;
+	padding: 0;
+	left: 0;
+	top: 0;
+	border-right: 1px solid #eee;
+}
+
+#area-editor-mail .edui-container {
+	border-right: 0;
+	border-left: 0
+}
+
+.edui-toolbar .edui-btn-toolbar {
+	padding: 1px 5px
+}
+
+#area-tool-mail {
+	border-top: 1px solid #fff;
+	width: 100%;
+	height: 32px;
+	line-height: 32px;
+	position: relative;
+	margin: 0;
+	padding: 2px 2px 0
+}
+
+.edui-editor {
+	border: none !important;
+	border-bottom: 1px solid #eee !important;
+	box-shadow: none !important;
+}
+
+.edui-editor .edui-editor-toolbarboxouter {
+	background-color: #fff;
+	border-top: 1px dashed #ddd;
+	border-bottom: 1px dashed #ddd
+}
+
+#area-cont-right .mainer .item {
+	-webkit-animation: none !important;
+	-moz-animation: none !important;
+	-o-animation: none !important;
+	animation: none !important
+}
+
+#sure-album-win {
+	width: 400px;
+	background: #fff;
+	border-radius: 2px;
+	min-height: 200px;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin: -100px 0 0 -200px;
+}
+
+#sure-album-win .icon-close {
+	position: absolute;
+	right: 5px;
+	top: 10px;
+	cursor: pointer
+}
+
+#sure-album-win .sure-album-info {
+	font-size: 1.2em;
+	line-height: 2;
+	margin: 3em 2em;
+	text-align: center
+}
+
+#sure-album-win #sure-album-submit {
+	margin: 1em auto;
+	text-align: center;
+	float: none;
+	display: block
+}
+
+@media screen and (min-width:1440px) {
+	#area-right-mail .item .r {
+		width: 585px
+	}
+	#area-contact-mail .item .r {
+		width: 183px
+	}
+}
