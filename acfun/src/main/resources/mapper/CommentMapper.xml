@@ -7,7 +7,7 @@
 		select #{pBean.pageSize} pagesize ,#{pBean.pageNumber} pagenumber ,count(1) total,#{id} id ,(#{pBean.pageNumber}-1)*#{pBean.pageSize} start from comment where resource_id=#{id}
 	</select>
 	
-	<resultMap type="PaginationBean" id="CommentBeanMap">
+	<resultMap type="PaginationBean2" id="CommentBeanMap">
 		<result property="pageSize" column="pagesize"/>
 		<result property="pageNumber" column="pagenumber"/>
 		<result property="total" column="total"/>

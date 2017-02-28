@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yc.acfun.entity.Comment;
 import com.yc.acfun.entity.JsonMessageModule;
-import com.yc.acfun.entity.PaginationBean;
+import com.yc.acfun.entity.PaginationBean2;
 import com.yc.acfun.service.CommentService;
 
 @Controller
@@ -18,8 +18,8 @@ public class CommentHandler {
 	
 	@RequestMapping("/queryComment")
 	@ResponseBody
-	public PaginationBean<Comment> queryComment(String id,int page){
-		PaginationBean<Comment> pBean = new PaginationBean<Comment>();
+	public PaginationBean2<Comment> queryComment(String id,int page){
+		PaginationBean2<Comment> pBean = new PaginationBean2<Comment>();
 		pBean.setPageSize(20);
 		pBean.setPageNumber(page);
 		return commentService.queryComment(id,pBean);

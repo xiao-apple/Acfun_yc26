@@ -8,8 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.GenericServlet;
-import javax.servlet.ServletConfig;
 
 import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.jspsmart.upload.SmartUpload;
 import com.yc.acfun.entity.Partition;
 
 
@@ -54,11 +51,7 @@ public class VideoHander {
 	@RequestMapping("/submit")
 	@ResponseBody
 	private boolean submit(@RequestParam(name="pic",required=false)MultipartFile picData,HttpSession session,HttpServletRequest req,HttpServletResponse resp) throws IOException, ServletException {
-		
-		SmartUpload su=new SmartUpload();
-		su.setCharset("utf-8");
-		//su.initialize(getServletConfig(),req,resp);
-		int id=10001;
+		//TODO 此处未处理
 		String file=req.getParameter("pic");
 		String pid=req.getParameter("pid");
 		System.out.println(file);
