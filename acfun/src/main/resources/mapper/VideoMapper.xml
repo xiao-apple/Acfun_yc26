@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间与映射接口类名一致 -->
+<mapper namespace="com.yc.acfun.mapper.VideoMapper">
+<!-- <resultMap type="Partition" id="PartitionBeanMap">
+		<collection property="rows" column="{partition_id=partition_id,partition_first_id=partition_first_id,partition_name,partition_name}" select="getfavourite"/>
+	</resultMap> -->
+
+	<select id="findPartition_a" resultType="Partition">
+		select * from ‘partition‘ where partition_first_id is null;
+	</select>	
+	
+	<select id="findPartition_b" parameterType="int" resultType="Partition">
+		select * from ‘partition‘ where partition_first_id=#{partition_first_id};
+	</select>
+</mapper>

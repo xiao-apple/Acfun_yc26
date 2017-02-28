@@ -1,0 +1,4 @@
+
+$.get("user/changeEmail",function(){
+	
+})

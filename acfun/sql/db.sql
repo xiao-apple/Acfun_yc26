@@ -11,11 +11,32 @@ CREATE TABLE browse (   -- 浏览表(记录用户浏览历史)
   resource_id int(50) DEFAULT NULL,   -- 资源id
   browse_time datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+select * from browse
+insert into browse values(10001,1927813,DATE_FORMAT(NOW(),'%Y-%m-%d'));
+insert into browse values(10001,1927814,DATE_FORMAT(NOW(),'%Y-%m-%d'));
+insert into browse values(10001,1927815,DATE_FORMAT(NOW(),'%Y-%m-%d'));
+insert into browse values(10001,1927816,DATE_FORMAT(NOW(),'%Y-%m-%d'));
+insert into browse values(10001,1927817,DATE_FORMAT(NOW(),'%Y-%m-%d'));
+insert into browse values(10001,1927818,DATE_FORMAT(NOW(),'%Y-%m-%d'));
+insert into browse values(10001,1927819,DATE_FORMAT(NOW(),'%Y-%m-%d'));
+insert into browse values(10001,1927820,DATE_FORMAT(NOW(),'%Y-%m-%d'));
 
+delete from browse where resource_id=1927818
 -- ----------------------------
 -- Records of browse
 -- ----------------------------
 
+select browse_time,u.user_id ,user_nickname,user_head,resource_time,resource_title,resource_cover,partition_name
+from browse b,user u,resource r,partitions p
+where b.resource_id=r.resource_id and u.user_id=r.user_id and p.partition_id=r.partition_id and b.user_id=10001;
+
+
+
+select 10001 id,count(1) total,ceil(count(1)/6) totalPage,6 pageSize,1 currPage,6*0 start,6*1 end from 
+		(select browse_time
+		from browse b,user u,resource r,partitions p
+		where b.resource_id=r.resource_id and u.user_id=r.user_id and p.partition_id=r.partition_id and b.user_id=10001)t
+	
 -- ----------------------------
 -- Table structure for collection
 -- ----------------------------
@@ -95,15 +116,24 @@ CREATE TABLE message (     -- 私信表
 -- ----------------------------
 -- Table structure for partition
 -- ----------------------------
-DROP TABLE IF EXISTS partitions;
-CREATE TABLE `partitions` (
+DROP TABLE IF EXISTS 'partition';
+CREATE TABLE ‘partition‘ (
   `partition_id` int(10) NOT NULL,
   `partition_first_id` int(10) DEFAULT NULL,
   `partition_name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`partition_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-insert into partitions values(109,1,'海贼王')
+drop table partitions
+select * from ‘partition‘
+insert into ‘partition‘ values(109,1,'海贼王');
+insert into ‘partition‘ values(1,null,'动漫');
+insert into ‘partition‘ values(2,null,'影视');
+insert into ‘partition‘ values(108,2,'动作');
+delete from ‘partition‘ where partition_id=108
+select * from ‘partition‘ where partition_first_id is null
+select * from ‘partition‘ where partition_first_id >=0;
+select * from ‘partition‘ where partition_first_id is null;
 -- ----------------------------
 -- Records of partition
 -- ----------------------------

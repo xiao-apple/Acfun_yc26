@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间与映射接口类名一致 -->
+<mapper namespace="com.yc.acfun.mapper.HistoryMapper">
+
+	
+	
+<resultMap type="PaginationBean" id="PaginationBeanMap">
+		<collection property="rows" column="{totalPage=totalPage,id=id,pageSize=pageSize,currPage=pageSize start=start,end=end}" select="gethistory"/>
+	</resultMap>
+	
+	
+	<select id="findHistory" parameterType="PaginationBean" resultMap="PaginationBeanMap">
+		
+		select ${id} id,count(1) total,ceil(count(1)/${pageSize}) totalPage,${pageSize} pageSize,${currPage} currPage,${pageSize}*${currPage-1} start,${pageSize}*${currPage} end from 
+		(select browse_time
+		from browse b,user u,resource r,‘partition‘ p
+		where b.resource_id=r.resource_id and u.user_id=r.user_id and p.partition_id=r.partition_id and b.user_id=${id})t
+	
+
+	</select>
+	
+	<select id="gethistory" resultType="History">
+
+	select ${totalPage} totalPage,browse_time,u.user_id ,user_nickname,user_head,resource_time,resource_title,resource_cover,partition_name
+	from browse b,user u,resource r,‘partition‘ p
+	where b.resource_id=r.resource_id and u.user_id=r.user_id and p.partition_id=r.partition_id and b.user_id=${id} limit ${start},${end}
+	</select>	
+</mapper>

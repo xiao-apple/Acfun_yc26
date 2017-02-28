@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间与映射接口类名一致 -->
+<mapper namespace="com.yc.acfun.mapper.UserMapper">
+
+	<select id="showUserbyId" parameterType="int" resultType="User">
+		select * from user where user_id=#{id}
+	</select>
+	
+	<update id="EditAutograph" parameterType="User">
+		update user set user_autograph=#{user_autograph} where user_id=#{user_id}
+	</update>
+	
+	<update id="updateUser" parameterType="User">
+		update user set user_sex=#{user_sex},user_name=#{user_name},user_email=#{user_email},user_telephone=#{user_telephone},user_address=#{user_address},user_qq=#{user_qq} where user_id=#{user_id}
+	</update>
+	
+	<update id="updatePassword" parameterType="User">
+		update user set user_password=#{user_password}where user_id=#{user_id}
+	</update>
+	
+	<update id="updateEmail" parameterType="User">
+		update user set user_email=#{user_email}where user_id=#{user_id}
+	</update>
+	
+	<select id="countFollow" parameterType="int" resultType="int">
+		select count(1) from follow where user_id=#{id}
+	</select>
+	
+	
+</mapper>
