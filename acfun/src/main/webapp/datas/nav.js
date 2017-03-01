@@ -4,12 +4,12 @@ var navs = [{
 	"spread": false,
 	"children": [{
 		"title": "添加管理员",
-		"icon": "&#xe63c;",
-		"href": ""
+		"icon": "&#xe612;",
+		"href": "add.jsp"
 	}, {
 		"title": "发布公告",
-		"icon": "&#xe63c;",
-		"href": ""
+		"icon": "&#xe642;",
+		"href": "notice.jsp"
 	}, {
 		"title": "系统日志",
 		"icon": "&#xe63c;",
@@ -22,11 +22,11 @@ var navs = [{
 	"children": [{
 		"title": "用户列表",
 		"icon": "fa-address-book",
-		"href": "user.html"
+		"href": "user.jsp"
 	}, {
 		"title": "封禁用户列表",
 		"icon": "fa-address-book",
-		"href": ""
+		"href": "banuser.jsp"
 	}]
 }, {
 	"title": "资源",
@@ -38,11 +38,11 @@ var navs = [{
 		"href": ""
 	}, {
 		"title": "资源下架",
-		"icon": "fa-check-square-o",
+		"icon": "&#xe640;",
 		"href": ""
 	}, {
 		"title": "资源推荐",
-		"icon": "fa-check-square-o",
+		"icon": "&#xe604;",
 		"href": ""
 	}]
 }, {
@@ -52,7 +52,7 @@ var navs = [{
 	"spread": false,
 	"children": [{
 		"title": "评论删除",
-		"icon": "&#xe63c;",
+		"icon": "&#xe640;",
 		"href": ""
 	}]
 }, {

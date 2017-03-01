@@ -1,0 +1,6 @@
+2017-02-28 20:41:48,313 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select * from user where user_id=14 
+2017-02-28 20:41:48,327 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 
+2017-02-28 20:41:48,342 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1
+2017-02-28 20:42:43,008 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select * from user where user_id=14 
+2017-02-28 20:42:43,023 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 
+2017-02-28 20:42:43,037 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1
