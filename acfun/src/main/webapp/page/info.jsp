@@ -59,16 +59,16 @@
 							target="_blank" class="tool"><i class="icon icon-folder-open"></i>
 							<p>收藏</p></a><span class="clearfix"></span>
 					</div>
-					<div id="win-info-guide" class="win hidden">
+					<div style="opacity: 1; top: 46px;" id="win-info-guide" class="win hidden">
 						<div class="mainer">
 							<div class="a">
 								<div class="l">
-									<a id="a-name-guide" href="http://www.acfun.cn/member/"
-										target="_blank" title="前往我的个人中心" class="name"></a>
+									<a id="a-name-guide" href="page/splash.jsp"
+										target="_blank" title="前往我的个人中心" ></a>
 								</div>
 								<div class="r">
 									<a id="a-logout-guide"
-										href="http://www.acfun.cn/logout.aspx?returnUrl=http://www.acfun.cn/member/"
+										href="login.jsp"
 										title="退出登录"><i class="icon icon-power-off"></i>退出登录</a>
 								</div>
 								<span class="clearfix"></span>

@@ -1,5 +1,6 @@
 package com.yc.acfun.service;
 
+import com.yc.acfun.entity.Splash;
 import com.yc.acfun.entity.User;
 
 public interface UserService {
@@ -24,7 +25,8 @@ public interface UserService {
 
 	boolean changEmail(User user);
 
-	int showfollow(int id);
+
+	Splash showsplash(int id);
 
 
 }

@@ -1,6 +1,8 @@
 package com.yc.acfun.mapper;
 
 import org.apache.ibatis.annotations.Param;
+
+import com.yc.acfun.entity.Splash;
 import com.yc.acfun.entity.User;
 
 
@@ -16,16 +18,18 @@ public interface UserMapper {
 
 	User selectUser(int userId);
 	
-	public User showUserbyId(int id);
+	 User showUserbyId(int id);
 
-	public int EditAutograph(User user);
+	 int EditAutograph(User user);
 
-	public int updateUser(User user);
+	 int updateUser(User user);
 
-	public int updatePassword(User user);
+	 int updatePassword(User user);
 
-	public int updateEmail(User user);
+	 int updateEmail(User user);
 
-	public int countFollow(int id);
+	 int countFollow(int id);
+
+	Splash selectsplashinfo(int id);
 
 }

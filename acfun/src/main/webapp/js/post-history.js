@@ -1,25 +1,26 @@
-$.get("favourite/list",function(data){
+$.get("history/alist",function(data){
 	var rows=data.rows;
 	if(data.total<=0){
 		var info="尚未有任何收藏项目。";
 		ShowInfo(info);
-		$("#list-favourite-favourite").append("<p class='alert'><i class='icon icon-info-circle'></i>尚未有任何收藏项目。</p>")
+		alert(1);
+		$("#list-manage-manage").append("<p class='alert'>尚未有任何投稿。</p>")
 	}else if (data.total<7) {
 
 			show(1);
 	
 	}else{	
-		$("#list-favourite-favourite").append(getPager(rows[0].totalPage,1));
+		$("#list-manage-manage").append(getPager(rows[0].totalPage,1));
 		show(1);	
 		click();
 		function click(){
 			$(".pager").click(function(){
 			if(!$(this).hasClass("active")){
 				
-				$("#list-favourite-favourite").empty();
-				$("#list-favourite-favourite").prepend(getPager(rows[0].totalPage,$(this).attr("data-page")));
+				$("#list-manage-manage").empty();
+				$("#list-manage-manage").prepend(getPager(rows[0].totalPage,$(this).attr("data-page")));
 				show($(this).attr("data-page"));
-				//alert($(this).attr("data-page"));
+			//	alert($(this).attr("data-page"));
 				click();
 			}
 
@@ -61,21 +62,25 @@ function getPager(page,tp){
 
 
 function show(pagenum){
-	$.get("favourite/list?currPage="+pagenum,function(data){
+	$.get("history/alist?currPage="+pagenum,function(data){
 		var rows=data.rows;
+		var state;
 	for (var i = 0; i <rows.length; i++) {
-	var a=i+1;
-					$("#list-favourite-favourite").append("<div data-aid='"+rows[i].resource_id+"' class='item block'>"+
+		if(rows[i].resource_state==null||rows[i].resource_state==0){
+			state="等待审核";
+		}else if(rows[i].resource_state==1){
+			state="通过审核";
+		}else{
+			state="未通过审核";
+		}
+				var a=i+1;
+					$("#list-manage-manage").append("<div data-aid='"+rows[i].resource_id+"' class='item block'>"+
 								"<div class='inner'>"+
 									"<p class='hint-list-index'>"+a+"</p>"+
 									"<div class='l'>"+
 										"<a href='http://www.acfun.cn/v/ac3379398' target='_blank'"+
 											"class='thumb thumb-preview'><img data-aid='"+rows[i].resource_id+"'"+
-											"src='img/cover-day.png' class='preview'></a><a"+
-											"href='http://www.acfun.cn/member/user.aspx?uid=680746'"+
-											"target='_blank' title='点击访问["+rows[i].user_nickname+"]的个人空间'"+
-											"class='thumb thumb-avatar'><img data-uid='"+rows[i].user_id+"'"+
-											"src='"+rows[i].user_head+"' class='avatar'></a>"+
+											"src='"+rows[i].resource_cover+"' class='preview'></a>"+
 									"</div>"+
 									"<div class='r'>"+
 										"<p class='block-title'>"+
@@ -85,19 +90,16 @@ function show(pagenum){
 												"target='_blank' class='title'>"+rows[i].resource_title+"</a>"+
 										"</p>"+
 										"<div class='area-info'>"+
-											"<a href='http://www.acfun.cn/member/user.aspx?uid=680746'"+
-												"target='_blank' class='name'>"+rows[i].user_nickname+"</a>&nbsp;&nbsp;/&nbsp;&nbsp;发布于<span"+
-												"class='time pts'>"+new Date(parseInt(rows[i].resource_time)).toLocaleString()+"</span>&nbsp;&nbsp;/&nbsp;&nbsp;播放:<span"+
-												"class='views pts'>"+rows[i].resource_click+"</span>&nbsp;&nbsp;评论:<span"+
-												"class='comments pts'>"+rows[i].resource_commentCount+"</span>&nbsp;&nbsp;收藏:<span"+
-												"class='favors pts'>"+rows[i].resource_favoriteCount+"</span>"+
+												"投稿于<span"+
+												"class='time pts'>"+new Date(parseInt(rows[i].resource_time)).toLocaleString()+"</span>&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;状态:"+
+												""+state+""+
 										"</div>"+
 										"<p class='desc'>"+rows[i].resource_introduce+"</p>"+
 										
 									"</div>"+
 									"<div class='block-manage'>"+
-										"<button title='删除收藏' class='btn danger mini btn-delete'>"+
-											"<i class='icon icon-times-circle-o'></i>删除收藏"+
+										"<button title='取消投稿' class='btn danger mini btn-delete'>"+
+											"<i class='icon icon-times-circle-o'></i>取消投稿"+
 										"</button>"+
 									"</div>"+
 									"<span class='clearfix'></span>"+

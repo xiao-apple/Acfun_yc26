@@ -23,6 +23,8 @@ import com.taobao.api.request.AlibabaAliqinFcSmsNumSendRequest;
 import com.taobao.api.response.AlibabaAliqinFcSmsNumSendResponse;
 import com.yc.acfun.entity.JsonMessageModule;
 import com.yc.acfun.entity.SMSData;
+import com.yc.acfun.entity.Splash;
+
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.apache.logging.log4j.LogManager;
@@ -302,12 +304,14 @@ public class UserHandler {
 	}
 	
 	
-	@RequestMapping("/follow")
+	@RequestMapping("/splashinfo")
 	@ResponseBody
-	private int follow(HttpSession session) {
+	private Splash splashinfo(HttpSession session) {
 		LogManager.getLogger().debug("请求UserHandler处理info");
 		int id = 10001;
 		
-		return userService.showfollow(id);
+		return userService.showsplash(id);//userService.showsplash(id);
 	}
+	
+	
 }

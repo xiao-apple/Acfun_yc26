@@ -1,3 +1,33 @@
+$.get("user/splashinfo",function(data){
+	$(".area-extra").append("<div class='space'></div>"+
+								"<a href='page/post-history.jsp'><span class='pts'>"+data.allresource+"</span><span "+
+									"class='hint'>过审投稿</span></a><a href='page/following.jsp'><span "+
+									"class='pts'>"+data.mefollow+"</span><span class='hint'>收听</span></a><a "+
+									"href='page/followers.jsp'><span class='pts'>"+data.followme+"</span><span "+
+									"class='hint'>听众</span></a><span class='clearfix'></span>");
+	
+})
+
+$("#a-avatar-guide").mouseover(function(){
+		$("#win-info-guide").removeClass('hidden');
+	});
+$("#a-avatar-guide").mouseout(function(){
+		setTimeout(hidden,500);
+		
+});
+
+function hidden(){		
+	$(document).bind("mouseover", function (e) {	
+		if (e.target.id=="win-info-guide"){
+		
+		}else{ 
+			$("#win-info-guide").addClass('hidden');
+			$(document).unbind("mouseover");
+		}
+	})		
+}
+	
+
 
 $.get("user/info",function(data){
 	$("#a-name-guide").text(data.user_nickname);

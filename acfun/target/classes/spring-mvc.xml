@@ -23,6 +23,18 @@
 		<property name="prefix" value="/" />
 		<property name="suffix" value=".jsp" /> <!-- 给视图加上后缀 如:视图是success,返回是success.jsp -->
 	</bean>
+	
+	
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 设置上传文件的最大尺寸1024字节=1K 默认是不限制 -->
+		<property name="maxUploadSize">
+			<value>1024000000</value>
+		</property>
+		<property name="defaultEncoding">
+			<value>UTF-8</value>
+		</property>
+	</bean>
 	<mvc:default-servlet-handler />
 	<mvc:annotation-driven />
 </beans>
