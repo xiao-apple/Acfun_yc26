@@ -46,4 +46,11 @@
 	<select id="countFollow" parameterType="int" resultType="int">
 		select count(1) from follow where user_id=#{id}
 	</select>
+	
+	<update id="updateKey">
+		update user set auth_key = #{key} where user_id = #{id}
+	</update>
+	<select id="selectUserByName" parameterType="java.lang.String" resultType="User">
+		select * from user where user_nickname = #{user_nickname}
+	</select>
 </mapper>

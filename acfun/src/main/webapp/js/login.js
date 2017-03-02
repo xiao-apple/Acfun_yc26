@@ -110,6 +110,7 @@ $(".btn-login").click(function(){
 				$.cookie("userid",user.user_id,{ path: '/', expires: 365});
 				$.cookie("username",user.user_nickname,{ path: '/', expires: 365});
 				$.cookie("userimg",user.user_head,{ path: '/', expires: 365});
+				$.cookie("auth_key",data.message,{ path: '/', expires: 365});
 				if($.cookie("userimg")!="null"){
 					$(".avatar").attr('src',$.cookie("userimg"));
 				}
@@ -127,3 +128,12 @@ $(".btn-login").click(function(){
 	}
 	
 });
+
+window.onload=function(){
+	var err = $("#info-box").data('err');
+	if(err!=""){
+		$.info.warning(err);
+	}
+	
+	
+}

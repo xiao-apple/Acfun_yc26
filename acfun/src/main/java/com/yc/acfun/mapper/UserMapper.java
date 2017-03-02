@@ -28,4 +28,8 @@ public interface UserMapper {
 
 	public int countFollow(int id);
 
+	int updateKey(@Param(value = "key") String key,@Param(value = "id") Integer id);
+
+	User selectUserByName(String user_nickname);
+
 }

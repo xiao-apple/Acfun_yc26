@@ -26,5 +26,9 @@ public interface UserService {
 
 	int showfollow(int id);
 
+	boolean updateKey(String key,Integer id);
+
+	User selectUserByName(String user_nickname);
+
 
 }

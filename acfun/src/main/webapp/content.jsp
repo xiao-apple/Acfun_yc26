@@ -2,12 +2,15 @@
 <!DOCTYPE html>
 <html class="rgba borderradius">
 <head>
-<title>内容页 - AcFun弹幕视频网 - 认真你就输啦 (・ω・)ノ- ( ゜- ゜)つロ</title>
+<base href="/acfun/">
+<title>${ainfo.title} - AcFun弹幕视频网 - 认真你就输啦 (・ω・)ノ- ( ゜- ゜)つロ</title>
 <link rel="stylesheet" href="css_ms/core_01.css">
 <link rel="stylesheet" href="css_ms/font-awesome.css">
 <link rel="stylesheet" href="css_ms/style.css">
 <link rel="stylesheet" href="css_ms/article-view.css">
 <link rel="stylesheet" href="css_ms/comm.css" id="style-require-comm">
+<link href="umeditor/themes/default/css/umeditor.css" rel="stylesheet">
+<link href="css_ms/info.css" rel="stylesheet">
 </head>
 <body>
 	<div
@@ -362,19 +365,23 @@
 									title="分享到微信朋友圈" data-cmd="weixin" class="bds_weixin">微信</a> <span
 									class="clearfix"></span>
 							</div>
+							<div id="pageInfo" data-title="${ainfo.title}" data-name="${ainfo.username}"
+								data-view="${ainfo.viewCount}" data-collect="${ainfo.favoriteCount}"
+								data-cid="${ainfo.channelId}" data-pcid="${ainfo.parentChannelId}"
+								data-aid="${ainfo.id}" data-uid="${ainfo.userId}" style="display: none;"></div>
 							<p style="display: block;" id="title_1">
 								<span class="crumbs_1"><img
 									src="images/wenzhang.png"
 									class="img_title l"><a
-									href="http://www.acfun.cn/v/list110/index.htm" class="l">文章</a><span
+									href="http://www.acfun.cn/v/list110/index.htm" class="l">${ainfo.parentChannelName}</a><span
 									class="l">&nbsp;/&nbsp;</span><a
-									href="http://www.acfun.cn/a/list110/index.htm" class="l">综合</a></span><span
-									class="txt-title-view_1">文章标题 .txt-title-view_1</span><span
+									href="http://www.acfun.cn/a/list110/index.htm" class="l">${ainfo.channelName}</a></span><span
+									class="txt-title-view_1">${ainfo.title}</span><span
 									id="txt-info-title_1" class="txt-info-title_1"><span
-									class="pts">0</span><span>围观</span>&nbsp;·&nbsp;&nbsp;<span
+									class="pts">${ainfo.viewCount}</span><span>围观</span>&nbsp;·&nbsp;&nbsp;<span
 									class="pts pointer">0</span><span class="pinglun">评论</span>&nbsp;·&nbsp;&nbsp;<span
 									class="pts">0</span><span>香蕉</span>&nbsp;/&nbsp;&nbsp;<span
-									class="time">发布于 2017年 2月18日 09:54</span>&nbsp;/&nbsp;&nbsp;<a
+									class="time">发布于 ${ainfo.contributeTime}</span>&nbsp;/&nbsp;&nbsp;<a
 									onclick="window.open(encodeURI('/report/#name=会计;from=' + self.location.href.replace(/#.*/g, '') + ';type=投稿;oid=' + system.post.aid + ';desc=ac3482316 稿件内容违规。;proof=男子与美女聊天至凌晨 醉酒驾驶送人回去被判刑'));return false;">举报</a><span
 									class="r"><img
 										src="images/monkey.png"
@@ -405,6 +412,7 @@
 						<div id="area-player">
 							<div id="noflash-alert" style="display: none"
 								class="noflash-alert">wenzhang</div>
+							${ainfo.content}
 						</div>
 						<div class="qshare hidden">
 							<h2>男子与美女聊天至凌晨 醉酒驾驶送人回去被判刑</h2>
@@ -478,15 +486,14 @@
 								<div class="block-info-bottom-r l">
 									<a href="http://www.acfun.cn/u/579011.aspx" target="_blank"
 										class="thumb-u l"><img
-										src="images/20081808e7s1.jpg"
+										src="${ainfo.userAvatar}"
 										class="img-circle"></a>
 									<div class="u-info l">
 										<span><a href="http://www.acfun.cn/u/579011.aspx"
-											target="_blank" class="name"><nobr>会计</nobr></a> <span
+											target="_blank" class="name"><nobr>${ainfo.username}</nobr></a> <span
 											class="verified-ico"></span> </span><span class="clearfix"></span><span
 											class="description"> <span
-											title="型月梗 ac2490208 fate为主，也有空境月姬等，欢迎大家补充">型月梗
-												ac2490208 fate为主，也有空...</span></span>
+											title="型月梗 ac2490208 fate为主，也有空境月姬等，欢迎大家补充"></span></span>
 									</div>
 									<a
 										href="http://www.acfun.cn/member/#area=mail-new;username=%E4%BC%9A%E8%AE%A1;"
@@ -508,7 +515,7 @@
 							<p class="comment_pts_num">0条评论</p>
 							<p class="tab more">
 								<button id="btn-refresh" class="btn primary"
-									onclick="$$('#area-comment').data().func.refreshComm();">
+									onclick="loadComment(1)">
 									<i class="icon _icon-refresh"></i>刷新评论
 								</button>
 								<button id="btn-fastreply" class="btn primary hidden">
@@ -522,7 +529,37 @@
 							</p>
 							<div class="item-comment-divider"></div>
 						</div>
-						<div id="area-editor"></div>
+						<div id="area-editor">
+			<div id="area-editor-inner" class="form">
+				<div id="umeditor-container" style="width:100%;"></div>
+				<div id="block-tool-editor">
+					<div class="captcha-block hidden">
+						<div class="captcha-body">
+							<input type="text" class="captcha-ipt" placeholder="请输入验证码"
+								style="width: 120px; height: 26px" /> <img width="90"
+								height="28" class="captcha-img"
+								style="position: relative; top: 1px; margin-right: 5px; cursor: pointer" />
+							<span class="captcha-next"
+								style="color: #409CD7; cursor: pointer">换一张</span>
+						</div>
+						<p class="captcha-hint" style="padding: 6px 0 4px 3px">请输入验证码完成评论</p>
+					</div>
+					<div class="l">
+						<button id="btn-send-editor" class="btn success do">
+							<i class="icon icon-check-circle"></i>发送评论
+						</button>
+					</div>
+					<div class="r">
+						<button id="btn-quote-return" class="btn danger hidden"
+							onclick="$('#item-editor-shadow').click();">
+							<i class="icon icon-times-circle-o"></i>取消
+						</button>
+					</div>
+					<span class="clearfix"></span>
+				</div>
+			</div>
+			<span class="clearfix"></span>
+		</div>
 						<div style="display: none;" id="area-quick-comment">
 							<div id="quick-comment-fixed">
 								<div>
@@ -542,7 +579,13 @@
 							</div>
 						</div>
 					</div>
-					<div id="block-data-view" data-aid="3482316"
+				</div>
+			</div>
+			<span class="clearfix"></span>
+			<div id="info-box" class="info-box">
+				<p>错误信息</p>
+			</div>
+			<div id="block-data-view" data-aid="3482316"
 						data-title="男子与美女聊天至凌晨 醉酒驾驶送人回去被判刑" data-tags="男子"
 						data-preview="http://cdn.aixifan.com/dotnet/20120923/style/image/cover-night.png"
 						data-cid="110" data-date="2017-02-18 09:54:51" data-uid="579011"
@@ -550,9 +593,6 @@
 						data-avatar="http://cdn.aixifan.com/dotnet/artemis/u/cms/www/201406/20081808e7s1.jpg"
 						data-views="0" data-comms="0" data-favors="0" data-shares=""
 						data-time="0" data-status="2" data-ischecked="1" class="hidden"></div>
-				</div>
-			</div>
-			<span class="clearfix"></span>
 			<div id="footer">
 				<div id="footer-inner">
 					<div class="top-footer">
@@ -630,60 +670,18 @@
 						</div>
 						<span class="clearfix"></span>
 					</div>
-					<div class="bottom-footer">
-						<ul id="explain">
-							<li><p class="report">
-									<span class="reportImg"></span><a href="http://www.12377.cn/"
-										target="_blank">中国互联网举报中心</a>
-								</p>
-								<p class="inter">
-									<span class="reportImg"></span><span>网络文化经营单位</span>
-								</p></li>
-							<li><p>
-									<span>京ICP备15067359号</span>
-								</p>
-								<p>
-									<a href="http://www.bjjubao.org/" target="_blank">北京互联网举报中心</a>
-								</p>
-								<p>
-									<a href="http://www.bjwhzf.gov.cn/accuse.do" target="_blank">北京12318文化市场举报热线</a>
-								</p></li>
-							<li><p>
-									<span>节目制作经营许可证（京）字第05158号</span>
-								</p>
-								<p>
-									<a href="http://www.bj.cyberpolice.cn/index.jsp"
-										target="_blank">网络110报警服务</a>
-								</p></li>
-							<li><p>
-									<a href="http://www.miitbeian.gov.cn/" target="_blank">
-										京ICP证161323号</a>
-								</p>
-								<p>
-									<a href="http://www.acfun.cn/about/qualification"
-										target="_blank">京网文[2016]0948-099号</a>
-								</p>
-								<p class="hidden">
-									<a target="_blank" key="58807ce2efbfb0190275685d"
-										logo_size="83x30" logo_type="business"
-										href="http://v.pinpaibao.com.cn/authenticate/cert/?site=www.acfun.cn&amp;at=business"><b
-										id="aqLogoVJFXZ" style="display: none;"></b><img
-										style="border: none;" alt="安全联盟认证"
-										src="images/hy_83x30.png"
-										height="30" width="83"></a>
-								</p></li>
-							<div style="clear: both"></div>
-						</ul>
-						<a id="a-logo-footer" href="http://www.acfun.cn/"></a>
-						<p>本站不提供任何视听上传服务，所有内容均来自视频分享站点所提供的公开引用资源。Copyright © 2007-2017
-							AcFun. 保留所有权利</p>
-						<p id="hint-time-released" data-time="2017.2.17 17:33:35"
-							class="hidden">Released at 2017.2.17 17:33:35.</p>
-					</div>
 				</div>
 			</div>
 		</div>
 		<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		 <!-- 配置文件 -->
+	 	<script src="umeditor/third-party/template.min.js"></script>
+    	<script src="umeditor/umeditor.config.js"></script>
+    	<!-- 编辑器源码文件 -->
+    	<script src="umeditor/umeditor.js"></script>
+    	<script src="umeditor/lang/zh-cn/zh-cn.js"></script>
+		<script src="js/core.js"></script>
 		<script type="text/javascript" src="js/content.js"></script>
 </body>
 </html>

@@ -13,6 +13,11 @@
 		<from>/v/ac(\d+)$</from>
 		<to type="forward">/video/play?vid=$1</to>
 	</rule>
+	
+	<rule match-type="regex">
+		<from>/a/ac(\d+)$</from>
+		<to type="forward">/article/show?aid=$1</to>
+	</rule>
 
     <rule>
         <note>

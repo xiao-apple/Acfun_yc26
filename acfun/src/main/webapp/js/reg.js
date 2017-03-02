@@ -166,9 +166,15 @@ function register(){
 				$("#form-reg").css('display','none');
 				$(".after-reg").removeClass('hidden');
 				$(".mobile").text(mobile.val());
+				var user = data.data;
+				$.cookie("userid",user.user_id,{ path: '/', expires: 365});
+				$.cookie("username",user.user_nickname,{ path: '/', expires: 365});
+				$.cookie("userimg",user.user_head,{ path: '/', expires: 365});
+				$.cookie("auth_key",data.message,{ path: '/', expires: 365});
 				setTimeout("location.replace('/acfun/')",3000);
 			}
 		},"json");
+		
 	}
 }
 //sendSMS event

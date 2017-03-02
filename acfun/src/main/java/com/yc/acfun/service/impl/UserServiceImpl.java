@@ -74,5 +74,15 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return userMapper.countFollow(id);
 	}
+
+	@Override
+	public boolean updateKey(String key,Integer id) {
+		return userMapper.updateKey(key,id)>0;
+	}
+
+	@Override
+	public User selectUserByName(String user_nickname) {
+		return userMapper.selectUserByName(user_nickname);
+	}
 	
 }

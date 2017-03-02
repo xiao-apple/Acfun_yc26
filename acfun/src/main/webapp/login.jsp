@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html class="rgba borderradius" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,10 +13,13 @@
 	href="css_ms/style.css">
 <link rel="stylesheet"
 	href="css_ms/style_002.css">
+<link rel="stylesheet"
+	href="css_ms/info.css">
 </head>
 <body>
 	<div id="stage">
-		<div id="info-box" class="info-box">
+		<div id="info-box" class="info-box" data-err="${errorMsg}">
+		<c:remove var="errorMsg" scope="session"/>
 		<p>错误信息</p>
 		</div>
 		<div id="area-window">

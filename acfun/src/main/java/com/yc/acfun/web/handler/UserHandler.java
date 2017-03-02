@@ -3,6 +3,7 @@ package com.yc.acfun.web.handler;
 
 import javax.servlet.http.Cookie;
 import java.io.IOException;
+import java.util.Date;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletRequest;
@@ -29,6 +30,7 @@ import org.apache.logging.log4j.LogManager;
 
 import com.yc.acfun.entity.User;
 import com.yc.acfun.service.UserService;
+import com.yc.acfun.utils.Encrypt;
 
 @Controller
 @RequestMapping("/user")
@@ -98,8 +100,11 @@ public class UserHandler {
 		if(origin_code.equals(code)){
 			boolean result = userService.reg(user);
 			if(result){
-				jmm.setMessage("注册成功");
-				session.setAttribute("user", user);
+				user = userService.selectUserByName(user.getUser_nickname());
+				jmm.setData(user);
+				String key = Encrypt.md5AndSha(user.getUser_id()+new Date().getTime()+"");
+				userService.updateKey(key,user.getUser_id());
+				jmm.setMessage(key);
 			}else {
 				jmm.setCode(-2);
 				jmm.setMessage("注册失败,请稍后再试");
@@ -163,6 +168,9 @@ public class UserHandler {
 			System.out.println("哇 ");
 			User user = userService.selectUser(userId);
 			jmm.setData(user);
+			String key = Encrypt.md5AndSha(user.getUser_id()+new Date().getTime()+"");
+			userService.updateKey(key,user.getUser_id());
+			jmm.setMessage(key);
 		}else {
 			jmm.setCode(-2);
 			jmm.setMessage("用户名或密码错误");
@@ -184,6 +192,10 @@ public class UserHandler {
 		cookie.setMaxAge(0);
 		cookie.setPath("/");
 		response.addCookie(cookie);
+		cookie = new Cookie("auth_key", null);
+		cookie.setMaxAge(0);
+		cookie.setPath("/");
+		response.addCookie(cookie);
 		return "redirect:/";
 	}
 	
@@ -194,7 +206,7 @@ public class UserHandler {
 		
 		int id = 10001;
 		User user = userService.showUser(id);
-		session.setAttribute("user", user);
+		//session.setAttribute("user", user);
 		System.out.println(user);
 		return user;
 	}
@@ -222,17 +234,17 @@ public class UserHandler {
 		user.setUser_name(req.getParameter("name"));
 		user.setUser_email(req.getParameter("email"));
 		if(req.getParameter("tel")==""){
-			user.setUser_telephone(0);
+			user.setUser_telephone("");
 		}else{
-			user.setUser_telephone(Integer.parseInt(req.getParameter("tel")));
+			user.setUser_telephone(req.getParameter("tel"));
 		}
 		
 		user.setUser_address(req.getParameter("address"));
 		
 		if(req.getParameter("qq")==""){
-			user.setUser_qq(0);
+			user.setUser_qq("");
 		}else{
-			user.setUser_qq(Integer.parseInt(req.getParameter("qq")));
+			user.setUser_qq(req.getParameter("qq"));
 		}
 		
 		user.setUser_id(id);
