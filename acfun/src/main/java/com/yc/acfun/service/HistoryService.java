@@ -7,5 +7,7 @@ public interface HistoryService {
 
 	PaginationBean<History> showHistory(String currPage, String pageSize, int id);
 
+	PaginationBean<History> showArticHistory(String currPage, String pageSize, int id);
+
 	
 }

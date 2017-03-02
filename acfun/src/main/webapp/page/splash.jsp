@@ -63,16 +63,15 @@
 							target="_blank" class="tool"><i class="icon icon-folder-open"></i>
 							<p>收藏</p></a><span class="clearfix"></span>
 					</div>
-					<div style="opacity: 1; top: 46px;" id="win-info-guide"
-						class="win hidden">
+					<div style="opacity: 1; top: 46px;" id="win-info-guide" class="win hidden">
 						<div class="mainer">
 							<div class="a">
 								<div class="l">
-									<a id="a-name-guide" href="page/profile.jsp" target="_blank"
-										title="前往我的个人中心" class="name"></a>
+									<a id="a-name-guide" href="page/splash.jsp"
+										target="_blank" title="前往我的个人中心" ></a>
 								</div>
 								<div class="r">
-									<a id="a-logout-guide" href="page/login.jsp" title="退出登录"><i
+									<a id="a-logout-guide" href="login.jsp" title="退出登录"><i
 										class="icon icon-power-off"></i>退出登录</a>
 								</div>
 								<span class="clearfix"></span>
@@ -328,11 +327,7 @@
 							</p>
 							<div class="area-extra">
 								<div class="space"></div>
-								<a href="page/post-history.jsp"><span class="pts">0</span><span
-									class="hint">过审投稿</span></a><a href="page/following.jsp"><span
-									class="pts">0</span><span class="hint">收听</span></a><a
-									href="page/followers.jsp"><span class="pts">0</span><span
-									class="hint">听众</span></a><span class="clearfix"></span>
+								
 							</div>
 						</div>
 						<div style="height: 572px;" id="shadow-guide-left" class="hidden"></div>
@@ -387,8 +382,7 @@
 								<div id="list" class="mainer hidden">
 									<a href="page/upload-video.jsp" class="tab"><i class="icon"></i>视频投稿</a><a
 										href="page/post-article.jsp" class="tab"><i class="icon"></i>文章投稿</a><a
-										href="page/post-history.jsp" class="tab"><i class="icon"></i>过往投稿</a><a
-										href="page/post-manage.jsp" class="tab"><i class="icon"></i>视频管理</a>
+										href="page/post-history.jsp" class="tab"><i class="icon"></i>过往投稿</a>
 								</div>
 							</div>
 
@@ -625,85 +619,17 @@
 								<div class="mainer">
 									<div id="area-cont-splash">
 										<div id="area-user-splash">
-											<div class="l">
-												<!-- page/profile.jsp -->
-												<a href="page/profile.jsp" class="thumb"><img
-													src="img/avatar.jpg" class="avatar"></a>
-											</div>
-											<div class="r">
-												<a href="http://www.acfun.cn/u/8150118.aspx" class="name"></a><span
-													class="uid">Uid:8150118</span><a
-													href="http://www.acfun.cn/info/#page=limit" target="_blank"
-													class="group">正式会员</a>
-
-												<p id="hint-unread-splash">
-													共有<span
-														class="pts">0</span>条<a href="page/mail.jsp">[私信]</a>、<span
-														class="pts">0</span>个<a href="page/followers.jsp">[新听众]</a>和<span
-														class="pts">0</span>条<a href="page/push.jsp">[推送内容]</a>。
-												</p>
-												
-											</div>
+											
 											
 										</div>
 										<div class="item">
-											
-											
 											<span class="clearfix"></span>
 										</div>
 										<p id="btn-toggle-info">
 											<span><i class="icon icon-chevron-up"></i>点击收起投稿信息</span>
 										</p>
 										<div id="info-hidden-splash" class="">
-											<div class="item l">
-												<div class="l">
-													<i style="color: #ca6;" class="icon icon-upload"></i>
-												</div>
-												<div class="l">
-													<div class="a">
-														我的投稿总数<span style="color: #ca6;" class="pts">0</span>Posts
-													</div>
-													<div class="b">用户发布成功的投稿总和。</div>
-												</div>
-												<span class="clearfix"></span>
-											</div>
-											<div class="item r">
-												<div class="l">
-													<i style="color: #798;" class="icon icon-eye"></i>
-												</div>
-												<div class="l">
-													<div class="a">
-														投稿总浏览数<span style="color: #798;" class="pts">0</span>Views
-													</div>
-													<div class="b">当前所有有效投稿的浏览数总和。</div>
-												</div>
-												<span class="clearfix"></span>
-											</div>
-											<div class="item l">
-												<div class="l">
-													<i style="color: #696;" class="icon icon-folder-open"></i>
-												</div>
-												<div class="l">
-													<div class="a">
-														投稿总收藏数<span style="color: #696;" class="pts">0</span>Favors
-													</div>
-													<div class="b">当前所有有效投稿的收藏数总和。</div>
-												</div>
-												<span class="clearfix"></span>
-											</div>
-											<div class="item r">
-												<div class="l">
-													<i style="color: #69c;" class="icon icon-comments"></i>
-												</div>
-												<div class="l">
-													<div class="a">
-														投稿总评论数<span style="color: #69c;" class="pts">0</span>Comms
-													</div>
-													<div class="b">当前所有有效投稿的评论数总和。</div>
-												</div>
-												<span class="clearfix"></span>
-											</div>
-											<span class="clearfix"></span>
+											
 										</div>
 									</div>
 								</div>
@@ -837,7 +763,7 @@
 }
 </style>
 									<div id="area-top-calendar">
-										<div class="l">
+										<!-- <div class="l">
 											<p id="item-date-calendar">2017年1月3日 星期二</p>
 											<p id="item-subdate-calendar">丙申猴年 腊月初六</p>
 										</div>
@@ -845,7 +771,7 @@
 											<p title="今日运势指数：99%" style="color: rgb(227, 51, 51);"
 												id="item-sign-calendar">大吉</p>
 										</div>
-										<span class="clearfix"></span>
+										<span class="clearfix"></span> -->
 									</div>
 									<table id="table">
 										<tbody valign="middle"></tbody>
@@ -1004,5 +930,6 @@
 	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="js/userinfo.js"></script>
 	<script type="text/javascript" src="js/click.js"></script>
+	<script type="text/javascript" src="js/splash.js"></script>
 </body>
 </html>

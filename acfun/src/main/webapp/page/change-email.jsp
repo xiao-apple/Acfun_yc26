@@ -58,16 +58,16 @@
 							target="_blank" class="tool"><i class="icon icon-folder-open"></i>
 							<p>收藏</p></a><span class="clearfix"></span>
 					</div>
-					<div id="win-info-guide" class="win hidden">
+					<div style="opacity: 1; top: 46px;" id="win-info-guide" class="win hidden">
 						<div class="mainer">
 							<div class="a">
 								<div class="l">
-									<a id="a-name-guide" href="http://www.acfun.cn/member/"
-										target="_blank" title="前往我的个人中心" class="name"></a>
+									<a id="a-name-guide" href="page/splash.jsp"
+										target="_blank" title="前往我的个人中心"  ></a>
 								</div>
 								<div class="r">
 									<a id="a-logout-guide"
-										href="http://www.acfun.cn/logout.aspx?returnUrl=http://www.acfun.cn/member/"
+										href="login.jsp"
 										title="退出登录"><i class="icon icon-power-off"></i>退出登录</a>
 								</div>
 								<span class="clearfix"></span>
@@ -321,12 +321,8 @@
 								<i class="icon icon-edit"></i>
 							</p>
 							<div class="area-extra">
-								<div class="space"></div>
-								<a href="page/post-history.jsp"><span class="pts">0</span><span
-									class="hint">过审投稿</span></a><a href="page/following.jsp"><span
-									class="pts">0</span><span class="hint">收听</span></a><a
-									href="page/followers.jsp"><span class="pts">0</span><span
-									class="hint">听众</span></a><span class="clearfix"></span>
+								
+								
 							</div>
 						</div>
 						<div style="height: 572px;" id="shadow-guide-left" class="hidden"></div>
@@ -380,8 +376,7 @@
 								<div id="list" class="mainer hidden">
 									<a href="page/upload-video.jsp" class="tab"><i class="icon"></i>视频投稿</a><a
 										href="page/post-article.jsp" class="tab"><i class="icon"></i>文章投稿</a><a
-										href="page/post-history.jsp" class="tab"><i class="icon"></i>过往投稿</a><a
-										href="page/post-manage.jsp" class="tab"><i class="icon"></i>视频管理</a>
+										href="page/post-history.jsp" class="tab"><i class="icon"></i>过往投稿</a>
 								</div>
 							</div>
 

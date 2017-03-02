@@ -32,4 +32,16 @@ public class HistoryHandler {
 		System.out.println(historyService.showHistory(currPage,pageSize,id));
 		return historyService.showHistory(currPage,pageSize,id);
 	}
+	
+	
+	@RequestMapping("/alist")
+	@ResponseBody
+	private PaginationBean<History> AList(String currPage, String pageSize,HttpSession session,HttpServletRequest req) {
+		
+		
+		currPage=req.getParameter("currPage");
+		int id = 10001;
+		System.out.println(1);
+		return historyService.showArticHistory(currPage,pageSize,id);
+	}
 }

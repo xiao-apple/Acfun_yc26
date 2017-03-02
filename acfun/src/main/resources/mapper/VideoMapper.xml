@@ -11,9 +11,7 @@
 	FROM `resource` r INNER JOIN `user` u on u.user_id=r.user_id INNER JOIN `partition` p on p.partition_id=r.partition_id INNER JOIN `partition` p2 on p2.partition_id=p.partition_first_id 
 	where r.resource_id = #{vid}
 	</select>
-	<!-- <resultMap type="Partition" id="PartitionBeanMap">
-		<collection property="rows" column="{partition_id=partition_id,partition_first_id=partition_first_id,partition_name,partition_name}" select="getfavourite"/>
-	</resultMap> -->
+	
 
 	<select id="findPartition_a" resultType="Partition">
 		select * from ‘partition‘ where partition_first_id is null;
@@ -21,5 +19,44 @@
 	
 	<select id="findPartition_b" parameterType="int" resultType="Partition">
 		select * from ‘partition‘ where partition_first_id=#{partition_first_id};
+	</select>
+	
+	<insert id="insertResource" parameterType="Resource">
+	INSERT INTO resource VALUES (${user_id}, 1927866, '${resource_title}', ${partition_id}, '${resource_cover}', '${resource_introduce}', '${resource_content}', null,NOW(), '0', '0', '1', '${resource_duration}', '0', '0');
+	</insert>
+	
+	<insert id="insertResources" parameterType="Resource">
+	INSERT INTO resource VALUES (${user_id}, 1927866, '${resource_title}', ${partition_id}, '${resource_cover}', '${resource_introduce}', '${resource_content}', null,NOW(), '0', '0', '0', '0', '0', '0');
+	</insert>
+	
+	<select id="selectLabelId" parameterType="String" resultType="String">
+		select label_id from label where label_name=#{name}
+	</select>
+	
+	
+	<insert id="insertLabel" parameterType="String">
+	 INSERT INTO label VALUES (50,#{name},0);
+	</insert>
+
+	<insert id="insertLabelres" parameterType="Labelres">
+	 	insert into label_res values(8,(select label_id from label where label_name='${label_name}'),(select resource_id from resource where user_id=${user_id} order by resource_id desc  limit 1));
+	</insert>
+	
+	
+
+	<resultMap type="PaginationBean" id="PaginationBeanMap">
+		<collection property="rows" column="{totalPage=totalPage,id=id,pageSize=pageSize,currPage=pageSize start=start,end=end}" select="getResource"/>
+	</resultMap>
+	
+	
+	<select id="findResource" parameterType="PaginationBean" resultMap="PaginationBeanMap">
+		
+		select ${id} id,count(1) total,ceil(count(1)/${pageSize}) totalPage,${pageSize} pageSize,${currPage} currPage,${pageSize}*${currPage-1} start,${pageSize}*${currPage} end from 
+		(select * from user_id=${id})t
+	</select>
+	
+	<select id="getResource" resultType="Favourite">
+
+		select ${totalPage} totalPage,* c.user_id=${id} limit ${start},${end}
 	</select>
 </mapper>

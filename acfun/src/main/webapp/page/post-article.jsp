@@ -6,21 +6,16 @@
 <meta charset=UTF-8">
 <title>文章投稿</title>
 <link rel="stylesheet" href="css/core.css">
-<!--[if lte IE 7]><link rel="stylesheet" href="http://cdn.aixifan.com/dotnet/20130418/project/font-awesome/4.2.0/css/font-awesome-ie7.min.css"></link><![endif]-->
-<!--[if (gte IE 8)|!(IE)]><!-->
+
 <link rel="stylesheet" href="css/font-awesome.css">
-<!--<![endif]-->
-<!--[if lte IE 7]><link rel="stylesheet" href="http://cdn.aixifan.com/dotnet/20130418/project/font-acfun/css/style-ie7.css"></link><![endif]-->
-<!--[if (gte IE 8)|!(IE)]><!-->
+
 <link rel="stylesheet" href="css/style.css">
-<!--<![endif]-->
+
 <link rel="stylesheet" media="screen and (min-width: 1440px)"
 	href="css/wide.css">
 <link rel="stylesheet" href="css/member.css">
-<link id="style-theme-member" rel="stylesheet"
-	href="css/theme.css">
-<link rel="stylesheet" href="css/umeditor.css"
-	id="style-require-editor">
+<link id="style-theme-member" rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/umeditor.css" id="style-require-editor">
 <script type="text/javascript" src="ueditor/ueditor.config.js"></script>
 <script type="text/javascript" src="ueditor/ueditor.all.min.js"></script>
 </head>
@@ -57,28 +52,27 @@
 								<div class="tail"></div>
 							</div></a><a id="a-login-guide" href="page/login.jsp" target="_blank"
 							class="tool hidden"><i class="icon icon-user"></i>
-							<p>登录/注册</p></a><a id="a-avatar-guide"
-							href="page/profile.jsp" target="_blank"
-							class="thumb"><img src="" class="avatar">
+							<p>登录/注册</p></a><a id="a-avatar-guide" href="page/profile.jsp"
+							target="_blank" class="thumb"><img src="" class="avatar">
 							<p class="info-hint">5</p></a><a id="a-history-guide"
-							href="page/history.jsp" target="_blank"
-							class="tool"><i class="icon icon-history"></i>
+							href="page/history.jsp" target="_blank" class="tool"><i
+							class="icon icon-history"></i>
 							<p>看过</p></a><a id="a-post-guide" href="page/upload-video.jsp"
 							target="_blank" class="tool"><i class="icon icon-upload"></i>
 							<p>投稿</p></a><a id="a-favor-guide" href="page/favourite.jsp"
 							target="_blank" class="tool"><i class="icon icon-folder-open"></i>
 							<p>收藏</p></a><span class="clearfix"></span>
 					</div>
-					<div id="win-info-guide" class="win hidden">
+					<div style="opacity: 1; top: 46px;" id="win-info-guide" class="win hidden">
 						<div class="mainer">
 							<div class="a">
 								<div class="l">
-									<a id="a-name-guide" href="http://www.acfun.cn/member/"
-										target="_blank" title="前往我的个人中心" class="name"></a>
+									<a id="a-name-guide" href="page/splash.jsp"
+										target="_blank" title="前往我的个人中心" ></a>
 								</div>
 								<div class="r">
 									<a id="a-logout-guide"
-										href="http://www.acfun.cn/logout.aspx?returnUrl=http://www.acfun.cn/member/"
+										href="login.jsp"
 										title="退出登录"><i class="icon icon-power-off"></i>退出登录</a>
 								</div>
 								<span class="clearfix"></span>
@@ -98,8 +92,7 @@
 						<div class="mainer">
 							<div class="b"></div>
 							<div class="c">
-								<a href="page/history.jsp"
-									target="_blank">查看更多</a>
+								<a href="page/history.jsp" target="_blank">查看更多</a>
 							</div>
 							<div class="tail"></div>
 						</div>
@@ -107,10 +100,8 @@
 					<div id="win-post-guide" class="win hidden">
 						<div class="mainer">
 							<div class="b">
-								<a href="page/upload-video.jsp"
-									target="_blank">投视频</a><a
-									href="page/post-article.jsp"
-									target="_blank">投文章</a>
+								<a href="page/upload-video.jsp" target="_blank">投视频</a><a
+									href="page/post-article.jsp" target="_blank">投文章</a>
 							</div>
 							<div class="tail"></div>
 						</div>
@@ -145,9 +136,9 @@
 							href="http://www.acfun.cn/v/list125/index.htm"
 							data-channel="fishpond">鱼♂塘</a><a
 							href="http://www.acfun.cn/v/list110/index.htm"
-							data-channel="article">文章</a><a
-							href="http://www.acfun.cn/rank/" target="_blank"
-							data-channel="extra" class="last">更多</a><span class="clearfix"></span>
+							data-channel="article">文章</a><a href="http://www.acfun.cn/rank/"
+							target="_blank" data-channel="extra" class="last">更多</a><span
+							class="clearfix"></span>
 					</div>
 					<div class="r">
 						<form id="area-search-guide" target="_blank" method="get"
@@ -309,7 +300,7 @@
 					href="http://www.acfun.cn/feedback/#from=http://www.acfun.cn/member/"
 					target="_blank" class="item feedback"><i
 					class="icon icon-paper-plane"></i>
-				<p class="hint">意见反馈</p></a>
+					<p class="hint">意见反馈</p></a>
 				<div id="to-top" class="item top">
 					<i class="icon icon-chevron-up"></i>
 					<p class="hint">返回顶部</p>
@@ -322,8 +313,8 @@
 					<div id="area-main-left" class="l">
 						<div id="block-user-left" data-active="active">
 							<a href="page/profile.jsp" class="thumb"><img
-								src="img/avatar.jpg" class="avatar"><span
-								class="cover"><i class="icon icon-user"></i>编辑资料</span></a>
+								src="img/avatar.jpg" class="avatar"><span class="cover"><i
+									class="icon icon-user"></i>编辑资料</span></a>
 							<div class="d">
 								<a href="http://www.acfun.cn/u/8150118.aspx" target="_blank"
 									class="name"></a>
@@ -331,17 +322,12 @@
 							<div data-group="1" class="group">
 								<a href="http://www.acfun.cn/info/#page=limit" target="_blank">正式会员</a>
 							</div>
-							
+
 							<p title="点击以修改签名" class="desc">
 								这个人很懒，什么都没有写…<i class="icon icon-edit"></i>
 							</p>
 							<div class="area-extra">
-								<div class="space"></div>
-								<a href="page/post-history.jsp"><span class="pts">0</span><span
-									class="hint">过审投稿</span></a><a href="page/following.jsp"><span
-									class="pts">0</span><span class="hint">收听</span></a><a
-									href="page/followers.jsp"><span class="pts">0</span><span
-									class="hint">听众</span></a><span class="clearfix"></span>
+								
 							</div>
 						</div>
 						<div style="height: 572px;" id="shadow-guide-left" class="hidden"></div>
@@ -395,11 +381,10 @@
 								<div id="list" class="mainer hidden">
 									<a href="page/upload-video.jsp" class="tab"><i class="icon"></i>视频投稿</a><a
 										href="page/post-article.jsp" class="tab"><i class="icon"></i>文章投稿</a><a
-										href="page/post-history.jsp" class="tab"><i class="icon"></i>过往投稿</a><a
-										href="page/post-manage.jsp" class="tab"><i class="icon"></i>视频管理</a>
+										href="page/post-history.jsp" class="tab"><i class="icon"></i>过往投稿</a>
 								</div>
 							</div>
-							
+
 							<div class="part-guide-left">
 								<div class="banner">
 									<a href="page/push.jsp" class="tab fixed"><i
@@ -417,7 +402,7 @@
 										class="hint hidden hint-followers-left">(0)</span></a>
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
 					<div id="area-main-right" class="r">
@@ -540,10 +525,9 @@ select option[disabled] {
 							</div>
 							<div id="block-banner-right" class="block banner">
 								<a href="page/upload-video.jsp" class="tab"><i class="icon"></i>视频投稿</a><a
-								href="page/post-article.jsp" class="tab active"><i
-									class="icon"></i>文章投稿</a><a href="page/post-history.jsp" class="tab"><i
-									class="icon"></i>过往投稿</a><a href="page/post-manage.jsp" class="tab"><i
-									class="icon"></i>视频管理</a>
+									href="page/post-article.jsp" class="tab active"><i
+									class="icon"></i>文章投稿</a><a href="page/post-history.jsp"
+									class="tab"><i class="icon"></i>过往投稿</a>
 							</div>
 							<div id="block-first" class="block">
 								<div class="mainer form">
@@ -553,9 +537,7 @@ select option[disabled] {
 										</div>
 										<div class="r">
 											<input required="required" placeholder="请输入文章标题"
-												id="ipt-title-post" data-name="文章标题" class="title"><span
-												class="hint-hover"><i
-												class="icon icon-question-circle"></i>详细</span>
+												id="ipt-titles-post" data-name="文章标题" class="title" value="">
 										</div>
 										<span class="clearfix"></span>
 									</div>
@@ -566,7 +548,7 @@ select option[disabled] {
 										</div>
 										<div class="r">
 											<textarea required="required" placeholder="请输入文章简介"
-												id="ipt-desc-post" data-name="文章简介" class="desc"></textarea>
+												id="ipt-desc-post" data-name="文章简介"></textarea>
 											<p class="hint">请填写文章简介。简介中不得包含令人反感的信息，且长度应在10到255个字符之间。</p>
 										</div>
 										<span class="clearfix"></span>
@@ -577,24 +559,14 @@ select option[disabled] {
 											<p class="subtitle">标签</p>
 										</div>
 										<div class="r">
-											<input required="required" placeholder="请输入文章标签"
-												id="ipt-tag-post" data-name="文章标签" class="tag"><span
-												class="hint-hover"><i
+											<input id="ipt-tags-post" data-name="文章标签" class="tag"
+												placeholder="请输入标签，多个标签以&&隔开" required="required"><span
+												class="hint-hover" value=""><i
 												class="icon icon-question-circle"></i>详细</span>
 										</div>
 										<span class="clearfix"></span>
 									</div>
-									<p class="divider"></p>
-									<div class="unit">
-										<div class="l">
-											<p class="subtitle">标签协管</p>
-										</div>
-										<div class="r">
-											<div class="switch active"></div>
-											<p class="hint">开启后，其他用户也可以添加标签。</p>
-										</div>
-										<span class="clearfix"></span>
-									</div>
+
 									<p class="divider"></p>
 									<div class="unit">
 										<div class="l">
@@ -603,12 +575,6 @@ select option[disabled] {
 										<div class="r">
 											<select id="ipt-channel-post"><option value="63"
 													disabled="disabled">文章</option>
-												<option selected="selected" value="110">- 文章综合</option>
-												<option value="73">- 工作情感</option>
-												<option value="74">- 动漫文化</option>
-												<option value="75">- 漫画轻小说</option>
-												<option value="164">- 游戏</option></select><span class="hint-hover"><i
-												class="icon icon-question-circle"></i>详细</span>
 										</div>
 										<span class="clearfix"></span>
 									</div>
@@ -618,7 +584,8 @@ select option[disabled] {
 											<p class="subtitle">封面图片</p>
 										</div>
 										<div class="r">
-											<img src="img/cover-day.png"
+											<input id="upload" name="file" accept="image/*" type="file"
+												style="display: none" /> <img src="img/cover-day.png"
 												id="img-preview-post">
 											<button id="btn-preview-post" class="btn primary">
 												<i class="icon icon-picture-o"></i>上传本地图片
@@ -636,15 +603,15 @@ select option[disabled] {
 										</div>
 										<div class="r">
 											<div style="width: 100%; z-index: 1;" class="edui-container">
-												
-													<textarea id="container" name="container"
-													style="height: 280px; margin: 0 auto;;"></textarea>
-												<script type="text/javascript">
+
+												<textarea id="container" name="container"
+													style="height: 280px; margin: 0 auto;"></textarea>
+												<script id="text" type="text/javascript">
 													UE.getEditor('container');
 												</script>
-													<div class="edui-dialog-container"></div>
-												
-												
+												<div class="edui-dialog-container"></div>
+
+
 											</div>
 											<p class="hint">请填写文章正文。正文不得包含令人反感的信息，且长度应在10到65535个字符之间。</p>
 										</div>
@@ -742,8 +709,7 @@ select option[disabled] {
 						<div class="arrow-right"></div>
 						<div class="erweima">
 							<div class="arrow-top"></div>
-							<img src="img/erweima.jpg" height="140px"
-								width="140px">
+							<img src="img/erweima.jpg" height="140px" width="140px">
 						</div>
 					</div>
 					<div class="r">
@@ -789,10 +755,9 @@ select option[disabled] {
 								<a target="_blank" key="58807ce2efbfb0190275685d"
 									logo_size="83x30" logo_type="business"
 									href="http://v.pinpaibao.com.cn/authenticate/cert/?site=www.acfun.cn&amp;at=business"><script
-										src="css/aq_auth.js"></script><b
-									id="aqLogoXJROC" style="display: none;"></b><img
-									style="border: none;" alt="安全联盟认证"
-									src="css/hy_83x30.png" height="30" width="83"></a>
+										src="css/aq_auth.js"></script><b id="aqLogoXJROC"
+									style="display: none;"></b><img style="border: none;"
+									alt="安全联盟认证" src="css/hy_83x30.png" height="30" width="83"></a>
 							</p></li>
 						<div style="clear: both"></div>
 					</ul>
@@ -805,7 +770,7 @@ select option[disabled] {
 			</div>
 		</div>
 	</div>
-	
+
 	<script>(function () {
     var updateTime = +new Date(2015, 6, 21);
     if ($.now() - updateTime < 5 * 24 * 60 * 60 * 1000) {
@@ -815,5 +780,6 @@ select option[disabled] {
 	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="js/click.js"></script>
 	<script type="text/javascript" src="js/userinfo.js"></script>
+	<script type="text/javascript" src="js/post-article.js"></script>
 </body>
 </html>

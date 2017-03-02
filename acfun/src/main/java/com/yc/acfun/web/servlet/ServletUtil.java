@@ -3,6 +3,7 @@ package com.yc.acfun.web.servlet;
 
 public class ServletUtil {
 
-	public static final String UPLOAD_DIR_NAME = "upload26";
+	public static final String UPLOADPIC_DIR_NAME = "upload26";
+	public static final String UPLOADVID_DIR_NAME = "upload26/videos";
 	public static String UPLOAD_DIR;
 }

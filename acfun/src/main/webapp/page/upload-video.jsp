@@ -19,14 +19,13 @@
 </head>
 <body spellcheck="false">
 	<div id="stage">
-		<div style="display: block;" id="area-info">
-		</div>
+		<div style="display: none;" id="area-info"></div>
 		<div id="area-window">
 			<!-- <div id="win-edit" class="win" style="left: 209.5px; top: 329px; padding: 0px; line-height: 16.8px; opacity: 0;">
 				<input style="width: 196px; height: 22px;">
 			</div> -->
-			
-			<div id="win-info" class="win" style="display:none;">
+
+			<div id="win-info" class="win" style="display: none;">
 				<div class="mainer"></div>
 			</div>
 			<div style="opacity: 0; display: none; left: 581.5px; top: 349.4px;"
@@ -53,28 +52,27 @@
 								<div class="tail"></div>
 							</div></a><a id="a-login-guide" href="page/login.jsp" target="_blank"
 							class="tool hidden"><i class="icon icon-user"></i>
-							<p>登录/注册</p></a><a id="a-avatar-guide"
-							href="page/profile.jsp" target="_blank"
-							class="thumb"><img src="" class="avatar">
+							<p>登录/注册</p></a><a id="a-avatar-guide" href="page/profile.jsp"
+							target="_blank" class="thumb"><img src="" class="avatar">
 							<p class="info-hint">5</p></a><a id="a-history-guide"
-							href="page/history.jsp" target="_blank"
-							class="tool"><i class="icon icon-history"></i>
+							href="page/history.jsp" target="_blank" class="tool"><i
+							class="icon icon-history"></i>
 							<p>看过</p></a><a id="a-post-guide" href="page/upload-video.jsp"
 							target="_blank" class="tool"><i class="icon icon-upload"></i>
 							<p>投稿</p></a><a id="a-favor-guide" href="page/favourite.jsp"
 							target="_blank" class="tool"><i class="icon icon-folder-open"></i>
 							<p>收藏</p></a><span class="clearfix"></span>
 					</div>
-					<div id="win-info-guide" class="win hidden">
+					<div style="opacity: 1; top: 46px;" id="win-info-guide" class="win hidden">
 						<div class="mainer">
 							<div class="a">
 								<div class="l">
-									<a id="a-name-guide" href="http://www.acfun.cn/member/"
-										target="_blank" title="前往我的个人中心" class="name"></a>
+									<a id="a-name-guide" href="page/splash.jsp"
+										target="_blank" title="前往我的个人中心" ></a>
 								</div>
 								<div class="r">
 									<a id="a-logout-guide"
-										href="http://www.acfun.cn/logout.aspx?returnUrl=http://www.acfun.cn/member/"
+										href="login.jsp"
 										title="退出登录"><i class="icon icon-power-off"></i>退出登录</a>
 								</div>
 								<span class="clearfix"></span>
@@ -325,18 +323,14 @@
 							<div data-group="1" class="group">
 								<a href="http://www.acfun.cn/info/#page=limit" target="_blank">正式会员</a>
 							</div>
-							
-							<p title="点击以修改签名" class="desc" style="opacity: 1; visibility: visible;">
+
+							<p title="点击以修改签名" class="desc"
+								style="opacity: 1; visibility: visible;">
 								<i class="icon icon-edit"></i>
-							</p> 
+							</p>
 							<%-- <input type="text" style="height:20px;width:180px;"value=""> --%>
 							<div class="area-extra">
-								<div class="space"></div>
-								<a href="page/post-history.jsp"><span class="pts">0</span><span
-									class="hint">过审投稿</span></a><a href="page/following.jsp"><span
-									class="pts">0</span><span class="hint">收听</span></a><a
-									href="page/followers.jsp"><span class="pts">0</span><span
-									class="hint">听众</span></a><span class="clearfix"></span>
+								
 							</div>
 						</div>
 						<div id="shadow-guide-left" class="hidden"></div>
@@ -390,8 +384,7 @@
 								<div id="list" class="mainer hidden">
 									<a href="page/upload-video.jsp" class="tab"><i class="icon"></i>视频投稿</a><a
 										href="page/post-article.jsp" class="tab"><i class="icon"></i>文章投稿</a><a
-										href="page/post-history.jsp" class="tab"><i class="icon"></i>过往投稿</a><a
-										href="page/post-manage.jsp" class="tab"><i class="icon"></i>视频管理</a>
+										href="page/post-history.jsp" class="tab"><i class="icon"></i>过往投稿</a>
 								</div>
 							</div>
 
@@ -417,52 +410,15 @@
 					</div>
 					<div id="area-main-right" class="r">
 						<div id="area-cont-right">
-							<script>(function(){
-    var mUrl,u,isAndroid,isIOS,routes,localHref;
-    u = navigator.userAgent;
-    isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-    isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-    localHref = location.href;
-    routes = [
-        [/\/a\/aa(\d+)/,"/a/aa$1?"],
-        [/\/a\/ab(\d+)/,"/v/?ab=$1?"],
-        [/\/a\/ac(\d+)/,"/v/?ac=$1&type=article"],
-        [/\/a\/ad(\d+)/,"/ad$1"],
-        [/\/v\/ab(\d+)/,"/v/?ab=$1"],
-        [/\/v\/ab(\d+)_(\d+)/,"/v/?ab=$1&part=$2"],
-        [/\/v\/ac(\d+)/,"/v/?ac=$1"],
-        [/\/v\/ac(\d+)_(\d+)/,"/v/?ac=$1&part=$2"],
-        [/\/[av]\/list(\d+)\/.*/,"/list/?channel=$1"],
-        [/\/sp\/cw2016(.*)/,"/newyear2016$1"],
-        [/\/sp\/acdc2016/,"/sp/acdc2016"],
-        [/\/sp\/2016chuanpuwang\//,"/2016chuanpuwang/"],
-        [/\/sp\/2017chunwanyure/,"/newyear2017"],
-        [/\/app\/download\//,"/app/download/"]
-    ];
-    if(isAndroid || isIOS){
-        if(location.href == "http://www.acfun.cn/"){
-            location = "http://m.acfun.cn/";
-        }else {
-            for (var k = 0; k < routes.length; k++) {
-                if (localHref.match(routes[k][0])) {
-                    localHref = localHref.replace(new RegExp(location.origin), "http://m.acfun.cn")
-                    mUrl = localHref.replace(routes[k][0], routes[k][1]);
-                    location = mUrl;
-                    break;
-                }
-            }
-        }
-    }
-})()</script>
+							
 							<link rel="stylesheet" href="css/upload-video.css">
-							<script src="css/upload-video.js"></script>
+						
 							<div class="container">
 								<div id="block-banner-right" class="block banner">
 									<a href="page/upload-video.jsp" class="tab active"><i
 										class="icon"></i>视频投稿</a><a href="page/post-article.jsp"
 										class="tab"><i class="icon"></i>文章投稿</a><a
-										href="page/post-history.jsp" class="tab"><i class="icon"></i>过往投稿</a><a
-										href="page/post-manage.jsp" class="tab"><i class="icon"></i>视频管理</a>
+										href="page/post-history.jsp" class="tab"><i class="icon"></i>过往投稿</a>
 								</div>
 								<!--#go-old-->
 								<!--    a.go-old 返回旧版-->
@@ -478,23 +434,25 @@
 												<label>标题<em>*</em></label>
 												<div class="titt pos-rele">
 													<input id="titles"
-														placeholder="据老司机们说，好的标题能提升15%的Acer投蕉量....."													
-														data-name="标题"  type="text" value="" ><span
+														placeholder="据老司机们说，好的标题能提升15%的Acer投蕉量....."
+														data-name="标题" type="text" value=""><span
 														class="num"></span>
 												</div>
 											</div>
-											
+
 											<div class="up-area must">
 												<label>分区<em>*</em></label>
 												<div class="pos-rele inline-block">
 													<select name="channel" class="up-channel"><option
 															selected="selected" value="-250">请选择分区</option>
-														
+
 														<option value="-1">其它</option></select>
 												</div>
 												<div class="pos-rele inline-block">
-													<select name="subject" class="up-sub"><!-- <option
-															selected="selected" value="-250">请选择子分区</option> --></select>
+													<select name="subject" class="up-sub">
+														<!-- <option
+															selected="selected" value="-250">请选择子分区</option> -->
+													</select>
 												</div>
 												<div class="pos-live">
 													未经剪辑的直播录屏请投至本分区，剪辑后的视频请按直播内容投至相应分区<br>直播分区的投稿将会在娱乐、游戏等的直播子分区出现，但不会进入到各大分区的最新/最热列表中
@@ -502,10 +460,11 @@
 											</div>
 											<div class="up-pic cfix must">
 												<label>封面<em>*</em></label>
-												<div class="pic-cont" >
+												<div class="pic-cont">
 													<div id="up-pic" class="pos-rele">
-													<input id="upload" name="file" accept="image/*" type="file" style="display: none"/>
-														<img id="pic" src="img/default.png">
+														<input id="upload" name="file" accept="image/*"
+															type="file" style="display: none" /> <img id="pic"
+															src="img/default.png">
 													</div>
 												</div>
 												<div class="pic-textbox">
@@ -514,6 +473,37 @@
 												</div>
 											</div>
 											
+											<div class="up-tag must">
+												<label>标签<em>*</em></label>
+												<div class="up-tagbox">
+													<div class="tag-cont cfix">
+														<input id="inputTagator" name="inputTagator"
+															placeholder="输入标签按回车保存" value="" style="display: none;">
+														<div id="tagator_inputTagator"
+															class="tagator options-hidden"
+															style="width: 127px; padding: 0px; position: relative;">
+															<span class="tagator_textlength"
+																style="position: absolute; visibility: hidden;"></span>
+															<div class="tagator_tags"></div>
+															<input id="vid-tags-post" data-name="文章标签" class="tag"
+												placeholder="请输入文章标签" required="required"><span
+												class="hint-hover" value=""></span>
+															<ul class="tagator_options"></ul>
+														</div>
+														<input id="activate_tagator" value="销毁 tagator"
+															type="hidden" class="operateBtn"><input
+															id="getvalue" value="获取值" type="hidden"
+															class="operateBtn">
+													</div>
+													<div class="tag-tips cfix">
+														<div class="tag-num fr">
+															输入标签，多个标签以&&隔开
+														</div>
+													</div>
+												</div>
+												
+											
+											</div>
 											<div class="up-descr must">
 												<label>简介<em>*</em></label>
 												<div class="overCont cfix">
@@ -533,9 +523,9 @@
 											<div id="addNew" class="fr webuploader-container">
 												<div class="webuploader-pick">选择本地文件</div>
 												<div>
-													style="position: absolute; top: 0px; left: 0px; width: 90px; height: 22px; overflow: hidden; bottom: auto; right: auto;"
-													id="rt_rt_1b93at1vqiq01r8u1ipvdja1n551">
-													<input
+													style="position: absolute; top: 0px; left: 0px; width:
+													90px; height: 22px; overflow: hidden; bottom: auto; right:
+													auto;" id="rt_rt_1b93at1vqiq01r8u1ipvdja1n551"> <input
 														accept=".mkv,.wmv,.avi,.mpg,.mp4,.rmvb,.flv,.3gp,.mov,.vob"
 														multiple="multiple" class="webuploader-element-invisible"
 														name="file" type="file"><label
@@ -545,17 +535,17 @@
 										</div>
 										<ul id="barspool" class="barspool">
 											<li id="up-ready" class="up-ready cfix">
-												<input id="upload-speed" name="file" accept="image/*" type="file" style="display: none"/>
-												<img id="vpic"src="img/upfile.png">
-												
-												
-										
+											<video style="display:none;" controls="controls" id="upvideo" oncanplaythrough="myFunction(this)"></video>
+											<input id="upload-speed" name="file" accept="image/*" type="file"
+												style="display: none" /> <img id="vpic" src="img/upfile.png">
+
+
+
 												<p class="tips-2">
 													支持批量添加，单个文件大小不超过 4G<br>个数不超过30个，支持wmv. avi. mpg. mp4.<br>
 													rmvb. flv.3gp. mov. mkv. vob 格式文件<br>
 													建议上传mp4格式文件，视频效果会更加清晰哦~
-												</p>
-											</li>
+												</p></li>
 											<!-- <li id="add-new-copy"><div class="add-new-copy">
 													<i class="icon-plus-font"></i><span>选择本地文件</span>
 												</div></li> -->
@@ -563,6 +553,7 @@
 									</div>
 									<div class="dividers pos-rel">
 										<div style="display: none" class="pselect cfix tag-checkbox">
+										
 											<input id="auto-c" value="1" class="auto-submit hide-t"
 												type="checkbox"><label for="auto-c"></label>
 											<!--todo-->
@@ -713,13 +704,6 @@
 			</div>
 		</div>
 	</div>
-
-	<script>(function () {
-    var updateTime = +new Date(2015, 6, 21);
-    if ($.now() - updateTime < 5 * 24 * 60 * 60 * 1000) {
-        $('#app-footer-link .bg-new-app').addClass('new');
-    }
-})();</script>
 	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="js/click.js"></script>
 	<script type="text/javascript" src="js/userinfo.js"></script>

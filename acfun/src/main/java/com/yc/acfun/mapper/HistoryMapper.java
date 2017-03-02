@@ -7,4 +7,6 @@ public interface HistoryMapper {
 
 	PaginationBean<History> findHistory(PaginationBean<History> historyBean);
 
+	PaginationBean<History> findPostHistory(PaginationBean<History> historyBean);
+
 }

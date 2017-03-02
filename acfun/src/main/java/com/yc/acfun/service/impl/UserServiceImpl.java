@@ -3,6 +3,7 @@ package com.yc.acfun.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.yc.acfun.entity.Splash;
 import com.yc.acfun.entity.User;
 import com.yc.acfun.mapper.UserMapper;
 import com.yc.acfun.service.UserService;
@@ -69,10 +70,11 @@ public class UserServiceImpl implements UserService {
 		return userMapper.updateEmail(user)>0;
 	}
 
+
 	@Override
-	public int showfollow(int id) {
+	public Splash showsplash(int id) {
 		// TODO Auto-generated method stub
-		return userMapper.countFollow(id);
+		return userMapper.selectsplashinfo(id);
 	}
 
 	@Override

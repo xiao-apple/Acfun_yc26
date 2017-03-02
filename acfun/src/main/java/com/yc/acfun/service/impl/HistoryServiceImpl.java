@@ -37,6 +37,25 @@ public class HistoryServiceImpl implements HistoryService {
 		return historyMapper.findHistory(historyBean);
 	}
 
+
+
+
+	@Override
+	public PaginationBean<History> showArticHistory(String currPage, String pageSize, int id) {
+		PaginationBean<History> historyBean=new PaginationBean<History>();
+		if(currPage!=null){
+			historyBean.setCurrPage(Integer.parseInt(currPage));
+		}
+		
+		if(pageSize!=null){
+			historyBean.setPageSize(Integer.parseInt(pageSize));
+		}
+		historyBean.setId(id);
+		
+		return historyMapper.findPostHistory(historyBean);
+	
+	}
+
 	
 
 }

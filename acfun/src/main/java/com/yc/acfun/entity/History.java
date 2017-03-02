@@ -16,6 +16,8 @@ public class History {
 	private Date browse_time;
 	private String resource_cover;
 	private  Integer totalPage;
+	private String resource_introduce;
+	private Integer resource_state;
 	private List<T> rows;
 	public Integer getUser_id() {
 		return user_id;
@@ -77,6 +79,18 @@ public class History {
 	public void setTotalPage(Integer totalPage) {
 		this.totalPage = totalPage;
 	}
+	public String getResource_introduce() {
+		return resource_introduce;
+	}
+	public void setResource_introduce(String resource_introduce) {
+		this.resource_introduce = resource_introduce;
+	}
+	public Integer getResource_state() {
+		return resource_state;
+	}
+	public void setResource_state(Integer resource_state) {
+		this.resource_state = resource_state;
+	}
 	public List<T> getRows() {
 		return rows;
 	}
@@ -88,8 +102,10 @@ public class History {
 		return "History [user_id=" + user_id + ", user_nickname=" + user_nickname + ", resource_id=" + resource_id
 				+ ", user_head=" + user_head + ", resource_time=" + resource_time + ", partition_name=" + partition_name
 				+ ", resource_title=" + resource_title + ", browse_time=" + browse_time + ", resource_cover="
-				+ resource_cover + ", totalPage=" + totalPage + ", rows=" + rows + "]";
+				+ resource_cover + ", totalPage=" + totalPage + ", resource_introduce=" + resource_introduce
+				+ ", resource_state=" + resource_state + ", rows=" + rows + "]";
 	}
+	
 	
 	
 }

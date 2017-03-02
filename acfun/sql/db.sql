@@ -6,9 +6,9 @@ SET FOREIGN_KEY_CHECKS=0;
 -- Table structure for browse
 -- ----------------------------
 DROP TABLE IF EXISTS browse;
-CREATE TABLE browse (   -- ä¯ÀÀ±í(¼ÇÂ¼ÓÃ»§ä¯ÀÀÀúÊ·)
+CREATE TABLE browse (   -- æµè§ˆè¡¨(è®°å½•ç”¨æˆ·æµè§ˆå†å²)
   user_id int(50) DEFAULT NULL,
-  resource_id int(50) DEFAULT NULL,   -- ×ÊÔ´id
+  resource_id int(50) DEFAULT NULL,   -- èµ„æºid
   browse_time datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 select * from browse
@@ -20,6 +20,7 @@ insert into browse values(10001,1927817,DATE_FORMAT(NOW(),'%Y-%m-%d'));
 insert into browse values(10001,1927818,DATE_FORMAT(NOW(),'%Y-%m-%d'));
 insert into browse values(10001,1927819,DATE_FORMAT(NOW(),'%Y-%m-%d'));
 insert into browse values(10001,1927820,DATE_FORMAT(NOW(),'%Y-%m-%d'));
+insert into browse values(10001,1927821,NOW());
 
 delete from browse where resource_id=1927818
 -- ----------------------------
@@ -41,7 +42,7 @@ select 10001 id,count(1) total,ceil(count(1)/6) totalPage,6 pageSize,1 currPage,
 -- Table structure for collection
 -- ----------------------------
 DROP TABLE IF EXISTS collection;
-CREATE TABLE collection (   -- ÊÕ²Ø±í
+CREATE TABLE collection (   -- æ”¶è—è¡¨
   user_id int(50) DEFAULT NULL,
   resource_id int(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -57,6 +58,7 @@ insert into collection values(10001,1927820);
 insert into collection values(10001,1927821);
 insert into collection values(10001,1927822);
 insert into collection values(10001,1927823);
+
 -- ----------------------------
 -- Records of collection
 -- ----------------------------
@@ -65,16 +67,17 @@ insert into collection values(10001,1927823);
 -- Table structure for comment
 -- ----------------------------
 DROP TABLE IF EXISTS comment;
-CREATE TABLE comment (   -- ÆÀÂÛ±í
+CREATE TABLE comment (   -- è¯„è®ºè¡¨
   user_id int(50) DEFAULT NULL,
   resource_id int(50) DEFAULT NULL,
   comment_content varchar(300) DEFAULT NULL,   
-  comment_time datetime DEFAULT NULL,   -- ÆÀÂÛÊ±¼ä
-  comment_state int(10) DEFAULT NULL,   -- ×´Ì¬(É¾³ıÆÀÂÛ)
-  comment_id int(50) DEFAULT NULL,    -- ÆÀÂÛid
-  quote_id int(50) DEFAULT NULL     -- ÒıÓÃÆÀÂÛid
+  comment_time datetime DEFAULT NULL,   -- è¯„è®ºæ—¶é—´
+  comment_state int(10) DEFAULT NULL,   -- çŠ¶æ€(åˆ é™¤è¯„è®º)
+  comment_id int(50) DEFAULT NULL,    -- è¯„è®ºid
+  quote_id int(50) DEFAULT NULL     -- å¼•ç”¨è¯„è®ºid
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+insert into comment values(10002,1927826,'asd',NOW(),1,1,null)
 -- ----------------------------
 -- Records of comment
 -- ----------------------------
@@ -83,9 +86,9 @@ CREATE TABLE comment (   -- ÆÀÂÛ±í
 -- Table structure for follow
 -- ----------------------------
 DROP TABLE IF EXISTS follow;
-CREATE TABLE follow (     -- ¹Ø×¢±í
+CREATE TABLE follow (     -- å…³æ³¨è¡¨
   user_id int (50) DEFAULT NULL,
-  mefollow_id int(50) DEFAULT NULL     -- ÎÒ¹Ø×¢µÄ
+  mefollow_id int(50) DEFAULT NULL     -- æˆ‘å…³æ³¨çš„
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 insert into follow values('10002','10001')
@@ -98,14 +101,26 @@ select count(1) from follow where user_id=10001
 -- ----------------------------
 -- Table structure for message
 -- ----------------------------
+select * from (select count(1) followme from follow where mefollow_id=10001 )a,
+(select count(1) message from message where receive_id=10001)b,
+(select distinct 10001 user_id,user_head from user where user_id=10001)c,
+(select count(1) resource from resource where user_id=10001)d,
+(select count(1) collection from collection where user_id=10001)e,
+(select sum(resource_click) resource_click from resource where user_id=10001)f,
+(select count(comment_id) comment from comment c,resource r where r.resource_id=c.resource_id and r.user_id=10001)g,
+(select count(resource_id) allresource from resource where resource_state=1 and user_id=10001)h,
+(select count(1) mefollow from follow where user_id=10001)i
+
+
+
 DROP TABLE IF EXISTS message;
-CREATE TABLE message (     -- Ë½ĞÅ±í
+CREATE TABLE message (     -- ç§ä¿¡è¡¨
   message_id int(50) NOT NULL,
   message_content varchar(300) DEFAULT NULL,
-  message_time datetime DEFAULT NULL,   -- Ë½ĞÅÊ±¼ä
-  message_state int(10) DEFAULT NULL,   -- ×´Ì¬(É¾³ıË½ĞÅ)
-  receive_id int(50) DEFAULT NULL,      -- ½ÓÊÕÕßid
-  send_id int(50) DEFAULT NULL,         -- ·¢ËÍÕßid
+  message_time datetime DEFAULT NULL,   -- ç§ä¿¡æ—¶é—´
+  message_state int(10) DEFAULT NULL,   -- çŠ¶æ€(åˆ é™¤ç§ä¿¡)
+  receive_id int(50) DEFAULT NULL,      -- æ¥æ”¶è€…id
+  send_id int(50) DEFAULT NULL,         -- å‘é€è€…id
   PRIMARY KEY (message_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -117,7 +132,7 @@ CREATE TABLE message (     -- Ë½ĞÅ±í
 -- Table structure for partition
 -- ----------------------------
 DROP TABLE IF EXISTS 'partition';
-CREATE TABLE ¡®partition¡® (
+CREATE TABLE â€˜partitionâ€˜ (
   `partition_id` int(10) NOT NULL,
   `partition_first_id` int(10) DEFAULT NULL,
   `partition_name` varchar(50) DEFAULT NULL,
@@ -125,24 +140,59 @@ CREATE TABLE ¡®partition¡® (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 drop table partitions
-select * from ¡®partition¡®
-insert into ¡®partition¡® values(109,1,'º£ÔôÍõ');
-insert into ¡®partition¡® values(1,null,'¶¯Âş');
-insert into ¡®partition¡® values(2,null,'Ó°ÊÓ');
-insert into ¡®partition¡® values(108,2,'¶¯×÷');
-delete from ¡®partition¡® where partition_id=108
-select * from ¡®partition¡® where partition_first_id is null
-select * from ¡®partition¡® where partition_first_id >=0;
-select * from ¡®partition¡® where partition_first_id is null;
+select * from â€˜partitionâ€˜
+insert into â€˜partitionâ€˜ values(109,1,'æµ·è´¼ç‹');
+insert into â€˜partitionâ€˜ values(1,null,'åŠ¨æ¼«');
+insert into â€˜partitionâ€˜ values(2,null,'å½±è§†');
+insert into â€˜partitionâ€˜ values(108,2,'åŠ¨ä½œ');
+delete from â€˜partitionâ€˜ where partition_id=108
+select * from â€˜partitionâ€˜ where partition_first_id is null
+select * from â€˜partitionâ€˜ where partition_first_id >=0;
+select * from â€˜partitionâ€˜ where partition_first_id is null;
+
+
+
+
+DROP TABLE IF EXISTS `label`;
+CREATE TABLE `label` (
+  `label_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `label_name` varchar(20) DEFAULT NULL,
+  `label_num` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`label_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1142644 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of label
+-- ----------------------------
+INSERT INTO `label` VALUES ('15', 'æ‹³çš‡', '2');
+INSERT INTO `label` VALUES ('25', 'éŸ³ä¹', '4');
+INSERT INTO `label` VALUES ('33', 'è§£è¯´', '3');
+INSERT INTO `label` VALUES ('36', 'ä¸œæ–¹', '2');
+INSERT INTO `label` VALUES ('43', 'è¡—éœ¸', '2');
 -- ----------------------------
 -- Records of partition
+select 
 -- ----------------------------
+CREATE TABLE `label_res` (
+  `rec_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `label_id` bigint(20) NOT NULL,
+  `resource_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`rec_id`),
+  KEY `fk_lid` (`label_id`),
+  KEY `fk_rid` (`resource_id`),
+  CONSTRAINT `fk_lid` FOREIGN KEY (`label_id`) REFERENCES `label` (`label_id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_rid` FOREIGN KEY (`resource_id`) REFERENCES `resource` (`resource_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1658 DEFAULT CHARSET=utf8;
 
+select * from label_res
+INSERT INTO `label_res` VALUES ('622', '16153', '3374486');
+INSERT INTO `label_res` VALUES ('623', '83872', '3374486');
+INSERT INTO `label_res` VALUES ('624', '764738', '3374486');
 -- ----------------------------
 -- Table structure for recommend
 -- ----------------------------
 DROP TABLE IF EXISTS recommend;
-CREATE TABLE recommend (     -- ÍÆ¼ö±í
+CREATE TABLE recommend (     -- æ¨èè¡¨
   resource_id int(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -154,23 +204,24 @@ CREATE TABLE recommend (     -- ÍÆ¼ö±í
 -- Table structure for resource
 -- ----------------------------
 DROP TABLE IF EXISTS resource;
-CREATE TABLE resource (     -- ×ÊÔ´±í(ÊÓÆµ¡¢ÎÄÕÂ)
+CREATE TABLE resource (     -- èµ„æºè¡¨(è§†é¢‘ã€æ–‡ç« )
   user_id int(50) DEFAULT NULL,
   resource_id int(50) NOT NULL,
-  resource_title varchar(100) NOT NULL,  -- ±êÌâ
+  resource_title varchar(100) NOT NULL,  -- æ ‡é¢˜
   partition_id int(50) DEFAULT NULL,
-  resource_cover varchar(200) DEFAULT NULL,    -- ·âÃæÍ¼Æ¬
-  resource_label varchar(100) DEFAULT NULL,    -- ±êÇ©
-  resource_introduce varchar(300) DEFAULT NULL,   -- ¼ò½é
-  resource_content varchar(200) DEFAULT NULL,   -- ÄÚÈİ
-  resource_state int(10) DEFAULT NULL,      -- ×´Ì¬
-  resource_time datetime DEFAULT NULL,   -- ·¢±íÊ±¼ä
-  resource_click int(255) DEFAULT NULL,    -- µã»÷Á¿
-  resource_good int(255) DEFAULT NULL,     -- µãÔŞÊı
+  resource_cover varchar(200) DEFAULT NULL,    -- å°é¢å›¾ç‰‡
+  resource_label varchar(100) DEFAULT NULL,    -- æ ‡ç­¾
+  resource_introduce varchar(300) DEFAULT NULL,   -- ç®€ä»‹
+  resource_content varchar(200) DEFAULT NULL,   -- å†…å®¹
+  resource_state int(10) DEFAULT NULL,      -- çŠ¶æ€
+  resource_time datetime DEFAULT NULL,   -- å‘è¡¨æ—¶é—´
+  resource_click int(255) DEFAULT NULL,    -- ç‚¹å‡»é‡
+  resource_good int(255) DEFAULT NULL,     -- ç‚¹èµæ•°
   PRIMARY KEY (resource_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
+INSERT INTO resource VALUES (10002, 1927825, 'ä½ å¥½', 108,  '/acfun/219049-12100315394934.jpg','xxxxx', '/acfun/219049-12100315394934.jpg', null,DATE_FORMAT(NOW(),'%Y-%m-%d'), '0', '0', '1', '3757', '0', '0');
+	
+INSERT INTO resource VALUES ('user_id', 'resource_id', 'resource_title', 'partition_id', 'resource_cover', 'resource_introduce', 'resource_content', null, 'resource_time', '0', '0', '1', '3757', '0', '0');
 CREATE TABLE resource (
   user_id int(50) DEFAULT NULL,
   resource_id bigint(20) NOT NULL,
@@ -191,50 +242,104 @@ CREATE TABLE resource (
   PRIMARY KEY (resource_id)
 ) 
 
-select * from resource
+CREATE TABLE `label` (
+  `label_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `label_name` varchar(20) DEFAULT NULL,
+  `label_num` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`label_id`)
+)
+insert into labelres values(1,1,1);
+select * from label_res
+insert into label_res values(1,(select label_id from label where label_name='æ‹³çš‡'),(select resource_id from resource where user_id=10001 order by resource_id desc  limit 1) )
+
+
+
+select label_id,r.resource_id from 
+resource r,label l
+where l.label_name='æ‹³çš‡' and r.user_id=10001 order by resource_id desc  limit 1))
 -- ----------------------------
 -- Records of resource
 -- ----------------------------
-INSERT INTO resource VALUES ('10002', '1927813', 'ĞÂº£³Ï×÷Æ·ºÏ¼¯£ºÃë5¡¢ËıºÍËıµÄÃ¨¡¢ĞÇÖ®Éù¡¢ÑÔÒ¶Ö®Í¥¡¢ÔÆÖ®±Ë¶Ë¡¢×·Öğ·±ĞÇµÄº¢×Ó¡¢Ä³ÈËµÄÄ¿¹â', '109', '/acfun/images/covers/ac1927813.jpg', 'Äã×Ü»áÔÚÕâÀï¿´µ½Ôø¾­µÄÄãÒà»òÏÖÔÚÕıÔÚÇÄÈ»¸Ä±äµÄÄã¡£c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
-INSERT INTO resource VALUES ('10003', '1927814', 'ĞÂº£³Ï×÷Æ·ºÏ¼¯£ºÃë5¡¢ËıºÍËıµÄÃ¨¡¢ĞÇÖ®Éù¡¢ÑÔÒ¶Ö®Í¥¡¢ÔÆÖ®±Ë¶Ë¡¢×·Öğ·±ĞÇµÄº¢×Ó¡¢Ä³ÈËµÄÄ¿¹â', '109', '/acfun/images/covers/ac1927813.jpg', 'Äã×Ü»áÔÚÕâÀï¿´µ½Ôø¾­µÄÄãÒà»òÏÖÔÚÕıÔÚÇÄÈ»¸Ä±äµÄÄã¡£c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
-INSERT INTO resource VALUES ('10003', '1927815', 'ĞÂº£³Ï×÷Æ·ºÏ¼¯£ºÃë5¡¢ËıºÍËıµÄÃ¨¡¢ĞÇÖ®Éù¡¢ÑÔÒ¶Ö®Í¥¡¢ÔÆÖ®±Ë¶Ë¡¢×·Öğ·±ĞÇµÄº¢×Ó¡¢Ä³ÈËµÄÄ¿¹â', '109', '/acfun/images/covers/ac1927813.jpg', 'Äã×Ü»áÔÚÕâÀï¿´µ½Ôø¾­µÄÄãÒà»òÏÖÔÚÕıÔÚÇÄÈ»¸Ä±äµÄÄã¡£c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
-INSERT INTO resource VALUES ('10003', '1927816', 'ĞÂº£³Ï×÷Æ·ºÏ¼¯£ºÃë5¡¢ËıºÍËıµÄÃ¨¡¢ĞÇÖ®Éù¡¢ÑÔÒ¶Ö®Í¥¡¢ÔÆÖ®±Ë¶Ë¡¢×·Öğ·±ĞÇµÄº¢×Ó¡¢Ä³ÈËµÄÄ¿¹â', '109', '/acfun/images/covers/ac1927813.jpg', 'Äã×Ü»áÔÚÕâÀï¿´µ½Ôø¾­µÄÄãÒà»òÏÖÔÚÕıÔÚÇÄÈ»¸Ä±äµÄÄã¡£c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
-INSERT INTO resource VALUES ('10003', '1927817', 'ĞÂº£³Ï×÷Æ·ºÏ¼¯£ºÃë5¡¢ËıºÍËıµÄÃ¨¡¢ĞÇÖ®Éù¡¢ÑÔÒ¶Ö®Í¥¡¢ÔÆÖ®±Ë¶Ë¡¢×·Öğ·±ĞÇµÄº¢×Ó¡¢Ä³ÈËµÄÄ¿¹â', '109', '/acfun/images/covers/ac1927813.jpg', 'Äã×Ü»áÔÚÕâÀï¿´µ½Ôø¾­µÄÄãÒà»òÏÖÔÚÕıÔÚÇÄÈ»¸Ä±äµÄÄã¡£c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
-INSERT INTO resource VALUES ('10003', '1927818', 'ĞÂº£³Ï×÷Æ·ºÏ¼¯£ºÃë5¡¢ËıºÍËıµÄÃ¨¡¢ĞÇÖ®Éù¡¢ÑÔÒ¶Ö®Í¥¡¢ÔÆÖ®±Ë¶Ë¡¢×·Öğ·±ĞÇµÄº¢×Ó¡¢Ä³ÈËµÄÄ¿¹â', '109', '/acfun/images/covers/ac1927813.jpg', 'Äã×Ü»áÔÚÕâÀï¿´µ½Ôø¾­µÄÄãÒà»òÏÖÔÚÕıÔÚÇÄÈ»¸Ä±äµÄÄã¡£c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
-INSERT INTO resource VALUES ('10003', '1927819', 'ĞÂº£³Ï×÷Æ·ºÏ¼¯£ºÃë5¡¢ËıºÍËıµÄÃ¨¡¢ĞÇÖ®Éù¡¢ÑÔÒ¶Ö®Í¥¡¢ÔÆÖ®±Ë¶Ë¡¢×·Öğ·±ĞÇµÄº¢×Ó¡¢Ä³ÈËµÄÄ¿¹â', '109', '/acfun/images/covers/ac1927813.jpg', 'Äã×Ü»áÔÚÕâÀï¿´µ½Ôø¾­µÄÄãÒà»òÏÖÔÚÕıÔÚÇÄÈ»¸Ä±äµÄÄã¡£c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
-INSERT INTO resource VALUES ('10003', '1927820', 'ĞÂº£³Ï×÷Æ·ºÏ¼¯£ºÃë5¡¢ËıºÍËıµÄÃ¨¡¢ĞÇÖ®Éù¡¢ÑÔÒ¶Ö®Í¥¡¢ÔÆÖ®±Ë¶Ë¡¢×·Öğ·±ĞÇµÄº¢×Ó¡¢Ä³ÈËµÄÄ¿¹â', '109', '/acfun/images/covers/ac1927813.jpg', 'Äã×Ü»áÔÚÕâÀï¿´µ½Ôø¾­µÄÄãÒà»òÏÖÔÚÕıÔÚÇÄÈ»¸Ä±äµÄÄã¡£c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
-INSERT INTO resource VALUES ('10003', '1927821', 'ĞÂº£³Ï×÷Æ·ºÏ¼¯£ºÃë5¡¢ËıºÍËıµÄÃ¨¡¢ĞÇÖ®Éù¡¢ÑÔÒ¶Ö®Í¥¡¢ÔÆÖ®±Ë¶Ë¡¢×·Öğ·±ĞÇµÄº¢×Ó¡¢Ä³ÈËµÄÄ¿¹â', '109', '/acfun/images/covers/ac1927813.jpg', 'Äã×Ü»áÔÚÕâÀï¿´µ½Ôø¾­µÄÄãÒà»òÏÖÔÚÕıÔÚÇÄÈ»¸Ä±äµÄÄã¡£c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
-INSERT INTO resource VALUES ('10003', '1927822', 'ĞÂº£³Ï×÷Æ·ºÏ¼¯£ºÃë5¡¢ËıºÍËıµÄÃ¨¡¢ĞÇÖ®Éù¡¢ÑÔÒ¶Ö®Í¥¡¢ÔÆÖ®±Ë¶Ë¡¢×·Öğ·±ĞÇµÄº¢×Ó¡¢Ä³ÈËµÄÄ¿¹â', '109', '/acfun/images/covers/ac1927813.jpg', 'Äã×Ü»áÔÚÕâÀï¿´µ½Ôø¾­µÄÄãÒà»òÏÖÔÚÕıÔÚÇÄÈ»¸Ä±äµÄÄã¡£c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
-INSERT INTO resource VALUES ('10003', '1927823', 'ĞÂº£³Ï×÷Æ·ºÏ¼¯£ºÃë5¡¢ËıºÍËıµÄÃ¨¡¢ĞÇÖ®Éù¡¢ÑÔÒ¶Ö®Í¥¡¢ÔÆÖ®±Ë¶Ë¡¢×·Öğ·±ĞÇµÄº¢×Ó¡¢Ä³ÈËµÄÄ¿¹â', '109', '/acfun/images/covers/ac1927813.jpg', 'Äã×Ü»áÔÚÕâÀï¿´µ½Ôø¾­µÄÄãÒà»òÏÖÔÚÕıÔÚÇÄÈ»¸Ä±äµÄÄã¡£c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
-commit
+select * from resource where user_id=10001
+
+select partition_name ,resource_cover,resource_id,resource_title,resource_time,resource_state,resource_introduce
+from â€˜partitionâ€˜ p ,resource r
+where p.partition_id=r.partition_id and user_id=10001
+select * from follow
+
+select *from (select user_address from user where user_id=10001)a,
+(select count(user_id) countfollowed from follow where mefollow_id=10001)b,
+(select count(user_id) countfollowing from follow where user_id=10001)c,
+(select count(user_id) countresource from resource where user_id=10001)d
+
+
+
+INSERT INTO resource VALUES ('10002', '1927813', 'æ–°æµ·è¯šä½œå“åˆé›†ï¼šç§’5ã€å¥¹å’Œå¥¹çš„çŒ«ã€æ˜Ÿä¹‹å£°ã€è¨€å¶ä¹‹åº­ã€äº‘ä¹‹å½¼ç«¯ã€è¿½é€ç¹æ˜Ÿçš„å­©å­ã€æŸäººçš„ç›®å…‰', '109', '/acfun/images/covers/ac1927813.jpg', 'ä½ æ€»ä¼šåœ¨è¿™é‡Œçœ‹åˆ°æ›¾ç»çš„ä½ äº¦æˆ–ç°åœ¨æ­£åœ¨æ‚„ç„¶æ”¹å˜çš„ä½ ã€‚c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927814', 'æ–°æµ·è¯šä½œå“åˆé›†ï¼šç§’5ã€å¥¹å’Œå¥¹çš„çŒ«ã€æ˜Ÿä¹‹å£°ã€è¨€å¶ä¹‹åº­ã€äº‘ä¹‹å½¼ç«¯ã€è¿½é€ç¹æ˜Ÿçš„å­©å­ã€æŸäººçš„ç›®å…‰', '109', '/acfun/images/covers/ac1927813.jpg', 'ä½ æ€»ä¼šåœ¨è¿™é‡Œçœ‹åˆ°æ›¾ç»çš„ä½ äº¦æˆ–ç°åœ¨æ­£åœ¨æ‚„ç„¶æ”¹å˜çš„ä½ ã€‚c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927815', 'æ–°æµ·è¯šä½œå“åˆé›†ï¼šç§’5ã€å¥¹å’Œå¥¹çš„çŒ«ã€æ˜Ÿä¹‹å£°ã€è¨€å¶ä¹‹åº­ã€äº‘ä¹‹å½¼ç«¯ã€è¿½é€ç¹æ˜Ÿçš„å­©å­ã€æŸäººçš„ç›®å…‰', '109', '/acfun/images/covers/ac1927813.jpg', 'ä½ æ€»ä¼šåœ¨è¿™é‡Œçœ‹åˆ°æ›¾ç»çš„ä½ äº¦æˆ–ç°åœ¨æ­£åœ¨æ‚„ç„¶æ”¹å˜çš„ä½ ã€‚c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927816', 'æ–°æµ·è¯šä½œå“åˆé›†ï¼šç§’5ã€å¥¹å’Œå¥¹çš„çŒ«ã€æ˜Ÿä¹‹å£°ã€è¨€å¶ä¹‹åº­ã€äº‘ä¹‹å½¼ç«¯ã€è¿½é€ç¹æ˜Ÿçš„å­©å­ã€æŸäººçš„ç›®å…‰', '109', '/acfun/images/covers/ac1927813.jpg', 'ä½ æ€»ä¼šåœ¨è¿™é‡Œçœ‹åˆ°æ›¾ç»çš„ä½ äº¦æˆ–ç°åœ¨æ­£åœ¨æ‚„ç„¶æ”¹å˜çš„ä½ ã€‚c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927817', 'æ–°æµ·è¯šä½œå“åˆé›†ï¼šç§’5ã€å¥¹å’Œå¥¹çš„çŒ«ã€æ˜Ÿä¹‹å£°ã€è¨€å¶ä¹‹åº­ã€äº‘ä¹‹å½¼ç«¯ã€è¿½é€ç¹æ˜Ÿçš„å­©å­ã€æŸäººçš„ç›®å…‰', '109', '/acfun/images/covers/ac1927813.jpg', 'ä½ æ€»ä¼šåœ¨è¿™é‡Œçœ‹åˆ°æ›¾ç»çš„ä½ äº¦æˆ–ç°åœ¨æ­£åœ¨æ‚„ç„¶æ”¹å˜çš„ä½ ã€‚c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927818', 'æ–°æµ·è¯šä½œå“åˆé›†ï¼šç§’5ã€å¥¹å’Œå¥¹çš„çŒ«ã€æ˜Ÿä¹‹å£°ã€è¨€å¶ä¹‹åº­ã€äº‘ä¹‹å½¼ç«¯ã€è¿½é€ç¹æ˜Ÿçš„å­©å­ã€æŸäººçš„ç›®å…‰', '109', '/acfun/images/covers/ac1927813.jpg', 'ä½ æ€»ä¼šåœ¨è¿™é‡Œçœ‹åˆ°æ›¾ç»çš„ä½ äº¦æˆ–ç°åœ¨æ­£åœ¨æ‚„ç„¶æ”¹å˜çš„ä½ ã€‚c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927819', 'æ–°æµ·è¯šä½œå“åˆé›†ï¼šç§’5ã€å¥¹å’Œå¥¹çš„çŒ«ã€æ˜Ÿä¹‹å£°ã€è¨€å¶ä¹‹åº­ã€äº‘ä¹‹å½¼ç«¯ã€è¿½é€ç¹æ˜Ÿçš„å­©å­ã€æŸäººçš„ç›®å…‰', '109', '/acfun/images/covers/ac1927813.jpg', 'ä½ æ€»ä¼šåœ¨è¿™é‡Œçœ‹åˆ°æ›¾ç»çš„ä½ äº¦æˆ–ç°åœ¨æ­£åœ¨æ‚„ç„¶æ”¹å˜çš„ä½ ã€‚c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927820', 'æ–°æµ·è¯šä½œå“åˆé›†ï¼šç§’5ã€å¥¹å’Œå¥¹çš„çŒ«ã€æ˜Ÿä¹‹å£°ã€è¨€å¶ä¹‹åº­ã€äº‘ä¹‹å½¼ç«¯ã€è¿½é€ç¹æ˜Ÿçš„å­©å­ã€æŸäººçš„ç›®å…‰', '109', '/acfun/images/covers/ac1927813.jpg', 'ä½ æ€»ä¼šåœ¨è¿™é‡Œçœ‹åˆ°æ›¾ç»çš„ä½ äº¦æˆ–ç°åœ¨æ­£åœ¨æ‚„ç„¶æ”¹å˜çš„ä½ ã€‚c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927821', 'æ–°æµ·è¯šä½œå“åˆé›†ï¼šç§’5ã€å¥¹å’Œå¥¹çš„çŒ«ã€æ˜Ÿä¹‹å£°ã€è¨€å¶ä¹‹åº­ã€äº‘ä¹‹å½¼ç«¯ã€è¿½é€ç¹æ˜Ÿçš„å­©å­ã€æŸäººçš„ç›®å…‰', '109', '/acfun/images/covers/ac1927813.jpg', 'ä½ æ€»ä¼šåœ¨è¿™é‡Œçœ‹åˆ°æ›¾ç»çš„ä½ äº¦æˆ–ç°åœ¨æ­£åœ¨æ‚„ç„¶æ”¹å˜çš„ä½ ã€‚c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927822', 'æ–°æµ·è¯šä½œå“åˆé›†ï¼šç§’5ã€å¥¹å’Œå¥¹çš„çŒ«ã€æ˜Ÿä¹‹å£°ã€è¨€å¶ä¹‹åº­ã€äº‘ä¹‹å½¼ç«¯ã€è¿½é€ç¹æ˜Ÿçš„å­©å­ã€æŸäººçš„ç›®å…‰', '109', '/acfun/images/covers/ac1927813.jpg', 'ä½ æ€»ä¼šåœ¨è¿™é‡Œçœ‹åˆ°æ›¾ç»çš„ä½ äº¦æˆ–ç°åœ¨æ­£åœ¨æ‚„ç„¶æ”¹å˜çš„ä½ ã€‚c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+INSERT INTO resource VALUES ('10003', '1927823', 'æ–°æµ·è¯šä½œå“åˆé›†ï¼šç§’5ã€å¥¹å’Œå¥¹çš„çŒ«ã€æ˜Ÿä¹‹å£°ã€è¨€å¶ä¹‹åº­ã€äº‘ä¹‹å½¼ç«¯ã€è¿½é€ç¹æ˜Ÿçš„å­©å­ã€æŸäººçš„ç›®å…‰', '109', '/acfun/images/covers/ac1927813.jpg', 'ä½ æ€»ä¼šåœ¨è¿™é‡Œçœ‹åˆ°æ›¾ç»çš„ä½ äº¦æˆ–ç°åœ¨æ­£åœ¨æ‚„ç„¶æ”¹å˜çš„ä½ ã€‚c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
+commit;
+update resource set resource_state=1 where resource_id=1927813
+
+user_id int(50) DEFAULT NULL,
+  resource_id bigint(20) NOT NULL,
+  resource_title varchar(100) NOT NULL,
+  partition_id int(50) DEFAULT NULL,
+  resource_cover varchar(200) DEFAULT NULL,
+  resource_introduce varchar(1000) DEFAULT NULL,
+  resource_content longtext,
+  resource_state int(10) DEFAULT NULL,
+  resource_time datetime DEFAULT NULL,
+  resource_click int(255) DEFAULT NULL,
+  resource_good int(255) DEFAULT NULL,
+
+
+
 -- ----------------------------
 -- Table structure for user
 -- ----------------------------
+select mefollow_id,user_nickname,user_autograph,user_head,user_address
+from follow f,user u
+where f.mefollow_id=u.user_id and f.user_id=10001
+
+
+CREATE TABLE follow (     -- å…³æ³¨è¡¨
+  user_id int (50) DEFAULT NULL,
+  mefollow_id int(50) DEFAULT NULL     -- æˆ‘å…³æ³¨çš„
+)
+insert into follow values(10001,10002);
 DROP TABLE IF EXISTS user;
-CREATE TABLE user (    -- ÓÃ»§±í
+CREATE TABLE user (    -- ç”¨æˆ·è¡¨
   user_id int(50) NOT NULL AUTO_INCREMENT,
   user_password varchar(100) NOT NULL,
   user_name varchar(100) DEFAULT NULL,
   user_nickname varchar(100) DEFAULT NULL,
-  user_head varchar(255) DEFAULT NULL,    -- Í·Ïñ
-  user_qq int(100) unsigned DEFAULT NULL,   -- QQºÅ
+  user_head varchar(255) DEFAULT NULL,    -- å¤´åƒ
+  user_qq int(100) unsigned DEFAULT NULL,   -- QQå·
   user_telephone int(20) DEFAULT NULL,
   user_email varchar(100) NOT NULL,
-  user_sex varchar(20) NOT NULL DEFAULT '²»¹«¿ª',   --ĞÔ±ğ(ÄĞ¡¢Å®¡¢²»¹«¿ª¡£ÈıÑ¡Ò»)
+  user_sex varchar(20) NOT NULL DEFAULT 'ä¸å…¬å¼€',   --æ€§åˆ«(ç”·ã€å¥³ã€ä¸å…¬å¼€ã€‚ä¸‰é€‰ä¸€)
   user_address varchar(255) DEFAULT NULL,
   user_state int(10) DEFAULT NULL,
-  user_autograph varchar(100) DEFAULT NULL,    -- ¸öĞÔÇ©Ãû
-  user_time datetime DEFAULT NULL,         -- ×¢²áÊ±¼ä
+  user_autograph varchar(100) DEFAULT NULL,    -- ä¸ªæ€§ç­¾å
+  user_time datetime DEFAULT NULL,         -- æ³¨å†Œæ—¶é—´
   PRIMARY KEY (user_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 select * from user
-insert into user values(10001,'a','ÕÅÈı','°¡Ñ½',null,12345,1387548747,'4578@qq.com','ÄĞ','ºşÄÏ ³»Öİ',1,'ÄãºÃË§Ñ½','2016-02-18')
-insert into user values(10002,'a','ÕÅÈı','°¡Ñ½',null,12345,1387548747,'4578@qq.com','ÄĞ','ºşÄÏ ³»Öİ',1,'ÄãºÃË§Ñ½','2016-02-18')
-insert into user values(10003,'a','ÕÅÈı','°¡Ñ½',null,12345,1387548747,'4578@qq.com','ÄĞ','ºşÄÏ ³»Öİ',1,'ÄãºÃË§Ñ½','2016-02-18')
+insert into user values(10001,'a','å¼ ä¸‰','å•Šå‘€',null,12345,1387548747,'4578@qq.com','ç”·','æ¹–å— éƒ´å·',1,'ä½ å¥½å¸…å‘€','2016-02-18')
+insert into user values(10002,'a','å¼ ä¸‰','å•Šå‘€',null,12345,1387548747,'4578@qq.com','ç”·','æ¹–å— éƒ´å·',1,'ä½ å¥½å¸…å‘€','2016-02-18')
+insert into user values(10003,'a','å¼ ä¸‰','å•Šå‘€',null,12345,1387548747,'4578@qq.com','ç”·','æ¹–å— éƒ´å·',1,'ä½ å¥½å¸…å‘€','2016-02-18')
 
 select * from user where user_id=10001 limit 0,5
 
-update user set user_address='ºşÄÏ ³»Öİ' where user_id=10003
+update user set user_address='æ¹–å— éƒ´å·' where user_id=10003
 update user set user_head='img/avatar.jpg' where user_id=10002
 
 -- ----------------------------

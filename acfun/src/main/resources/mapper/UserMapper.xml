@@ -53,4 +53,19 @@
 	<select id="selectUserByName" parameterType="java.lang.String" resultType="User">
 		select * from user where user_nickname = #{user_nickname}
 	</select>
+	
+	<select id="selectsplashinfo" parameterType="int" resultType="Splash">
+		select * from (select count(1) followme from follow where mefollow_id=#{id} )a,
+		(select count(1) message from message where receive_id=#{id})b,
+		(select distinct #{id} user_id,user_head from user where user_id=#{id})c,
+		(select count(1) resource from resource where user_id=#{id})d,
+		(select count(1) collection from collection where user_id=#{id})e,
+		(select sum(resource_click) resource_click from resource where user_id=#{id})f,
+		(select count(comment_id) comment from comment c,resource r where r.resource_id=c.resource_id and r.user_id=#{id})g,
+		(select count(resource_id) allresource from resource where resource_state=1 and user_id=#{id})h,
+		(select count(1) mefollow from follow where user_id=#{id})i
+	</select>
+	
+	
+>>>>>>> bb72b4680b69f317cf3998b032cbf0506b5584c7
 </mapper>
