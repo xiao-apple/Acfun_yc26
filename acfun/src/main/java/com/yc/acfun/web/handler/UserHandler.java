@@ -2,10 +2,13 @@ package com.yc.acfun.web.handler;
 
 
 import javax.servlet.http.Cookie;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 
 import javax.mail.internet.MimeMessage;
+import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +18,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.taobao.api.ApiException;
 import com.taobao.api.DefaultTaobaoClient;
@@ -23,16 +28,19 @@ import com.taobao.api.TaobaoClient;
 import com.taobao.api.request.AlibabaAliqinFcSmsNumSendRequest;
 import com.taobao.api.response.AlibabaAliqinFcSmsNumSendResponse;
 import com.yc.acfun.entity.JsonMessageModule;
+import com.yc.acfun.entity.Resource;
 import com.yc.acfun.entity.SMSData;
 import com.yc.acfun.entity.Splash;
 
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.apache.commons.fileupload.FileUploadException;
 import org.apache.logging.log4j.LogManager;
 
 import com.yc.acfun.entity.User;
 import com.yc.acfun.service.UserService;
 import com.yc.acfun.utils.Encrypt;
+import com.yc.acfun.web.servlet.ServletUtil;
 
 @Controller
 @RequestMapping("/user")
@@ -198,17 +206,19 @@ public class UserHandler {
 		cookie.setMaxAge(0);
 		cookie.setPath("/");
 		response.addCookie(cookie);
+		request.getSession().setAttribute("loginUser", null);
 		return "redirect:/";
 	}
 	
 	@RequestMapping("/info")
 	@ResponseBody
-	private User info(HttpSession session) {
+	private User info(HttpSession session,HttpServletRequest req) {
 		LogManager.getLogger().debug("请求UserHandler处理info");
 		
-		int id = 10001;
+		User users=(User) req.getSession().getAttribute("loginUser");
+		int id=users.getUser_id();
 		User user = userService.showUser(id);
-		//session.setAttribute("user", user);
+		
 		System.out.println(user);
 		return user;
 	}
@@ -216,7 +226,8 @@ public class UserHandler {
 	@RequestMapping("/updateAutograph")
 	@ResponseBody
 	private boolean updateAutograph(User user,HttpServletRequest req) {
-		int id = 10001;
+		User users=(User) req.getSession().getAttribute("loginUser");
+		int id=users.getUser_id();
 		String edit=req.getParameter("edit");
 		user.setUser_autograph(edit);
 		user.setUser_id(id);
@@ -228,7 +239,8 @@ public class UserHandler {
 	@RequestMapping("/updateinfo")
 	@ResponseBody
 	private boolean updateInfo(User user,HttpServletRequest req) {
-		int id=10001;
+		User users=(User) req.getSession().getAttribute("loginUser");
+		int id=users.getUser_id();
 		
 	System.out.println(req.getParameter("tel"));
 		
@@ -259,7 +271,8 @@ public class UserHandler {
 	@RequestMapping("/changePassword")
 	@ResponseBody
 	private boolean changePassword(User user,HttpServletRequest req) {
-		int id = 10001;
+		User users=(User) req.getSession().getAttribute("loginUser");
+		int id=users.getUser_id();
 		String password=req.getParameter("password");
 		user.setUser_password(password);
 		user.setUser_id(id);
@@ -268,12 +281,29 @@ public class UserHandler {
 		return userService.changPassword(user);
 	}
 	
+	
+	@RequestMapping("/getpassword")
+	@ResponseBody
+	private boolean getpassword(User user,HttpServletRequest req) {
+		User users=(User) req.getSession().getAttribute("loginUser");
+		int id=users.getUser_id();
+		String password=req.getParameter("password");
+		user.setUser_password(password);
+		user.setUser_id(id);
+		
+		System.out.println(password);
+		return userService.getpassword(user);
+	}
+	
+	
+	
+	
 	@RequestMapping("/sendEmail")
 	@ResponseBody
 	public boolean forget(HttpServletRequest request) {
-		
+		User users=(User) request.getSession().getAttribute("loginUser");
+		int id=users.getUser_id();
 		String email=request.getParameter("email");
-		int id=10001;
 		LogManager.getLogger().debug("请求UserHandler进行sendEmail操作...");
 		try {
 			MimeMessage message = mailSender.createMimeMessage();
@@ -284,7 +314,7 @@ public class UserHandler {
 			String hrefString = request.getScheme() + "://" + request.getServerName()
 					+":" + request.getLocalPort()
 					+ request.getServletContext().getContextPath() 
-					+ "/user/changeEmail?email="+email;
+					+ "/user/changeEmail?email="+email+"&id="+id;
 			System.out.println(hrefString);
 			helper.setText("<a href='" + hrefString + "'>点击修改邮箱</a>如果链接不可用,拷贝"
 			+ hrefString + " 到地址栏", true);
@@ -302,28 +332,53 @@ public class UserHandler {
 	@ResponseBody
 	private String changeEmail(User user,HttpServletRequest req,HttpServletResponse resp) throws IOException {
 		
-		int id = 10001;
+		
 		String email=req.getParameter("email");
+		int user_id=Integer.parseInt(req.getParameter("id"));
 		user.setUser_email(email);
-		user.setUser_id(id);
+		user.setUser_id(user_id);
 		
 		System.out.println(email);
+		System.out.println(user_id);
 		if(userService.changEmail(user)){
-			resp.sendRedirect("/acfun/page/info.jsp");
+			return "修改邮箱成功";
 
+		}else{
+			return "修改邮箱失败";
 		}
-		return "redirect:/acfun/page/info.jsp";
 	}
 	
 	
 	@RequestMapping("/splashinfo")
 	@ResponseBody
-	private Splash splashinfo(HttpSession session) {
+	private Splash splashinfo(HttpSession session,HttpServletRequest req) {
 		LogManager.getLogger().debug("请求UserHandler处理info");
-		int id = 10001;
+		User user=(User) req.getSession().getAttribute("loginUser");
+		int id=user.getUser_id();
 		
 		return userService.showsplash(id);//userService.showsplash(id);
 	}
 	
 	
-}
+	@RequestMapping("/uphead")
+	@ResponseBody
+	private boolean upHead(@RequestParam(name="pic",required=false)MultipartFile picData,HttpSession session,HttpServletRequest req,User user) throws IOException, ServletException, FileUploadException {
+	
+		if(picData!=null&&!picData.isEmpty()){
+            //保存
+            try {                   
+            	picData.transferTo(new File(ServletUtil.UPLOAD_DIR,picData.getOriginalFilename()));//上传文件
+            	user.setUser_head("/"+ServletUtil.UPLOADPIC_DIR_NAME+"/"+picData.getOriginalFilename());
+            } catch (IllegalStateException | IOException e) {
+            	LogManager.getLogger().error("上传文件操作失败...",e);   
+            }
+        }
+		
+		User users=(User) req.getSession().getAttribute("loginUser");
+		int id=users.getUser_id();
+		user.setUser_id(id);
+		return userService.upHead(user);
+	
+	
+	}
+}	

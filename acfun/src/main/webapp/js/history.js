@@ -65,7 +65,7 @@ function show(pagenum){
 		$("#list-history").append("	<div data-index='"+a+"' class='item block item-views item-post'>"+
 			"<div class='inner'>"+
 				"<div class='l'>"+
-					"<a target='_blank' href='/v/ab1480061_10'"+
+					"<a target='_blank' href='/v/ac"+rows[i].resource_id+"'"+
 						"class='thumb thumb-preview'><img"+
 						"src='"+rows[i].resource_cover+"'"+
 						"class='preview'>"+
@@ -89,7 +89,7 @@ function show(pagenum){
 				"</div>"+
 				"<p class='hint-list-index'>"+a+"</p>"+
 				"<div class='block-manage'>"+
-					"<button title='删除历史记录' class='btn danger mini btn-delete'>"+
+					"<button title='删除历史记录' class='btn danger mini btn-delete' data-aid='"+rows[i].resource_id+"'>"+
 						"<i class='icon icon-times-circle-o'></i>删除历史记录"+
 					"</button>"+
 				"</div>"+
@@ -100,6 +100,34 @@ function show(pagenum){
 			"</div>"+
 		"</div>")
 		}
+	
+	
+	$(".btn.danger.mini.btn-delete").click(function(){
+		var aid=$(this).data("aid");
+		$("#area-window").append("<div id='win-ensure' class='win' style='left: 70%; top:50%; opacity: 1; position: fixed;' >"+
+									"<button id='btn-ok-ensure' class='btn danger'>"+
+										"<i class='icon icon-check-circle'></i>确定"+
+									"</button>"+
+									"<button id='btn-cancel-ensure' class='btn primary'>"+
+										"<i class='icon icon-times-circle'></i>取消"+
+									"</button>"+
+								"</div>");
+		$("#btn-cancel-ensure").click(function(){
+			$("#win-ensure").remove();
+		})
+		
+		$("#btn-ok-ensure").click(function(){
+			$.get("history/delect?aid="+aid,function(data){
+				if(data){
+					$("#win-ensure").remove();
+					var info="删除成功"
+					ShowSuccess(info);
+					window.location.reload();
+				}
+				
+			});
+		});
+	});
 	},"json")
 	
 	
@@ -115,6 +143,20 @@ function ShowInfo(info){
 
 function removeInfo(){
 	$(".item.info").remove();
+	$("#area-info").css("display","none");
+	
+}
+
+function ShowSuccess(info){
+	$("#area-info").append("<div style='left: 0px; opacity: 1;' class='item success'>"+info+"</div>")
+	$("#area-info").css("display","block");
+	
+	setTimeout(removeSuccess,2000);
+	
+}
+
+function removeSuccess(){
+	$(".item.success").remove();
 	$("#area-info").css("display","none");
 	
 }

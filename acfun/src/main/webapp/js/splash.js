@@ -12,7 +12,10 @@ $.get("user/splashinfo",function(data){
 										"共有<span class='pts'>"+data.message+"</span>条<a href='page/mail.jsp'>[私信]</a>、<span"+
 											"class='pts'>"+data.followme+"</span>个<a href='page/followers.jsp'>[听众]</a>"+
 									"</p></div>")
-									
+							
+								if(data.resource_click==null){
+									data.resource_click=0
+								}	
 $("#info-hidden-splash").append("<div class='item l'>"+
 									"<div class='l'>"+
 										"<i style='color: #ca6;' class='icon icon-upload'></i>"+
@@ -78,4 +81,5 @@ $("#info-hidden-splash").append("<div class='item l'>"+
 									
 					
 	
-})
+});
+

@@ -28,15 +28,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where f.mefollow_id=u.user_id and f.user_id=${id} limit ${start},${end}
 	</select>
 	
-	<select id="selectUser" resultType="Follow">
-	select *from (select user_address from user where user_id=#{id})a,
-	(select count(user_id) countfollowed from follow where mefollow_id=#{id})b,
-	(select count(user_id) countfollowing from follow where user_id=#{id})c,
-	(select count(user_id) countresource from resource where user_id=#{id})d
+	
+	<resultMap type="PaginationBean" id="PaginationBeanMaps">
+		<collection property="rows" column="{totalPage=totalPage,id=id,pageSize=pageSize,currPage=pageSize start=start,end=end}" select="getFolloed"/>
+	</resultMap>
+	
+	
+	<select id="findFollowed" parameterType="PaginationBean" resultMap="PaginationBeanMaps">
+		
+		select ${id} id,count(1) total,ceil(count(1)/${pageSize}) totalPage,${pageSize} pageSize,${currPage} currPage,${pageSize}*${currPage-1} start,${pageSize}*${currPage} end from 
+		(select mefollow_id,user_nickname,user_autograph,user_head,user_address
+		from follow f,user u
+		where f.mefollow_id=u.user_id and f.mefollow_id=${id})t
+	
+
 	</select>
 	
+	<select id="getFolloed" resultType="Follow">
+		select u.user_id,user_nickname,user_autograph,user_head,user_address
+		from follow f,user u
+		where f.user_id=u.user_id and f.mefollow_id=${id} limit ${start},${end}
+	</select>
+		
+	<delete id="deleteFollowing" parameterType="Delete">
+		delete from follow where user_id=${user_id} and mefollow_id=${Did}
+	</delete>
+	
+	<insert id="insertFollowing" parameterType="Delete">
+		insert into follow values(${user_id},${Did})
+	</insert>
 	
 	
-	
-			
 </mapper>

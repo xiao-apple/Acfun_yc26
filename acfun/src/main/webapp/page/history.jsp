@@ -54,7 +54,7 @@
 							<p>登录/注册</p></a><a id="a-avatar-guide"
 							href="page/profile.jsp" target="_blank"
 							class="thumb"><img src="" class="avatar">
-							<p class="info-hint">5</p></a><a id="a-history-guide"
+							<p class="info-hint"></p></a><a id="a-history-guide"
 							href="page/history.jsp" target="_blank"
 							class="tool"><i class="icon icon-history"></i>
 							<p>看过</p></a><a id="a-post-guide" href="page/upload-video.jsp"
@@ -663,34 +663,7 @@
 											class="clearfix"></span>
 									</p>
 									<div id="area-filter-history">
-										<div class="l group group-date">
-											<p class="subtitle l">日期</p>
-											<button data-type="date" data-value="all"
-												class="btn active primary">全部</button>
-											<button data-type="date" data-value="1" class="btn">今天</button>
-											<button data-type="date" data-value="2" class="btn">昨天</button>
-											<button data-type="date" data-value="3" class="btn">昨天之前</button>
-											<span class="clearfix"></span>
-										</div>
-										<div class="l group group-channel">
-											<p class="subtitle l">分区</p>
-											<button data-type="channel" data-value="all"
-												class="btn active primary">全部</button>
-											<button data-type="channel" data-value="1" class="btn">动画</button>
-											<button data-type="channel" data-value="58" class="btn">音乐</button>
-											<button data-type="channel" data-value="123" class="btn">舞蹈</button>
-											<button data-type="channel" data-value="59" class="btn">游戏</button>
-											<button data-type="channel" data-value="60" class="btn">娱乐</button>
-											<button data-type="channel" data-value="70" class="btn">科技</button>
-											<button data-type="channel" data-value="68" class="btn">影视</button>
-											<button data-type="channel" data-value="69" class="btn">体育</button>
-											<button data-type="channel" data-value="124" class="btn">彼女</button>
-											<button data-type="channel" data-value="125" class="btn">鱼塘</button>
-											<button data-type="channel" data-value="110" class="btn">文章</button>
-
-											<button data-type="channel" data-value="bangumi" class="btn">番剧</button>
-											<span class="clearfix"></span>
-										</div>
+										
 										<span class="clearfix"></span>
 									</div>
 									<p class="divider"></p>

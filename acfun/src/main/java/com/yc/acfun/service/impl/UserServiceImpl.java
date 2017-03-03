@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean changPassword(User user) {
-		// TODO Auto-generated method stub
+		user.setUser_password(Encrypt.md5AndSha(user.getUser_password()));
 		return userMapper.updatePassword(user)>0;
 	}
 
@@ -91,6 +91,18 @@ public class UserServiceImpl implements UserService {
 	public int showfollow(int id) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public boolean upHead(User user) {
+		// TODO Auto-generated method stub
+		return userMapper.updateHead(user)>0;
+	}
+
+	@Override
+	public boolean getpassword(User user) {
+		user.setUser_password(Encrypt.md5AndSha(user.getUser_password()));
+		return userMapper.findPassword(user)>0;
 	}
 	
 }

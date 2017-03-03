@@ -6,14 +6,11 @@
 <meta charset=UTF-8">
 <title>关注我的</title>
 <link rel="stylesheet" href="css/core.css">
-<!--[if lte IE 7]><link rel="stylesheet" href="http://cdn.aixifan.com/dotnet/20130418/project/font-awesome/4.2.0/css/font-awesome-ie7.min.css"></link><![endif]-->
-<!--[if (gte IE 8)|!(IE)]><!-->
+
 <link rel="stylesheet" href="css/font-awesome.css">
-<!--<![endif]-->
-<!--[if lte IE 7]><link rel="stylesheet" href="http://cdn.aixifan.com/dotnet/20130418/project/font-acfun/css/style-ie7.css"></link><![endif]-->
-<!--[if (gte IE 8)|!(IE)]><!-->
+
 <link rel="stylesheet" href="css/style.css">
-<!--<![endif]-->
+
 <link rel="stylesheet" media="screen and (min-width: 1440px)"
 	href="css/wide.css">
 <link rel="stylesheet" href="css/member.css">
@@ -57,7 +54,7 @@
 							<p>登录/注册</p></a><a id="a-avatar-guide"
 							href="page/profile.jsp" target="_blank"
 							class="thumb"><img src="" class="avatar">
-							<p class="info-hint">5</p></a><a id="a-history-guide"
+							<p class="info-hint"></p></a><a id="a-history-guide"
 							href="page/history.jsp" target="_blank"
 							class="tool"><i class="icon icon-history"></i>
 							<p>看过</p></a><a id="a-post-guide" href="page/upload-video.jsp"
@@ -437,43 +434,7 @@
 					</div>
 					<div id="area-main-right" class="r">
 						<div id="area-cont-right">
-							<script>(function(){
-    var mUrl,u,isAndroid,isIOS,routes,localHref;
-    u = navigator.userAgent;
-    isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-    isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-    localHref = location.href;
-    routes = [
-        [/\/a\/aa(\d+)/,"/a/aa$1?"],
-        [/\/a\/ab(\d+)/,"/v/?ab=$1?"],
-        [/\/a\/ac(\d+)/,"/v/?ac=$1&type=article"],
-        [/\/a\/ad(\d+)/,"/ad$1"],
-        [/\/v\/ab(\d+)/,"/v/?ab=$1"],
-        [/\/v\/ab(\d+)_(\d+)/,"/v/?ab=$1&part=$2"],
-        [/\/v\/ac(\d+)/,"/v/?ac=$1"],
-        [/\/v\/ac(\d+)_(\d+)/,"/v/?ac=$1&part=$2"],
-        [/\/[av]\/list(\d+)\/.*/,"/list/?channel=$1"],
-        [/\/sp\/cw2016(.*)/,"/newyear2016$1"],
-        [/\/sp\/acdc2016/,"/sp/acdc2016"],
-        [/\/sp\/2016chuanpuwang\//,"/2016chuanpuwang/"],
-        [/\/sp\/2017chunwanyure/,"/newyear2017"],
-        [/\/app\/download\//,"/app/download/"]
-    ];
-    if(isAndroid || isIOS){
-        if(location.href == "http://www.acfun.cn/"){
-            location = "http://m.acfun.cn/";
-        }else {
-            for (var k = 0; k < routes.length; k++) {
-                if (localHref.match(routes[k][0])) {
-                    localHref = localHref.replace(new RegExp(location.origin), "http://m.acfun.cn")
-                    mUrl = localHref.replace(routes[k][0], routes[k][1]);
-                    location = mUrl;
-                    break;
-                }
-            }
-        }
-    }
-})()</script>
+							
 							<link href="css/followers.css" rel="stylesheet">
 							<div id="block-title-banner">
 								<p>关注我的</p>
@@ -517,38 +478,13 @@
 							<div id="block-first" class="block">
 								<div class="mainer">
 									<div id="list-followed-followed">
-										<p class="alert alert-info">这些人关注了我。</p>
-										<div data-uid="1015034" data-name="请叫我A站杀神" class="item">
-											<p class="hint-list-index">1</p>
-											<div class="l">
-												<a href="http://www.acfun.cn/member/user.aspx?uid=1015034"
-													target="_blank" class="thumb"><img data-uid="1015034"
-													src="img/062154152tr65oim.jpg" class="avatar"></a>
-											</div>
-											<div class="r">
-												<a href="http://www.acfun.cn/member/user.aspx?uid=1015034"
-													target="_blank" class="name">请叫我A站杀神</a><span title=""
-													class="verified-ico verified-0"></span><span class="uid">(Uid:1015034)</span>
-												<div class="sign">~~~~~</div>
-												<div class="info">
-													TA来自<span class="from">未知地区</span>&nbsp;&nbsp;/&nbsp;&nbsp;听众&nbsp;<span
-														class="pts followeds">1</span>&nbsp;&nbsp;/&nbsp;&nbsp;关注&nbsp;<span
-														class="pts">20</span>&nbsp;&nbsp;/&nbsp;&nbsp;投稿&nbsp;<span
-														class="pts">0</span>
-												</div>
-												<div class="area-tool-followed">
-													<button class="btn-follow-followed btn primary mini">
-														<i class="icon icon-plus-circle"></i>关注
-													</button>
-												</div>
-											</div>
-											<span class="clearfix"></span>
+										
+										
 										</div>
 									</div>
 								</div>
 							</div>
-							<script>(function(){!function(){var e,t,o,n;return e=$("#block-first"),o=e.find("div.mainer:eq(0)"),t=function(e,t){var o,n;return o={username:e.username?"["+e.username+"]":"用户",uid:e.uid,gid:e.gid||20,callback:t},null!=(n=system.port.followUser)&&n.abort(),system.port.followUser=$.post("/api/friend.aspx?name=unfollow",{userId:o.uid,groupId:o.gid}).done(function(e){var t;return e.success?(t="取消关注"+o.username+"成功。",$.info(t),"function"==typeof o.callback?o.callback():void 0):$.info("error::"+e.result)}).fail(function(){var e;return e="取消关注"+username+"失败。请于稍后重试。",$.info("error::"+e)})},n=function(e){var t,o;return o=$("#temp-item-followed").html(),null!=(t=system.port.getFollowed)&&t.abort(),system.port.getFollowed=$.get("/api/friend.aspx",{name:"getFollowedList",pageNo:e.page||1,pageSize:e.size||10}).done(function(e){var t,n,r,a,l,i,s,u,d;if(n="",e.success){if(e.friendList.length)for(s=e.friendList,r=a=0,l=s.length;l>a;r=++a){switch(u=s[r],t=u,d="",t.verified){case 1:d="AcFun管理员";break;case 2:d="AcFun官方认证"}n+=$.parseTemp(o,{uid:t.userId,sign:$.parseSafe(t.signature)||"这个人很懒，神马都没有写…",name:$.parseSafe(t.userName)||"该用户不存在",avatar:$.parseSafe(t.userImg)||system.path.cdn+"/dotnet/20120923/style/image/avatar.jpg",isFriend:t.isFriend?'<i class="icon icon-heart"></i>已互加关注，<a class="btn-disfollow-followed">取消</a>':'<button class="btn-follow-followed btn primary mini"><i class="icon icon-plus-circle"></i>关注</button>',followings:t.followingCount||0,followeds:t.followedCount||0,posts:t.userContributeCount||0,favors:t.userContributeStow||0,comms:t.userContributeComment||0,views:t.userContributeView||0,from:t.comeFrom?$.parseSafe(t.comeFrom).replace(/[\s\,]/g,"").replace(/不限/g,""):"未知地理位置",gender:{"-1":"TA",0:"她",1:"他"}[t.gender],sex:t.sexTrend,index:e.totalCount-(e.page-1)*e.pageSize-r,verified:t.verified,verifiedTitle:d})}else n='<p class="alert alert-warning">尚未被任何人关注。</p>';return i=$.makePager({count:e.totalCount,num:e.page,size:e.pageSize,addon:!0}),$("#list-followed-followed").html('<p class="alert alert-info">这些人关注了我。</p>'+i+n+i).find("a.name, img.avatar").card(),$("#stage").scrollOnto(0)}return $.info("error::"+e.result),n='<p class="alert alert-error">'+e.result+"</p>",$("#list-followed-followed").html(n)}).fail(function(){var e;return $.info("error::获取被关注列表失败。请于稍后重试。"),e='<p class="alert alert-error">获取被关注列表失败。请于稍后重试。</p>',$("#list-followed-followed").html(e)})},$("#list-followed-followed").delegate("button.btn-follow-followed","click",function(){var e,t;return e=$(this),t=e.closest("div.item"),e.unfold("follow",function(){return $("#win-follow").data({name:t.data().name,uid:t.data().uid,callback:function(){var o,n,r;return n='<i class="icon icon-heart"></i>已互加关注，<a class="btn-disfollow-followed">取消</a>',o=e.closest("div.area-tool-followed"),o.stop().transition({opacity:0},200,function(){return o.html(n)}).transition({opacity:1},200),r=t.find("span.followeds:eq(0)"),r.text(parseInt(r.text())+1)}})})}).delegate("a.btn-disfollow-followed","click",function(){var e,o;return e=$(this),o=e.closest("div.item"),$.ensure({obj:e,text:"是否取消关注["+o.data().name+"]？",curtain:!0,callback:function(){return o=e.closest("div.item"),t({uid:o.attr("data-uid"),name:o.attr("data-name")},function(){var t,n,r;return n='<button class="btn-follow-followed btn primary mini"><i class="icon icon-plus-circle"></i>关注</button>',t=e.closest("div.area-tool-followed"),t.stop().transition({opacity:0},200,function(){return t.html(n)}).transition({opacity:1},200),r=o.find("span.followeds:eq(0)"),r.text(parseInt(r.text())-1)})}})}).readyPager({addon:!0,callback:function(e){return n({page:e,size:10})}}),n({page:1,size:10}),window.user.unread&&window.user.unread.fan?window.m.getUnread():void 0}()}).call(this);</script>
-						</div>
+							</div>
 					</div>
 					<span class="clearfix"></span>
 				</div>
@@ -683,14 +619,11 @@
 		</div>
 	</div>
 	
-	<script>(function () {
-    var updateTime = +new Date(2015, 6, 21);
-    if ($.now() - updateTime < 5 * 24 * 60 * 60 * 1000) {
-        $('#app-footer-link .bg-new-app').addClass('new');
-    }
+	
 })();</script>
 	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="js/click.js"></script>
 	<script type="text/javascript" src="js/userinfo.js"></script>
+	<script type="text/javascript" src="js/followers.js"></script>
 </body>
 </html>

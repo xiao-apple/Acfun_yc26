@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="gethistory" resultType="History">
 
-	select ${totalPage} totalPage,browse_time,u.user_id ,user_nickname,user_head,resource_time,resource_title,resource_cover,partition_name
+	select ${totalPage} totalPage,browse_time,u.user_id ,user_nickname,user_head,r.resource_id,resource_time,resource_title,resource_cover,partition_name
 	from browse b,user u,resource r,‘partition‘ p
 	where b.resource_id=r.resource_id and u.user_id=r.user_id and p.partition_id=r.partition_id and b.user_id=${id} limit ${start},${end}
 	</select>
@@ -50,5 +50,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	where p.partition_id=r.partition_id and user_id=${id} limit ${start},${end}
 	</select>
 	
+	<delete id="deleteHistory" parameterType="Delete">
+		delete from browse where user_id=${user_id} and resource_id=${Did}
+	</delete>	
+	
+	<delete id="deletepostHistory" parameterType="Delete">
+		delete from resource where user_id=${user_id} and resource_id=${Did}
+	</delete>	
+	
+	
+		
 			
 </mapper>

@@ -8,6 +8,7 @@ public class Follow {
 
 	
 	private Integer num;
+	private Integer user_id;
 	private Integer mefollow_id;
 	private String user_nickname;
 	private String user_autograph;
@@ -23,6 +24,12 @@ public class Follow {
 	}
 	public void setNum(Integer num) {
 		this.num = num;
+	}
+	public Integer getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
 	}
 	public Integer getMefollow_id() {
 		return mefollow_id;
@@ -86,10 +93,11 @@ public class Follow {
 	}
 	@Override
 	public String toString() {
-		return "Follow [num=" + num + ", mefollow_id=" + mefollow_id + ", user_nickname=" + user_nickname
-				+ ", user_autograph=" + user_autograph + ", user_head=" + user_head + ", user_address=" + user_address
-				+ ", countfollowed=" + countfollowed + ", countfollowing=" + countfollowing + ", countresource="
-				+ countresource + ", totalPage=" + totalPage + ", rows=" + rows + "]";
+		return "Follow [num=" + num + ", user_id=" + user_id + ", mefollow_id=" + mefollow_id + ", user_nickname="
+				+ user_nickname + ", user_autograph=" + user_autograph + ", user_head=" + user_head + ", user_address="
+				+ user_address + ", countfollowed=" + countfollowed + ", countfollowing=" + countfollowing
+				+ ", countresource=" + countresource + ", totalPage=" + totalPage + ", rows=" + rows + "]";
 	}
+	
 	
 }

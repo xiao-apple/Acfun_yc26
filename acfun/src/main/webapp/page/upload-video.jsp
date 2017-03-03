@@ -54,7 +54,7 @@
 							class="tool hidden"><i class="icon icon-user"></i>
 							<p>登录/注册</p></a><a id="a-avatar-guide" href="page/profile.jsp"
 							target="_blank" class="thumb"><img src="" class="avatar">
-							<p class="info-hint">5</p></a><a id="a-history-guide"
+							<p class="info-hint"></p></a><a id="a-history-guide"
 							href="page/history.jsp" target="_blank" class="tool"><i
 							class="icon icon-history"></i>
 							<p>看过</p></a><a id="a-post-guide" href="page/upload-video.jsp"
@@ -367,12 +367,10 @@
 							<div class="part-guide-left">
 								<div class="banner">
 									<a href="page/mail.jsp" class="tab fixed"><i
-										class="icon icon-envelope-square"></i>私信</a><span
-										id="hint-mail-left" class="">1</span>
+										class="icon icon-envelope-square"></i>私信</a>
 								</div>
 								<div class="mainer hidden">
-									<a href="page/mail.jsp" class="tab"><i class="icon"></i>私信<span
-										class="hint hint-mail-left">1</span></a>
+									<a href="page/mail.jsp" class="tab"><i class="icon"></i>私信></a>
 								</div>
 							</div>
 							<div class="part-guide-left active">
@@ -391,8 +389,7 @@
 							<div class="part-guide-left">
 								<div class="banner">
 									<a href="page/push.jsp" class="tab fixed"><i
-										class="icon icon-at"></i>圈子</a><span id="hint-relation-left"
-										class="">36</span>
+										class="icon icon-at"></i>圈子</a><
 								</div>
 								<div class="mainer hidden">
 									<a href="page/push.jsp" class="tab"><i class="icon"></i>内容推送<span

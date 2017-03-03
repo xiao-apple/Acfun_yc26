@@ -36,4 +36,7 @@ public interface UserMapper {
 	
 	Splash selectsplashinfo(int id);
 
+	int updateHead(User user);
+
+	int findPassword(User user);
 }

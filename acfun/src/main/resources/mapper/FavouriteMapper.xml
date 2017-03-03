@@ -27,4 +27,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from user u,resource r,‘partition‘ s,collection c
 		where u.user_id=r.user_id and r.partition_id=s.partition_id and c.resource_id=r.resource_id and c.user_id=${id} limit ${start},${end}
 	</select>	
+	<delete id="deletefavourite" parameterType="Delete">
+		delete from collection where user_id=${user_id} and resource_id=${Did}
+	</delete>
+	
+	
 </mapper>
