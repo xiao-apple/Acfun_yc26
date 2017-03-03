@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 		select ${id} id,count(1) total,ceil(count(1)/${pageSize}) totalPage,${pageSize} pageSize,${currPage} currPage,${pageSize}*${currPage-1} start,${pageSize}*${currPage} end from 
 		(select browse_time
-		from browse b,user u,resource r,‘partition‘ p
+		from browse b,user u,resource r,`partition` p
 		where b.resource_id=r.resource_id and u.user_id=r.user_id and p.partition_id=r.partition_id and b.user_id=${id})t
 	
 
@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="gethistory" resultType="History">
 
 	select ${totalPage} totalPage,browse_time,u.user_id ,user_nickname,user_head,r.resource_id,resource_time,resource_title,resource_cover,partition_name
-	from browse b,user u,resource r,‘partition‘ p
+	from browse b,user u,resource r,`partition` p
 	where b.resource_id=r.resource_id and u.user_id=r.user_id and p.partition_id=r.partition_id and b.user_id=${id} limit ${start},${end}
 	</select>
 	
@@ -39,14 +39,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 		select ${id} id,count(1) total,ceil(count(1)/${pageSize}) totalPage,${pageSize} pageSize,${currPage} currPage,${pageSize}*${currPage-1} start,${pageSize}*${currPage} end from 
 		(select partition_name ,resource_cover,resource_id,resource_title,resource_time,resource_state,resource_introduce
-		from ‘partition‘ p ,resource r
+		from `partition` p ,resource r
 		where p.partition_id=r.partition_id and user_id=${id})t
 	</select>
 	
 	<select id="getposthistory" resultType="History">
 
 	select ${totalPage} totalPage,partition_name ,resource_cover,resource_id,resource_title,resource_time,resource_state,resource_introduce
-	from ‘partition‘ p ,resource r
+	from `partition` p ,resource r
 	where p.partition_id=r.partition_id and user_id=${id} limit ${start},${end}
 	</select>
 	

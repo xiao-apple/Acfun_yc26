@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.acfun.mapper.a_AdminMapper">
+
+<insert id="insertAdmin" parameterType="a_User">
+		insert into admin(admin_phone,admin_password) 
+		values(#{admin_phone},#{admin_password})
+	</insert>
+
+
+</mapper>

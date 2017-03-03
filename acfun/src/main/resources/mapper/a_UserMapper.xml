@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.acfun.mapper.a_UserMapper">
+	<sql id="selectUser">
+		select * from user
+	</sql>
+	
+	<select id="login" parameterType="a_User" resultType="a_User">
+		<include refid="selectUser"/>where user_telephone=#{user_telephone} and user_password=#{user_password}
+	</select>
+
+	<resultMap type="a_PaginationBean" id="PaginationBeanMap">
+		<collection property="rows"
+			column="{pageSize=pageSize, currPage=currPage,aa=aa}" select="getUsers" />
+	</resultMap>
+	
+	
+	<select id="getUsersByPagination" parameterType="a_PaginationBean"
+		resultMap="PaginationBeanMap">
+		select count(1) total, ceil(count(1) / ${pageSize})
+		totalPage, ${pageSize} pageSize, ${currPage} currPage ,${aa} aa from user 
+	</select>
+	
+
+	<select id="getUsers" resultType="a_User">
+		<include refid="selectUser"/>where user_state=1 limit ${aa},${pageSize}
+	</select>
+	
+	
+	<update id="updateUser" parameterType="a_User">
+		update user set user_state=0
+		where user_id=#{user_id}
+	</update>
+	
+
+</mapper>

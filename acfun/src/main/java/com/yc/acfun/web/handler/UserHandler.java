@@ -6,6 +6,8 @@ import javax.servlet.http.Cookie;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletException;
@@ -328,19 +330,19 @@ public class UserHandler {
 		return true;
 	}
 	
-	@RequestMapping("/changeEmail")
+	@RequestMapping(path="/changeEmail",produces="text/html;charset=utf-8")
 	@ResponseBody
-	private String changeEmail(User user,HttpServletRequest req,HttpServletResponse resp) throws IOException {
-		
+	private String changeEmail(HttpServletRequest req,HttpServletResponse resp) throws IOException {
 		
 		String email=req.getParameter("email");
 		int user_id=Integer.parseInt(req.getParameter("id"));
-		user.setUser_email(email);
-		user.setUser_id(user_id);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("email", email);
+		map.put("id", user_id);
 		
 		System.out.println(email);
 		System.out.println(user_id);
-		if(userService.changEmail(user)){
+		if(userService.changEmail(map)){
 			return "修改邮箱成功";
 
 		}else{

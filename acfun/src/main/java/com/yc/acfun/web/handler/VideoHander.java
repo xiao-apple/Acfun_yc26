@@ -122,8 +122,8 @@ public class VideoHander{
 		if(vidData!=null&&!vidData.isEmpty()){
             //保存
             try {                   
-            	vidData.transferTo(new File(ServletUtil.UPLOAD_DIR,vidData.getOriginalFilename()));//上传文件
-            	resource.setResource_content("/"+ServletUtil.UPLOADVID_DIR_NAME+"/"+vidData.getOriginalFilename());
+            	vidData.transferTo(new File(ServletUtil.UPLOAD_DIR+"/"+ServletUtil.UPLOADVID_DIR_NAME,vidData.getOriginalFilename()));//上传文件
+            	resource.setResource_content("/upload26/"+ServletUtil.UPLOADVID_DIR_NAME+"/"+vidData.getOriginalFilename());
             } catch (IllegalStateException | IOException e) {
             	LogManager.getLogger().error("上传文件操作失败...",e);   
             }

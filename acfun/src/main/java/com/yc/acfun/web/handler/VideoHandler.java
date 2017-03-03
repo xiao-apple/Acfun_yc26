@@ -20,7 +20,7 @@ public class VideoHandler {
 		System.out.println(vid);
 		Video video = videoService.getVideoInfo(vid);
 		System.out.println(video);
-		if(video!=null){
+		if(video!=null&&video.getIsPassed()==1){
 			request.setAttribute("vinfo",video );
 		}else {
 			return "forward:/404.html";

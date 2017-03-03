@@ -17,14 +17,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select ${id} id,count(1) total,ceil(count(1)/${pageSize}) totalPage,${pageSize} pageSize,${currPage} currPage,${pageSize}*${currPage-1} start,${pageSize}*${currPage} end from 
 		(select 
 		c.resource_id
-		from user u,resource r,‘partition‘ s,collection c
+		from user u,resource r,`partition` s,collection c
 		where u.user_id=r.user_id and r.partition_id=s.partition_id and c.resource_id=r.resource_id and c.user_id=${id})t
 	</select>
 	
 	<select id="getfavourite" resultType="Favourite">
 
 		select ${totalPage} totalPage,c.resource_id,u.user_id,user_nickname,user_head,resource_cover,resource_time,partition_name,resource_title,resource_introduce,resource_click,resource_commentCount,resource_favoriteCount
-		from user u,resource r,‘partition‘ s,collection c
+		from user u,resource r,`partition` s,collection c
 		where u.user_id=r.user_id and r.partition_id=s.partition_id and c.resource_id=r.resource_id and c.user_id=${id} limit ${start},${end}
 	</select>	
 	<delete id="deletefavourite" parameterType="Delete">

@@ -46,8 +46,8 @@
 		select 1 from user where user_id=#{user_id} and user_password=#{user_password}
 	</select>
 	
-	<update id="updateEmail" parameterType="User">
-		update user set user_email='#{user_email}' where user_id=#{user_id}
+	<update id="updateEmail" parameterType="java.util.Map">
+		update user set user_email=#{email} where user_id=#{id}
 	</update>
 	
 	<select id="countFollow" parameterType="int" resultType="int">

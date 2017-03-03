@@ -1,5 +1,7 @@
 package com.yc.acfun.service.impl;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -65,9 +67,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean changEmail(User user) {
+	public boolean changEmail(Map<String, Object> map) {
 		// TODO Auto-generated method stub
-		return userMapper.updateEmail(user)>0;
+		return userMapper.updateEmail(map)>0;
 	}
 
 

@@ -36,7 +36,6 @@ $(function() {
 		$("#upload").on("change",function(){
 			var objUrl = getObjectURL(this.files[0]) ;//获取图片的路径，该路径不是图片在本地的路径
 			picfile=this.files[0];
-			alert(picfile);
 			if (objUrl) {
 				$("#pic").attr("src", objUrl) ; //将图片路径存入src中，显示出图片
 		
@@ -121,12 +120,11 @@ $(".up-submit").click(function(){
 						  ShowSuccess(info);
 				  }
 		});
-			
+		var l=tags.split("&&").length;
 			for(var i=0;i<=l-1;i++){
 				var label= tags.split("&&")[i]
 				$.get("video/label?label="+label,function(data){
 					if(data==""||data==null||data=="0"){
-						alert(1);
 						$.get("video/uplabel?label="+label,function(data){
 							
 						});

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.acfun.mapper.a_ResourceMapper">
+
+
+	<resultMap type="a_PaginationBean" id="PaginationBeanMap">
+		<collection property="rows"
+			column="{pageSize=pageSize, currPage=currPage, aa=aa}" select="getResource" />
+	</resultMap>
+	
+	
+	<select id="getResourceByPagination" parameterType="a_PaginationBean"
+		resultMap="PaginationBeanMap">
+		select count(1) total, ceil(count(1) / ${pageSize})
+		totalPage, ${pageSize} pageSize, ${currPage} currPage ,${aa} aa from user 
+	</select>
+	
+
+	<select id="getResource" resultType="a_Resource">
+		select * from resource where resource_state=0 limit ${aa},${pageSize}
+	</select>
+	
+	
+	<update id="passResource" parameterType="a_Resource">
+		update resource set resource_state=1
+		where resource_id=#{resource_id}
+	</update>
+	
+
+</mapper>

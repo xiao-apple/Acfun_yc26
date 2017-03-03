@@ -7,26 +7,26 @@
 		SELECT resource_id id ,resource_commentCount commentCount,resource_introduce description,r.partition_id channelId,
 	resource_title title ,resource_duration duration,resource_good goodCount,resource_favoriteCount favoriteCount,resource_click viewCount,resource_cover coverImg, 
 	resource_time contributeTime,r.user_id userId,u.user_nickname username ,u.user_head userAvatar,u.user_autograph userSign ,resource_content videoPath,  
-	p.partition_name channelName,p2.partition_id  parentChannelId,p2.partition_name parentChannelName
+	p.partition_name channelName,p2.partition_id  parentChannelId,p2.partition_name parentChannelName,resource_state isPassed
 	FROM `resource` r INNER JOIN `user` u on u.user_id=r.user_id INNER JOIN `partition` p on p.partition_id=r.partition_id INNER JOIN `partition` p2 on p2.partition_id=p.partition_first_id 
 	where r.resource_id = #{vid}
 	</select>
 	
 
 	<select id="findPartition_a" resultType="Partition">
-		select * from ‘partition‘ where partition_first_id is null;
+		select * from `partition` where partition_first_id is null;
 	</select>	
 	
 	<select id="findPartition_b" parameterType="int" resultType="Partition">
-		select * from ‘partition‘ where partition_first_id=#{partition_first_id};
+		select * from `partition` where partition_first_id=#{partition_first_id};
 	</select>
 	
 	<insert id="insertResource" parameterType="Resource">
-	INSERT INTO resource VALUES (${user_id}, 0, '${resource_title}', ${partition_id}, '${resource_cover}', '${resource_introduce}', '${resource_content}', null,NOW(), '0', '0', '1', '${resource_duration}', '0', '0');
+	INSERT INTO resource VALUES (${user_id}, 0, '${resource_title}', ${partition_id}, '${resource_cover}', '${resource_introduce}', '${resource_content}', 0,NOW(), '0', '0', '1', '${resource_duration}', '0', '0');
 	</insert>
 	
 	<insert id="insertResources" parameterType="Resource">
-	INSERT INTO resource VALUES (${user_id}, 0, '${resource_title}', ${partition_id}, '${resource_cover}', '${resource_introduce}', '${resource_content}', null,NOW(), '0', '0', '0', '0', '0', '0');
+	INSERT INTO resource VALUES (${user_id}, 0, '${resource_title}', ${partition_id}, '${resource_cover}', '${resource_introduce}', '${resource_content}', 0,NOW(), '0', '0', '0', '0', '0', '0');
 	</insert>
 	
 	<select id="selectLabelId" parameterType="String" resultType="String">

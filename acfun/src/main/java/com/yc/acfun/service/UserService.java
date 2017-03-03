@@ -1,5 +1,7 @@
 package com.yc.acfun.service;
 
+import java.util.Map;
+
 import com.yc.acfun.entity.Splash;
 import com.yc.acfun.entity.User;
 
@@ -23,7 +25,7 @@ public interface UserService {
 
 	boolean changPassword(User user);
 
-	boolean changEmail(User user);
+	boolean changEmail(Map<String, Object> map);
 	
 	int showfollow(int id);
 

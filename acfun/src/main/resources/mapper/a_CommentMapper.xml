@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.acfun.mapper.a_CommentMapper">
+
+		<resultMap type="a_PaginationBean" id="PaginationBeanMap">
+		<collection property="rows"
+			column="{pageSize=pageSize, currPage=currPage, aa=aa}" select="getComment" />
+	</resultMap>
+	
+	
+	<select id="getCommentByPagination" parameterType="a_PaginationBean"
+		resultMap="PaginationBeanMap">
+		select count(1) total, ceil(count(1) / ${pageSize})
+		totalPage, ${pageSize} pageSize, ${currPage} currPage ,${aa} aa from comment 
+	</select>
+	
+
+	<select id="getComment" resultType="a_Comment">
+		select * from comment where comment_state=0 limit ${aa},${pageSize}
+	</select>
+	
+	<update id="deleteComment" parameterType="a_Comment">
+		update comment set comment_state=1
+		where comment_id=#{comment_id}
+	</update>
+	
+</mapper>

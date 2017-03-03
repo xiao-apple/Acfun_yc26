@@ -72,7 +72,6 @@ $(".btn.success.do").click(function(data){
 			var label= tags.split("&&")[i]
 			$.get("video/label?label="+label,function(data){
 				if(data==""||data==null||data=="0"){
-					alert(1);
 					$.get("video/uplabel?label="+label,function(data){
 						
 					});

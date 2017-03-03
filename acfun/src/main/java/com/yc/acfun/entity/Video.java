@@ -20,15 +20,17 @@ public class Video {
 	private String username;
 	private String videoPath;
 	private String userSign;
+	private int isPassed;
 	
 	public Video() {
 		// TODO Auto-generated constructor stub
 	}
 
+
 	public Video(int id, int commentCount, String description, int parentChannelId, String parentChannelName,
 			int channelId, String channelName, String title, int duration, int goodCount, int favoriteCount,
 			int viewCount, String coverImg, String contributeTime, String userAvatar, int userId, String username,
-			String videoPath, String userSign) {
+			String videoPath, String userSign, int isPassed) {
 		super();
 		this.id = id;
 		this.commentCount = commentCount;
@@ -49,7 +51,9 @@ public class Video {
 		this.username = username;
 		this.videoPath = videoPath;
 		this.userSign = userSign;
+		this.isPassed = isPassed;
 	}
+
 
 	public int getId() {
 		return id;
@@ -203,6 +207,17 @@ public class Video {
 		this.userSign = userSign;
 	}
 
+	
+	public int getIsPassed() {
+		return isPassed;
+	}
+
+
+	public void setIsPassed(int isPassed) {
+		this.isPassed = isPassed;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Video [id=" + id + ", commentCount=" + commentCount + ", description=" + description
@@ -211,8 +226,9 @@ public class Video {
 				+ ", goodCount=" + goodCount + ", favoriteCount=" + favoriteCount + ", viewCount=" + viewCount
 				+ ", coverImg=" + coverImg + ", contributeTime=" + contributeTime + ", userAvatar=" + userAvatar
 				+ ", userId=" + userId + ", username=" + username + ", videoPath=" + videoPath + ", userSign="
-				+ userSign + "]";
+				+ userSign + ", isPassed=" + isPassed + "]";
 	}
-	
+
+
 	
 }

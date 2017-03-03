@@ -1,5 +1,7 @@
 package com.yc.acfun.mapper;
 
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.yc.acfun.entity.Splash;
@@ -26,7 +28,7 @@ public interface UserMapper {
 
 	 int updatePassword(User user);
 
-	 int updateEmail(User user);
+	 int updateEmail(Map<String, Object> map);
 
 	 int countFollow(int id);
 
