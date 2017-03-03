@@ -86,5 +86,11 @@ public class UserServiceImpl implements UserService {
 	public User selectUserByName(String user_nickname) {
 		return userMapper.selectUserByName(user_nickname);
 	}
+
+	@Override
+	public int showfollow(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }

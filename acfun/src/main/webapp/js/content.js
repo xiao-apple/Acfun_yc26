@@ -80,7 +80,7 @@ function loadComment(page){
 			container.append('<p class="alert warning">您尚未登录，请先行<a href="/acfun/login.jsp">[登录/注册]</a>。</p>');
 		}
 		//绑定click事件
-		$(".pager-old").click(function(){
+		$(".pager").click(function(){
 			if(!$(this).hasClass('active')){
 				loadComment($(this).data('page'));
 			}
@@ -117,21 +117,21 @@ function getPager(page,tp){
 	if(tp<=1){
 		return "";
 	}
-	var pager = '<div class="area-pager-old">';
+	var pager = '<div class="area-pager">';
 	if(page!=1){
-		pager+=	'<span class="pager-old" data-page="1"><i class="icon icon-step-backward" title="最初"></i></span>'
-				+'<span class="pager-old" data-page="'+(page-1)+'"><i class="icon icon-chevron-left" title="上一页"></i></span>';
+		pager+=	'<span class="pager" data-page="1"><i class="icon icon-step-backward" title="最初"></i></span>'
+				+'<span class="pager" data-page="'+(page-1)+'"><i class="icon icon-chevron-left" title="上一页"></i></span>';
 	}
 	for(var i=0;i<tp;i++){
 		if((i+1)==page){
-			pager+= '<span class="pager-old active" data-page="'+(i+1)+'">'+(i+1)+'</span>';
+			pager+= '<span class="pager active" data-page="'+(i+1)+'">'+(i+1)+'</span>';
 			continue;
 		}
-		pager+= '<span class="pager-old" data-page="'+(i+1)+'">'+(i+1)+'</span>'
+		pager+= '<span class="pager" data-page="'+(i+1)+'">'+(i+1)+'</span>'
 	}
 	if(page!=tp){
-		pager+='<span class="pager-old" data-page="'+(page+1)+'"><i class="icon icon-chevron-right" title="下一页"></i></span>'
-			+'<span class="pager-old" data-page="'+tp+'"><i class="icon icon-step-forward" title="最末"></i></span>'
+		pager+='<span class="pager" data-page="'+(page+1)+'"><i class="icon icon-chevron-right" title="下一页"></i></span>'
+			+'<span class="pager" data-page="'+tp+'"><i class="icon icon-step-forward" title="最末"></i></span>'
 	}
 	pager+=	'<span class="clearfix"></span> </div>';
 	

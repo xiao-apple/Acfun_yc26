@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -17,19 +18,6 @@
 <script src="js/core.js"></script>
 <script type="text/javascript" src="js/jquery.cookie.js"></script>
 <script src="js/index.js"></script>
-<script>
-	window.system = {};
-	window.globalConfig = {
-		debug : false,
-		cdn : "http://cdn.aixifan.com",
-		path : "http://cdn.aixifan.com/acfun-pc/1.9.2",
-		oldPath : 'http://cdn.aixifan.com/dotnet/20130418',
-		version : "1.9.2",
-		rootDomain : "http://www.acfun.cn",
-		showTime : "2017年1月3日晚上7点27分",
-		api : "http://webapi.aixifan.com"
-	}
-</script>
 </head>
 <body class="win firefox">
 	<div id="header" class="header">
