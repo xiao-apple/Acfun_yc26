@@ -42,6 +42,9 @@ public class LoginCheckFilter extends AbstractFilter {
 		if(request.getSession().getAttribute("loginUser")==null){
 			Map<String, Object> map = new HashMap<String, Object>();
 			Cookie [] cookies = ((HttpServletRequest)req).getCookies();
+			if(cookies==null){
+				return;
+			}
 			for (Cookie cookie : cookies) {
 				if(cookie.getName().equals("userid")){
 					map.put("userid", cookie.getValue());

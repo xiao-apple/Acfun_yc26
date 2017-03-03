@@ -36,11 +36,11 @@ window.onload=function(){
 	});
 	
 	$.get("/acfun/tag/query?id="+$("#pageInfo").data('aid'),function(data){
+		var div = $("#bd_tag");
+		div.empty();
 		if(data.length==0){
 			return;
 		}
-		var div = $("#bd_tag");
-		div.empty();
 		var str = "";
 		for(var i = 0;i<data.length;i++){
 			str+='<span class="tag-single fl"><a '

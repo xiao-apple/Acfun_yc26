@@ -1,6 +1,6 @@
 var picfile;
 
-$.get("video/partition_b?pid=1",function(data){
+$.get("video/partition_b?pid=110",function(data){
 	
 	for(i=0;i<data.length;i++){
 		$("#ipt-channel-post").append("<option value='"+data[i].partition_id+"'>"+data[i].partition_name+"</option>");

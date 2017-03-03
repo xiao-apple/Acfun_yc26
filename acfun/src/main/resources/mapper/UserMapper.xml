@@ -4,8 +4,8 @@
 <!-- 命名空间与映射接口的全类名一致 -->
 <mapper namespace="com.yc.acfun.mapper.UserMapper">
 	<insert id="reg" parameterType="User">
-		insert into user(user_nickname,user_password,user_telephone,user_time)  
-		values(#{user_nickname},#{user_password},#{user_telephone},NOW())
+		insert into user(user_nickname,user_password,user_telephone,user_time,user_head)  
+		values(#{user_nickname},#{user_password},#{user_telephone},NOW(),'/acfun/images/avatar.jpg')
 	</insert>
 	<select id="checkTel" resultType="int" parameterType="java.lang.String">
 		select count(user_id) from user where user_telephone=#{tel}
@@ -42,8 +42,8 @@
 	</update>
 	
 	
-	<select id="findPassword" parameterType="User">
-		select 1 from user where user_id=#{user_id} and user_password=#{user_password}
+	<select id="findPassword" parameterType="User" resultType="int">
+		select count(1) from user where user_id=#{user_id} and user_password=#{user_password}
 	</select>
 	
 	<update id="updateEmail" parameterType="java.util.Map">
