@@ -46,7 +46,8 @@ CREATE TABLE collection (   -- 收藏表
   user_id int(50) DEFAULT NULL,
   resource_id int(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
+select * from collection
+delete from collection where user_id=10001 and resource_id=1927813
 insert into collection values(10001,1927813)
 insert into collection values(10001,1927814)
 insert into collection values(10001,1927815);
@@ -94,6 +95,7 @@ CREATE TABLE follow (     -- 关注表
 insert into follow values('10002','10001')
 insert into follow values('10001','10003')
 select count(1) from follow where user_id=10001
+
 -- ----------------------------
 -- Records of follow
 -- ----------------------------
@@ -272,7 +274,7 @@ select *from (select user_address from user where user_id=10001)a,
 (select count(user_id) countfollowing from follow where user_id=10001)c,
 (select count(user_id) countresource from resource where user_id=10001)d
 
-
+select * from resource
 
 INSERT INTO resource VALUES ('10002', '1927813', '新海诚作品合集：秒5、她和她的猫、星之声、言叶之庭、云之彼端、追逐繁星的孩子、某人的目光', '109', '/acfun/images/covers/ac1927813.jpg', '你总会在这里看到曾经的你亦或现在正在悄然改变的你。c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
 INSERT INTO resource VALUES ('10003', '1927814', '新海诚作品合集：秒5、她和她的猫、星之声、言叶之庭、云之彼端、追逐繁星的孩子、某人的目光', '109', '/acfun/images/covers/ac1927813.jpg', '你总会在这里看到曾经的你亦或现在正在悄然改变的你。c\'est la vie..', '/acfun/videos/ac1927813.mp4', null, '2017-02-23 21:04:34', '0', '0', '1', '3757', '0', '0');
@@ -316,32 +318,42 @@ CREATE TABLE follow (     -- 关注表
 )
 insert into follow values(10001,10002);
 DROP TABLE IF EXISTS user;
-CREATE TABLE user (    -- 用户表
-  user_id int(50) NOT NULL AUTO_INCREMENT,
-  user_password varchar(100) NOT NULL,
-  user_name varchar(100) DEFAULT NULL,
-  user_nickname varchar(100) DEFAULT NULL,
-  user_head varchar(255) DEFAULT NULL,    -- 头像
-  user_qq int(100) unsigned DEFAULT NULL,   -- QQ号
-  user_telephone int(20) DEFAULT NULL,
-  user_email varchar(100) NOT NULL,
-  user_sex varchar(20) NOT NULL DEFAULT '不公开',   --性别(男、女、不公开。三选一)
-  user_address varchar(255) DEFAULT NULL,
-  user_state int(10) DEFAULT NULL,
-  user_autograph varchar(100) DEFAULT NULL,    -- 个性签名
-  user_time datetime DEFAULT NULL,         -- 注册时间
-  PRIMARY KEY (user_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `user` (
+  `user_id` int(50) NOT NULL AUTO_INCREMENT,
+  `user_password` varchar(100) DEFAULT NULL,
+  `user_name` varchar(100) DEFAULT NULL,
+  `user_nickname` varchar(100) DEFAULT NULL,
+  `user_head` varchar(255) DEFAULT NULL,
+  `user_qq` varchar(20) DEFAULT NULL,
+  `user_telephone` varchar(11) DEFAULT NULL,
+  `user_email` varchar(100) DEFAULT NULL,
+  `user_sex` varchar(20) DEFAULT '不公开',
+  `user_address` varchar(255) DEFAULT NULL,
+  `user_state` int(10) DEFAULT NULL,
+  `user_autograph` varchar(100) DEFAULT NULL,
+  `user_time` datetime DEFAULT NULL,
+  `auth_key` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+)
 select * from user
-insert into user values(10001,'a','张三','啊呀',null,12345,1387548747,'4578@qq.com','男','湖南 郴州',1,'你好帅呀','2016-02-18')
-insert into user values(10002,'a','张三','啊呀',null,12345,1387548747,'4578@qq.com','男','湖南 郴州',1,'你好帅呀','2016-02-18')
-insert into user values(10003,'a','张三','啊呀',null,12345,1387548747,'4578@qq.com','男','湖南 郴州',1,'你好帅呀','2016-02-18')
+insert into user values(10001,'a','张三','啊呀',null,12345,13875487472,'4578@qq.com','男','湖南 郴州',1,'你好帅呀','2016-02-18');
+insert into user values(10002,'a','张三','啊呀',null,12345,13875487471,'4578@qq.com','男','湖南 郴州',1,'你好帅呀','2016-02-18');
+insert into user values(10003,'a','张三','啊呀',null,12345,13875487478,'4578@qq.com','男','湖南 郴州',1,'你好帅呀','2016-02-18');
+insert into user values(10004,'111111','张三','啊呀',null,12345,18274726312,'4578@qq.com','男','湖南 郴州',1,'你好帅呀','2016-02-18');
+
+update  user set user_password='d8406e8445cc99a16ab984cc28f6931615c766fc' where user_id=10004
+INSERT INTO `user` VALUES ('10003', 'd8406e8445cc99a16ab984cc28f6931615c766fc', null, '皮皮虾啊', null, null, '18274726312', null, '不公开', null, null, '这个人很懒,什么都没有写', null, '9347e3e417b1b5e3972ff16a30a54a9d82301d1e');
 
 select * from user where user_id=10001 limit 0,5
-
-update user set user_address='湖南 郴州' where user_id=10003
-update user set user_head='img/avatar.jpg' where user_id=10002
-
+update user set user_email='410425783@qq.com' where user_id=10001;
+update user set user_telephone='13897567585' where user_id=10002
+update user set user_password='d8406e8445cc99a16ab984cc28f6931615c766fc' where user_id=2
+select u.user_id,user_nickname,user_autograph,user_head,user_address
+		from follow f,user u
+		where f.user_id=u.user_id and f.mefollow_id=10001
+select * from follow
+delete from follow where user_id=10002 and mefollow_id=10001
+insert into follow values(1000,10001)
 -- ----------------------------
 -- Records of user
 
@@ -349,7 +361,7 @@ update user set user_head='img/avatar.jpg' where user_id=10002
 		from user u,resource r,partitions s,collection c 
 		where u.user_id=r.user_id and r.partition_id=s.partition_id and c.resource_id=r.resource_id and c.user_id=10001 limit 5*(1-1),5*1
 
-		
+		select 1 from user where user_id=10001 and user_password='d8406e8445cc99a16ab984cc28f6931615c766fc'
 		
 
 select count(1) total,ceil(count(1)/6) totalPage,5 pageSize,3 currPage from 

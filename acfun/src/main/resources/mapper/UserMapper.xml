@@ -4,8 +4,8 @@
 <!-- 命名空间与映射接口的全类名一致 -->
 <mapper namespace="com.yc.acfun.mapper.UserMapper">
 	<insert id="reg" parameterType="User">
-		insert into user(user_nickname,user_password,user_telephone)  
-		values(#{user_nickname},#{user_password},#{user_telephone})
+		insert into user(user_nickname,user_password,user_telephone,user_time)  
+		values(#{user_nickname},#{user_password},#{user_telephone},NOW())
 	</insert>
 	<select id="checkTel" resultType="int" parameterType="java.lang.String">
 		select count(user_id) from user where user_telephone=#{tel}
@@ -14,6 +14,8 @@
 	<select id="checkUname" resultType="int" parameterType="java.lang.String">
 		select count(user_id) from user where user_nickname=#{name}
 	</select>
+	
+	
 	
 	<select id="login" resultType="Integer">
 		select user_id from user where (user_nickname = #{name} and user_password=#{pwd}) or (user_telephone = #{name} and user_password=#{pwd})
@@ -36,11 +38,16 @@
 	</update>
 	
 	<update id="updatePassword" parameterType="User">
-		update user set user_password=#{user_password}where user_id=#{user_id}
+		update user set user_password=#{user_password} where user_id=#{user_id}
 	</update>
 	
+	
+	<select id="findPassword" parameterType="User">
+		select 1 from user where user_id=#{user_id} and user_password=#{user_password}
+	</select>
+	
 	<update id="updateEmail" parameterType="User">
-		update user set user_email=#{user_email}where user_id=#{user_id}
+		update user set user_email='#{user_email}' where user_id=#{user_id}
 	</update>
 	
 	<select id="countFollow" parameterType="int" resultType="int">
@@ -67,5 +74,8 @@
 	</select>
 	
 	
->>>>>>> bb72b4680b69f317cf3998b032cbf0506b5584c7
+	<update id="updateHead" parameterType="User">
+		update user set user_head=#{user_head} where user_id=#{user_id}
+	</update>
+	
 </mapper>

@@ -48,7 +48,7 @@
 							<p>登录/注册</p></a><a id="a-avatar-guide"
 							href="page/profile.jsp" target="_blank"
 							class="thumb"><img src="" class="avatar">
-							<p class="info-hint">5</p></a><a id="a-history-guide"
+							<p class="info-hint"></p></a><a id="a-history-guide"
 							href="page/history.jsp" target="_blank"
 							class="tool"><i class="icon icon-history"></i>
 							<p>看过</p></a><a id="a-post-guide" href="page/upload-video.jsp"
@@ -359,8 +359,7 @@
 							<div class="part-guide-left">
 								<div class="banner">
 									<a href="page/mail.jsp" class="tab fixed"><i
-										class="icon icon-envelope-square"></i>私信</a><span
-										id="hint-mail-left" class="">1</span>
+										class="icon icon-envelope-square"></i>私信</a>
 								</div>
 								<div class="mainer hidden">
 									<a href="page/mail.jsp" class="tab"><i class="icon"></i>私信<span
@@ -383,8 +382,7 @@
 							<div class="part-guide-left">
 								<div class="banner">
 									<a href="page/push.jsp" class="tab fixed"><i
-										class="icon icon-at"></i>圈子</a><span id="hint-relation-left"
-										class="">36</span>
+										class="icon icon-at"></i>圈子</a>
 								</div>
 								<div class="mainer hidden">
 									<a href="page/push.jsp" class="tab"><i class="icon"></i>内容推送<span
@@ -718,35 +716,7 @@
 							<div id="block-first" class="block">
 								<div class="mainer">
 									<div id="list-channel-manage">
-										<div class="l">
-											<button data-cid="0" class="btn active primary">
-												<i class="icon icon-list"></i>所有分区
-											</button>
-										</div>
-										<div class="r group">
-											<button id="btn-search-post" class="btn info">
-												<i class="icon icon-search"></i>搜索
-											</button>
-											<!--button.btn(data-cid="1") 动画-->
-											<!--button.btn(data-cid="58") 音乐-->
-											<!--button.btn(data-cid="59") 游戏-->
-											<!--button.btn(data-cid="60") 娱乐-->
-											<!--button.btn(data-cid="70") 科技-->
-											<!--button.btn(data-cid="69") 体育-->
-											<!--button.btn(data-cid="68") 影视-->
-											<!--button.btn(data-cid="63") 文章-->
-											<button data-cid="1" class="btn">动画</button>
-											<button data-cid="58" class="btn">音乐</button>
-											<button data-cid="123" class="btn">舞蹈</button>
-											<button data-cid="59" class="btn">游戏</button>
-											<button data-cid="60" class="btn">娱乐</button>
-											<button data-cid="70" class="btn">科技</button>
-											<button data-cid="68" class="btn">影视</button>
-											<button data-cid="69" class="btn">体育</button>
-											<button data-cid="124" class="btn">彼♀女</button>
-											<button data-cid="125" class="btn">鱼♂塘</button>
-											<button data-cid="63" class="btn">文章</button>
-										</div>
+										
 										<span class="clearfix"></span>
 									</div>
 									<div id="list-manage-manage">

@@ -36,6 +36,7 @@ import com.yc.acfun.entity.Labelres;
 import com.yc.acfun.entity.PaginationBean;
 import com.yc.acfun.entity.Partition;
 import com.yc.acfun.entity.Resource;
+import com.yc.acfun.entity.User;
 import com.yc.acfun.service.VideoService;
 
 import com.yc.acfun.web.servlet.ServletUtil;
@@ -90,7 +91,8 @@ public class VideoHander{
 	@RequestMapping("/uplabelres")
 	@ResponseBody
 	private int addlabelres(HttpSession session,HttpServletRequest req,Labelres labelres) {
-		int id=10001;
+		User user=(User) req.getSession().getAttribute("loginUser");
+		int id=user.getUser_id();
 		labelres.setLabel_name(req.getParameter("label"));
 		labelres.setUser_id(id);
 		System.out.println(req.getParameter("label"));
@@ -126,7 +128,8 @@ public class VideoHander{
             	LogManager.getLogger().error("上传文件操作失败...",e);   
             }
         }
-		int id=10001;
+		User user=(User) req.getSession().getAttribute("loginUser");
+		int id=user.getUser_id();
 		resource.setUser_id(id);
 		resource.setResource_duration(Integer.parseInt(req.getParameter("long")));
 		resource.setResource_introduce(req.getParameter("introduce"));
@@ -143,7 +146,7 @@ public class VideoHander{
 	private boolean submitpic(@RequestParam(name="pic",required=false)MultipartFile picData,HttpSession session,HttpServletRequest req,Resource resource) throws IOException, ServletException, FileUploadException {
 	
 		
-		System.out.println(req.getParameter("pid"));
+	
 		if(picData!=null&&!picData.isEmpty()){
             //保存
             try {                   
@@ -154,7 +157,8 @@ public class VideoHander{
             }
         }
 		
-		int id=10001;
+		User user=(User) req.getSession().getAttribute("loginUser");
+		int id=user.getUser_id();
 		
 		resource.setResource_content(req.getParameter("content"));
 		resource.setUser_id(id);
@@ -174,7 +178,8 @@ public class VideoHander{
 		
 		
 		currPage=req.getParameter("currPage");
-		int id = 10001;
+		User user=(User) req.getSession().getAttribute("loginUser");
+		int id=user.getUser_id();
 		System.out.println(videoService.showResource(currPage, pageSize,id));
 		return videoService.showResource(currPage, pageSize,id);
 	}

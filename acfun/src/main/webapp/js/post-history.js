@@ -1,9 +1,8 @@
 $.get("history/alist",function(data){
 	var rows=data.rows;
 	if(data.total<=0){
-		var info="尚未有任何收藏项目。";
+		var info="尚未有任何投稿。";
 		ShowInfo(info);
-		alert(1);
 		$("#list-manage-manage").append("<p class='alert'>尚未有任何投稿。</p>")
 	}else if (data.total<7) {
 
@@ -78,7 +77,7 @@ function show(pagenum){
 								"<div class='inner'>"+
 									"<p class='hint-list-index'>"+a+"</p>"+
 									"<div class='l'>"+
-										"<a href='http://www.acfun.cn/v/ac3379398' target='_blank'"+
+										"<a href='v/ac"+rows[i].resource_id+"' target='_blank'"+
 											"class='thumb thumb-preview'><img data-aid='"+rows[i].resource_id+"'"+
 											"src='"+rows[i].resource_cover+"' class='preview'></a>"+
 									"</div>"+
@@ -98,14 +97,41 @@ function show(pagenum){
 										
 									"</div>"+
 									"<div class='block-manage'>"+
-										"<button title='取消投稿' class='btn danger mini btn-delete'>"+
-											"<i class='icon icon-times-circle-o'></i>取消投稿"+
+										"<button title='删除投稿' class='btn danger mini btn-delete' data-aid='"+rows[i].resource_id+"'>"+
+											"<i class='icon icon-times-circle-o'></i>删除投稿"+
 										"</button>"+
 									"</div>"+
 									"<span class='clearfix'></span>"+
 								"</div>"+
 							"</div>")
 		}
+	
+	$(".btn.danger.mini.btn-delete").click(function(){
+		var aid=$(this).data("aid");
+		$("#area-window").append("<div id='win-ensure' class='win' style='left: 70%; top:50%; opacity: 1; position: fixed;' >"+
+									"<button id='btn-ok-ensure' class='btn danger'>"+
+										"<i class='icon icon-check-circle'></i>确定"+
+									"</button>"+
+									"<button id='btn-cancel-ensure' class='btn primary'>"+
+										"<i class='icon icon-times-circle'></i>取消"+
+									"</button>"+
+								"</div>");
+		$("#btn-cancel-ensure").click(function(){
+			$("#win-ensure").remove();
+		})
+		
+		$("#btn-ok-ensure").click(function(){
+			$.get("history/delectpost?aid="+aid,function(data){
+				if(data){
+					$("#win-ensure").remove();
+					var info="删除投稿成功"
+					ShowSuccess(info);
+					window.location.reload();
+				}
+				
+			});
+		});
+	});
 	},"json")
 	
 	
@@ -116,11 +142,25 @@ function show(pagenum){
 function ShowInfo(info){
 	$("#area-info").append("<div style='left: 0px; opacity: 1;' class='item info'>"+info+"</div>")
 	$("#area-info").css("display","block");
-	setTimeout(removeWarning,2000);
+	setTimeout(removeInfo,2000);
 }
 
 function removeInfo(){
 	$(".item.info").remove();
+	$("#area-info").css("display","none");
+	
+}
+
+function ShowSuccess(info){
+	$("#area-info").append("<div style='left: 0px; opacity: 1;' class='item success'>"+info+"</div>")
+	$("#area-info").css("display","block");
+	
+	setTimeout(removeSuccess,2000);
+	
+}
+
+function removeSuccess(){
+	$(".item.success").remove();
 	$("#area-info").css("display","none");
 	
 }

@@ -1,23 +1,23 @@
-$.get("follow/listme",function(data){
+$.get("follow/melist",function(data){
 	var rows=data.rows;
 	if(data.total<=0){
-		var info="您没有关注任何人";
+		var info="暂时没有人关注您";
 		ShowInfo(info);
-		$("#list-following-following").append("<p class='alert'><i class='icon icon-info-circle'></i>您没有关注任何人</p>")
+		$("#list-followed-followed").append("<p class='alert'><i class='icon icon-info-circle'></i>暂时没有人关注您</p>")
 	}else if(data.total<7) {
 
 		show(1);
 
 	}else{	
-		$("#list-following-following").append(getPager(rows[0].totalPage,1));
+		$("#list-followed-followed").append(getPager(rows[0].totalPage,1));
 		show(1);	
 		click();
 		function click(){
 			$(".pager").click(function(){
 			if(!$(this).hasClass("active")){
 				
-				$("#list-following-following").empty();
-				$("#list-following-following").prepend(getPager(rows[0].totalPage,$(this).attr("data-page")));
+				$("#list-followed-followed").empty();
+				$("#list-followed-followed").prepend(getPager(rows[0].totalPage,$(this).attr("data-page")));
 				show($(this).attr("data-page"));
 				alert($(this).attr("data-page"));
 				click();
@@ -62,42 +62,42 @@ function getPager(page,tp){
 
 
 function show(pagenum){
-	$.get("follow/listme?currPage="+pagenum,function(data){
+	$.get("follow/melist?currPage="+pagenum,function(data){
 		var rows=data.rows;
 		
-		$("#list-following-following").append("<p class='alert alert-info'>"+
-		"共有"+rows.length+"名用户 被您关注。<br>您可以在下方列表的项目上进行操作。"+
-		"</p>");
+		$("#list-followed-followed").append("<p class='alert alert-info'>这些人关注了我。</p>");
 		
 	for (var i = 0; i<rows.length; i++) {
 		var a=rows.length-i;
-		var  id=rows[i].mefollow_id;
+		var  id=rows[i].user_id;
 		var address
 		if(rows[i].user_address==null){
 			address="未知地区";
 		}else{
 			address=rows[i].user_address;
 		}
-		$('#list-following-following').append("<div data-uid='"+rows[i].mefollow_id+"' data-gid='0' data-name='"+rows[i].user_nickname+"'"+
+		var str=
+		$('#list-followed-followed').append("<div data-uid='"+rows[i].user_id+"' data-gid='0' data-name='"+rows[i].user_nickname+"'"+
 				"class='item'>"+
 				"<p class='hint-list-index'>"+a+"</p>"+
 				"<div class='l'>"+
-					"<a href='http://www.acfun.cn/member/user.aspx?uid="+rows[i].mefollow_id+"'"+
-						"target='_blank' class='thumb'><img data-uid='"+rows[i].mefollow_id+"'"+
+					"<a href='http://www.acfun.cn/member/user.aspx?uid="+rows[i].user_id+"'"+
+						"target='_blank' class='thumb'><img data-uid='"+rows[i].user_id+"'"+
 						"src='"+rows[i].user_head+"' class='avatar'></a>"+
 				"</div>"+
 				"<div class='r'>"+
-					"<a href='http://www.acfun.cn/member/user.aspx?uid="+rows[i].mefollow_id+"'"+
+					"<a href='http://www.acfun.cn/member/user.aspx?uid="+rows[i].user_id+"'"+
 						"target='_blank' class='name'>"+rows[i].user_nickname+"</a><span title=''"+
-						"class='verified-ico verified-0'></span><span class='uid'>(Uid:"+rows[i].mefollow_id+")</span><span "+
+						"class='verified-ico verified-0'></span><span class='uid'>(Uid:"+rows[i].user_id+")</span><span "+
 						"class='group'></span>"+
 				"<div class='sign'>"+rows[i].user_autograph+"</div>"+
 				"<div class='info'>"+
 					"TA来自<span class='from'>"+address+"</span>"+
 				"</div>"+
-				"<div class='area-tool-following'>"+
-					"<i class='icon icon-star'></i>已关注，<a "+
-					"class='btn-disfollow-followed' data-aid='"+rows[i].mefollow_id+"'>取消</a>"+
+				"<div class='area-tool-followed'>"+
+					"<button class='btn-follow-followed btn primary mini' data-aid='"+rows[i].user_id+"'>"+
+					"<i class='icon icon-plus-circle'></i>关注"+
+					"</button>"+
 				"</div>"+
 			"</div>"+
 		"<span class='clearfix'></span>"+
@@ -106,7 +106,7 @@ function show(pagenum){
 	
 	
 	
-	$(".btn-disfollow-followed").click(function(){
+	$(".btn-follow-followed.btn.primary.mini").click(function(){
 		var aid=$(this).data("aid");
 		$("#area-window").append("<div id='win-ensure' class='win' style='left: 70%; top:50%; opacity: 1; position: fixed;' >"+
 									"<button id='btn-ok-ensure' class='btn danger'>"+
@@ -121,12 +121,13 @@ function show(pagenum){
 		})
 		
 		$("#btn-ok-ensure").click(function(){
-			$.get("follow/delectfollowing?aid="+aid,function(data){
+			$.get("follow/followother?aid="+aid,function(data){
 				if(data){
 					$("#win-ensure").remove();
-					var info="删除成功"
+					var info="关注成功"
 					ShowSuccess(info);
-					window.location.reload();
+					$(".area-tool-followed").html("");
+					$(".area-tool-followed").append("<i class='icon icon-star'></i>已关注");
 				}
 				
 			});

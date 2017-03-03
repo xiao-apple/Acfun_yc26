@@ -1,6 +1,6 @@
 $(".btn.success.do").click(function(){
-	$.get("user/info",function(data){
-		if(data.user_password==$("#ipt-old-password").val()){
+	$.get("user/getpassword?password="+$("#ipt-old-password").val(),function(data){
+		if(data){
 			if($("#ipt-new-password").val()==$("#ipt-re-password").val()&&$("#ipt-new-password").val()!=""){
 				$.get("user/changePassword?password="+$("#ipt-new-password").val(),function(data){
 					if(data){

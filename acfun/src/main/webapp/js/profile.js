@@ -1,7 +1,9 @@
 $(".btn.primary.do").click(function(){
 	var sex=$("#ipt-gender-personal option:selected").text();
 	var name=$("#ipt-truename-personal").val();
+	
 	var email=$("#ipt-email-personal").text();
+	
 	var tel=$("#ipt-tel-personal").text();
 	var address=$("#ipt-location-a-personal option:selected").text()+" "+$("#ipt-location-b-personal option:selected").text();
 	var qq=$("#ipt-qq-personal").val();

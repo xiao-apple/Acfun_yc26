@@ -3,6 +3,7 @@ package com.yc.acfun.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.yc.acfun.entity.Delete;
 import com.yc.acfun.entity.Favourite;
 import com.yc.acfun.entity.PaginationBean;
 import com.yc.acfun.mapper.FavouriteMapper;
@@ -31,6 +32,14 @@ public class FavouriteServiceImpl implements FavouriteService {
 		favouriteBean.setId(id);
 		System.out.println(favouriteBean.getPageSize());
 		return favouriteMapper.findfavourite(favouriteBean);
+	}
+
+
+
+	@Override
+	public boolean rmFavourite(Delete delete) {
+		// TODO Auto-generated method stub
+		return favouriteMapper.deletefavourite(delete)>0;
 	}
 
 	

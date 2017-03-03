@@ -33,5 +33,9 @@ public interface UserService {
 
 	Splash showsplash(int id);
 
+	boolean upHead(User user);
+
+	boolean getpassword(User user);
+
 
 }

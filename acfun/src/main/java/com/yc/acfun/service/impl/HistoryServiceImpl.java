@@ -3,6 +3,7 @@ package com.yc.acfun.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.yc.acfun.entity.Delete;
 import com.yc.acfun.entity.Favourite;
 import com.yc.acfun.entity.History;
 import com.yc.acfun.entity.PaginationBean;
@@ -54,6 +55,24 @@ public class HistoryServiceImpl implements HistoryService {
 		
 		return historyMapper.findPostHistory(historyBean);
 	
+	}
+
+
+
+
+	@Override
+	public boolean rmHistory(Delete delete) {
+		// TODO Auto-generated method stub
+		return historyMapper.deleteHistory(delete)>0;
+	}
+
+
+
+
+	@Override
+	public boolean rmpostHistory(Delete delete) {
+		// TODO Auto-generated method stub
+		return historyMapper.deletepostHistory(delete)>0;
 	}
 
 	

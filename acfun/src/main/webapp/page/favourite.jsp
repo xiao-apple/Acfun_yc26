@@ -51,7 +51,7 @@
 							class="tool hidden"><i class="icon icon-user"></i>
 							<p>登录/注册</p></a><a id="a-avatar-guide" href="page/profile.jsp"
 							target="_blank" class="thumb"><img src="" class="avatar">
-							<p class="info-hint">5</p></a><a id="a-history-guide"
+							<p class="info-hint"></p></a><a id="a-history-guide"
 							href="page/history.jsp" target="_blank" class="tool"><i
 							class="icon icon-history"></i>
 							<p>看过</p></a><a id="a-post-guide" href="page/upload-video.jsp"
@@ -641,24 +641,7 @@
 							<div id="block-first" class="block">
 								<div class="mainer">
 									<div id="list-channel-favourite">
-										<div class="l">
-											<button data-cid="0" class="btn active primary">
-												<i class="icon icon-list"></i>所有分区
-											</button>
-										</div>
-										<div class="r group">
-											<button data-cid="1" class="btn">动画</button>
-											<button data-cid="58" class="btn">音乐</button>
-											<button data-cid="123" class="btn">舞蹈</button>
-											<button data-cid="59" class="btn">游戏</button>
-											<button data-cid="60" class="btn">娱乐</button>
-											<button data-cid="70" class="btn">科技</button>
-											<button data-cid="68" class="btn">影视</button>
-											<button data-cid="69" class="btn">体育</button>
-											<button data-cid="124" class="btn">彼女</button>
-											<button data-cid="125" class="btn">鱼塘</button>
-											<button data-cid="63" class="btn">文章</button>
-										</div>
+										
 										<span class="clearfix"></span>
 									</div>
 									<div id="list-favourite-favourite">

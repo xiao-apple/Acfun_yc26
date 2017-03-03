@@ -71,7 +71,7 @@
 										target="_blank" title="前往我的个人中心" ></a>
 								</div>
 								<div class="r">
-									<a id="a-logout-guide" href="login.jsp" title="退出登录"><i
+									<a id="a-logout-guide" href="user/logout" title="退出登录"><i
 										class="icon icon-power-off"></i>退出登录</a>
 								</div>
 								<span class="clearfix"></span>
@@ -312,7 +312,7 @@
 						<div id="block-user-left" data-active="active">
 							<!-- page/profile.jsp -->
 							<a href="page/profile.jsp" class="thumb"><img
-								src="img/avatar.jpg" class="avatar"><span class="cover"><i
+								src="" class="avatar"><span class="cover"><i
 									class="icon icon-user"></i>编辑资料</span></a>
 							<div class="d">
 								<a href="http://www.acfun.cn/u/8150118.aspx" target="_blank"

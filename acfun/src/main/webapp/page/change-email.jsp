@@ -49,7 +49,7 @@
 							class="tool hidden"><i class="icon icon-user"></i>
 							<p>登录/注册</p></a><a id="a-avatar-guide" href="page/profile.jsp"
 							target="_blank" class="thumb"><img src="" class="avatar">
-							<p class="info-hint">5</p></a><a id="a-history-guide"
+							<p class="info-hint"></p></a><a id="a-history-guide"
 							href="page/history.jsp" target="_blank" class="tool"><i
 							class="icon icon-history"></i>
 							<p>看过</p></a><a id="a-post-guide" href="page/upload-video.jsp"

@@ -48,7 +48,7 @@
 							<p>登录/注册</p></a><a id="a-avatar-guide"
 							href="page/profile.jsp" target="_blank"
 							class="thumb"><img src="" class="avatar">
-							<p class="info-hint">5</p></a><a id="a-history-guide"
+							<p class="info-hint"></p></a><a id="a-history-guide"
 							href="page/history.jsp" target="_blank"
 							class="tool"><i class="icon icon-history"></i>
 							<p>看过</p></a><a id="a-post-guide" href="page/upload-video.jsp"
@@ -493,38 +493,8 @@
 							class="clearfix"&gt;&lt;/span&gt;&lt;/div&gt;</xmp>
 							<div id="block-first" class="block">
 								<div class="mainer">
-									<p class="alert">
-										我们为关注列表增加了分组功能，以使您可以更快捷的管理您的关注。<br>同时，现在您可以通过订阅或取消分组来调整系统的内容推荐。
-									</p>
-									<div class="unit">
-										<div id="list-group-following">
-											<div class="group">
-												<div id="btn-all-following" class="btn primary mini active">展示全部</div>
-												<span class="clearfix"></span>
-											</div>
-											<div data-gid="0" data-count="1" data-name="未分组"
-												class="group">
-												<div class="btn info mini btn-group-following">未分组(1)</div>
-												<div class="btn info mini btn-manage-following dropdown">
-													<i class="icon icon-chevron-down"></i>
-													<ul class="menu">
-														<li class="btn-rename-following"><i
-															class="icon icon-edit"></i>重命名分组</li>
-														<li class="btn-delete-following"><i
-															class="icon icon-trash-o"></i>删除分组</li>
-													</ul>
-												</div>
-												<span class="clearfix"></span>
-											</div>
-											<div class="group">
-												<div id="btn-add-following" class="btn primary mini">
-													<i class="icon icon-plus-circle"></i>添加分组
-												</div>
-												<span class="clearfix"></span>
-											</div>
-											<span class="clearfix"></span>
-										</div>
-									</div>
+									
+									
 									<div class="unit">
 										<div id="list-following-following" class="ui-selectable">
 											<!-- <p class="alert alert-info">
@@ -546,10 +516,7 @@
 													<div class="sign">新浪微博：长歌是大腿
 														初次见面，请多关照。http://weibo.com/wuxymsn</div>
 													<div class="info">
-														TA来自<span class="from">未知地区</span>&nbsp;&nbsp;/&nbsp;&nbsp;听众&nbsp;<span
-															class="pts followeds">65734</span>&nbsp;&nbsp;/&nbsp;&nbsp;关注&nbsp;<span
-															class="pts">6</span>&nbsp;&nbsp;/&nbsp;&nbsp;投稿&nbsp;<span
-															class="pts">0</span>
+														TA来自<span class="from">未知地区</span>
 													</div>
 													<div class="area-tool-following">
 														<i class="icon icon-star"></i>已关注，<a

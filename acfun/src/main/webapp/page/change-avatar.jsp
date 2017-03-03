@@ -9,43 +9,7 @@
 <meta name="description" content="AcFun是一家弹幕视频网站，致力于为每一个人带来欢乐。">
 <title>修改头像</title>
 <script async="" src="css/sensorsdata.js"></script>
-<script style="color: rgb(0, 0, 0);">(function(){
-    var mUrl,u,isAndroid,isIOS,routes,localHref;
-    u = navigator.userAgent;
-    isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-    isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-    localHref = location.href;
-    routes = [
-        [/\/a\/aa(\d+)/,"/a/aa$1?"],
-        [/\/a\/ab(\d+)/,"/v/?ab=$1?"],
-        [/\/a\/ac(\d+)/,"/v/?ac=$1&type=article"],
-        [/\/a\/ad(\d+)/,"/ad$1"],
-        [/\/v\/ab(\d+)/,"/v/?ab=$1"],
-        [/\/v\/ab(\d+)_(\d+)/,"/v/?ab=$1&part=$2"],
-        [/\/v\/ac(\d+)/,"/v/?ac=$1"],
-        [/\/v\/ac(\d+)_(\d+)/,"/v/?ac=$1&part=$2"],
-        [/\/[av]\/list(\d+)\/.*/,"/list/?channel=$1"],
-        [/\/sp\/cw2016(.*)/,"/newyear2016$1"],
-        [/\/sp\/acdc2016/,"/sp/acdc2016"],
-        [/\/sp\/2016chuanpuwang\//,"/2016chuanpuwang/"],
-        [/\/sp\/2017chunwanyure/,"/newyear2017"],
-        [/\/app\/download\//,"/app/download/"]
-    ];
-    if(isAndroid || isIOS){
-        if(location.href == "http://www.acfun.cn/"){
-            location = "http://m.acfun.cn/";
-        }else {
-            for (var k = 0; k < routes.length; k++) {
-                if (localHref.match(routes[k][0])) {
-                    localHref = localHref.replace(new RegExp(location.origin), "http://m.acfun.cn")
-                    mUrl = localHref.replace(routes[k][0], routes[k][1]);
-                    location = mUrl;
-                    break;
-                }
-            }
-        }
-    }
-})()</script>
+
 <link rel="stylesheet" href="css/core.css">
 <link rel="stylesheet" href="css/font-awesome.css">
 <link rel="stylesheet" href="css/style.css">
@@ -54,6 +18,7 @@
 <link rel="stylesheet" href="css/member.css">
 <link id="style-theme-member" rel="stylesheet"
 	href="css/theme.css">
+
 </head>
 <body>
 	<div id="stage">
@@ -88,7 +53,7 @@
 							class="tool hidden"><i class="icon icon-user"></i>
 							<p>登录/注册</p></a><a id="a-avatar-guide" href="page/profile.jsp"
 							target="_blank" class="thumb"><img src="" class="avatar">
-							<p class="info-hint">5</p></a><a id="a-history-guide"
+							<p class="info-hint"></p></a><a id="a-history-guide"
 							href="page/history.jsp" target="_blank" class="tool"><i
 							class="icon icon-history"></i>
 							<p>看过</p></a><a id="a-post-guide" href="page/upload-video.jsp"
@@ -439,6 +404,7 @@
 
 						</div>
 					</div>
+			
 					<div id="area-main-right" class="r">
 						<div id="area-cont-right">
 							<div id="block-title-banner">
@@ -467,108 +433,18 @@
 									</div>
 								</div>
 							</div>
-							<script>
-								(
-												function() {
-													var a, r;
-															a = $("#area-avatar-personal"),
-															$(
-																	"#flash-avatar-upload")
-																	.flash(
-																			{
-																				path : system.path.cdn
-																						+ "/player/libs/ACUserProfileUploader.swf",
-																				width : "100%",
-																				height : 500,
-																				flashvars : {
-																					jsfunc : "system.func.uploadAvatarCallback",
-																					limited : 51200,
-																					uidurl : $(
-																							"#img-avatar-personal")
-																							.attr(
-																									"src"),
-																					width : "100%",
-																					height : 500,
-																					wmode : "direct"
-																				}
-																			}),
-															null == (r = system.func).uploadAvatarCallback
-																	&& (r.uploadAvatarCallback = function(
-																			a,
-																			r) {
-																		var e;
-																		switch (
-																				e = $
-																						.parseSafe(r),
-																				a) {
-																		case "M00004":
-																			return $
-																					.info("error::上传原始文件出现内部错误。");
-																		case "M00010":
-																			return $
-																					.info("error::上传文件出现内部错误。");
-																		case "M01108":
-																			return $
-																					.info("error::文件过大，请剪切后上传。");
-																		case "M01107":
-																			return $
-																					.info("error::上传的不是合法的图片文件。");
-																		case "M01106":
-																			return $
-																					.info("error::您的权限不足或者已被管理员禁止更换头像。");
-																		case "M01109":
-																			return $
-																					.info("error::系统错误，请稍后再试或者联系管理员。");
-																		case "M01105":
-																			return $
-																					.info("error::您的Flash版本过低，需要升级Flash。");
-																		case "M01103":
-																			return $
-																					.info(e);
-																		case "M00001":
-																			return
-																					$
-																							.info("success::修改头像成功。"),
-																					$(
-																							"#a-avatar-guide img.avatar, #block-user-left img.avatar")
-																							.attr(
-																									{
-																										src : e
-																									}),
-																					$
-																							.cookie(
-																									"ac_userimg",
-																									e,
-																									{
-																										path : "/",
-																										expires : 30
-																									}),
-																					$
-																							.cookie(
-																									"ac_userimg",
-																									e,
-																									{
-																										path : ".acfun.cn",
-																										expires : 30
-																									}),
-																					user.avatar = e,
-																					$
-																							.save("user"),
-																					system.func.uploadAvatarCallback = null,
-																					window.user = null,
-																					$
-																							.save("user"),
-																					$
-																							.setHash({
-																								area : "profile"
-																							}),
-																					"function" == typeof location.reload ? location
-																							.reload()
-																							: void 0
-																		}
-																	})
-												}).call(this);
-							</script>
+							<button class="webuploader-pick">选择本地文件</button>
+							
+							<div class="pics" style="width:100px ;length:100px; ">
+								<div id="up-pic" class="pos-rele" style="position:absolute;top:250.5px; left:500px; ">
+										<input id="upload" name="file" accept="image/*"
+											type="file" style="display: none" /> <img id="pics"
+											src="" style="width:100px ;length:100px;">
+								</div>
+						    </div>
+						    
+						    
+						    <button class="up-submit" style="position:absolute;top:500.5px; left:500px; width:80px">上传头像</button>
 						</div>
 					</div>
 					<span class="clearfix"></span>
@@ -694,31 +570,14 @@
 		</div>
 	</div>
 	<script src="css/hm.js"></script>
-	<script>
-		var globalConfig = {
-			version : "1.0.3"
-		};
-	</script>
 	
-	<script>
-		var path = {
-			base : "http://www.acfun.cn",
-			cdn : "http://cdn.aixifan.com",
-			ssl : "https://ssl.acfun.tv",
-			api : "http://api.acfun.cn"
-		}, date = 1487835065346;
-	</script>
 	
-	<script>
-		(function() {
-			var updateTime = +new Date(2015, 6, 21);
-			if ($.now() - updateTime < 5 * 24 * 60 * 60 * 1000) {
-				$('#app-footer-link .bg-new-app').addClass('new');
-			}
-		})();
-	</script>
+	
+	
+	
 	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="js/click.js"></script>
 	<script type="text/javascript" src="js/userinfo.js"></script>
+	<script type="text/javascript" src="js/change-avatar.js"></script>
 </body>
 </html>

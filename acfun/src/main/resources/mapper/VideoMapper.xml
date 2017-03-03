@@ -22,11 +22,11 @@
 	</select>
 	
 	<insert id="insertResource" parameterType="Resource">
-	INSERT INTO resource VALUES (${user_id}, 1927866, '${resource_title}', ${partition_id}, '${resource_cover}', '${resource_introduce}', '${resource_content}', null,NOW(), '0', '0', '1', '${resource_duration}', '0', '0');
+	INSERT INTO resource VALUES (${user_id}, 0, '${resource_title}', ${partition_id}, '${resource_cover}', '${resource_introduce}', '${resource_content}', null,NOW(), '0', '0', '1', '${resource_duration}', '0', '0');
 	</insert>
 	
 	<insert id="insertResources" parameterType="Resource">
-	INSERT INTO resource VALUES (${user_id}, 1927866, '${resource_title}', ${partition_id}, '${resource_cover}', '${resource_introduce}', '${resource_content}', null,NOW(), '0', '0', '0', '0', '0', '0');
+	INSERT INTO resource VALUES (${user_id}, 0, '${resource_title}', ${partition_id}, '${resource_cover}', '${resource_introduce}', '${resource_content}', null,NOW(), '0', '0', '0', '0', '0', '0');
 	</insert>
 	
 	<select id="selectLabelId" parameterType="String" resultType="String">
@@ -35,11 +35,11 @@
 	
 	
 	<insert id="insertLabel" parameterType="String">
-	 INSERT INTO label VALUES (50,#{name},0);
+	 INSERT INTO label VALUES (0,#{name},0);
 	</insert>
 
 	<insert id="insertLabelres" parameterType="Labelres">
-	 	insert into label_res values(8,(select label_id from label where label_name='${label_name}'),(select resource_id from resource where user_id=${user_id} order by resource_id desc  limit 1));
+	 	insert into label_res values(0,(select label_id from label where label_name='${label_name}'),(select resource_id from resource where user_id=${user_id} order by resource_id desc  limit 1));
 	</insert>
 	
 	

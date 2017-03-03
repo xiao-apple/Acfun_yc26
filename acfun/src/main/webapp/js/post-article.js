@@ -38,7 +38,7 @@ function getObjectURL(file) {
 $(".btn.success.do").click(function(data){
 	
 	var ue=UE.getEditor('container');
-	var text=ue.getContentTxt();
+	var text=ue.getContent();
 	var tags=$("#ipt-tags-post").val()
 	var desc=$("#ipt-desc-post").val()
 	var title=$("#ipt-titles-post").val();
